@@ -1,5 +1,5 @@
 app_name = "omnexa_tourism"
-app_title = "Omnexa Tourism"
+app_title = "ErpGenEx — Tourism"
 app_publisher = "Omnexa"
 app_description = "Tourism vertical"
 app_email = "dev@omnexa.com"
