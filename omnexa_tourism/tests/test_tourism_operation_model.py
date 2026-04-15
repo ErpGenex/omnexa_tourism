@@ -42,6 +42,17 @@ class TestTourismOperationModel(FrappeTestCase):
 		doc.insert(ignore_permissions=True)
 		return doc.name
 
+	def _make_customer(self, company, label="Guest"):
+		doc = frappe.get_doc(
+			{
+				"doctype": "Customer",
+				"customer_name": f"Tourism Test {label}",
+				"company": company,
+			}
+		)
+		doc.insert(ignore_permissions=True)
+		return doc.name
+
 	def test_operation_model_rejects_cross_company_branch(self):
 		company_a = self._make_company("A")
 		company_b = self._make_company("B")
@@ -123,6 +134,7 @@ class TestTourismOperationModel(FrappeTestCase):
 	def test_disabled_unit_cannot_be_assigned_to_booking(self):
 		company = self._make_company("F")
 		branch = self._make_branch(company, "BRF")
+		customer = self._make_customer(company, "F")
 		unit = frappe.get_doc(
 			{
 				"doctype": "Tourism Room Unit",
@@ -138,12 +150,13 @@ class TestTourismOperationModel(FrappeTestCase):
 			frappe.get_doc(
 				{
 					"doctype": "Tourism Booking",
-					"guest_name": "Guest Test",
+					"customer": customer,
 					"company": company,
 					"branch": branch,
 					"unit": unit.name,
 					"check_in_date": "2026-04-20",
 					"check_out_date": "2026-04-25",
+					"rate_per_night": 100,
 					"status": "Draft",
 				}
 			).insert(ignore_permissions=True)

@@ -18,6 +18,7 @@ class TourismRoomUnit(Document):
 	def validate(self):
 		self.unit_code = (self.unit_code or "").strip().upper()
 		self._validate_branch_company_match()
+		self._validate_room_type_branch()
 		self._validate_unique_unit_code()
 		self._validate_status_transition()
 
@@ -27,6 +28,18 @@ class TourismRoomUnit(Document):
 			frappe.throw(_("Branch {0} does not exist.").format(self.branch), title=_("Branch"))
 		if branch_company != self.company:
 			frappe.throw(_("Branch belongs to a different company."), title=_("Branch"))
+
+	def _validate_room_type_branch(self):
+		room_type = getattr(self, "room_type", None)
+		if not room_type:
+			return
+		rt = frappe.db.get_value(
+			"Tourism Room Type", room_type, ["company", "branch"], as_dict=True
+		)
+		if not rt:
+			frappe.throw(_("Room Type does not exist."), title=_("Room Type"))
+		if rt.company != self.company or rt.branch != self.branch:
+			frappe.throw(_("Room Type must belong to the same company and branch."), title=_("Room Type"))
 
 	def _validate_unique_unit_code(self):
 		dupe = frappe.db.exists(

@@ -8,7 +8,7 @@ app_license = "mit"
 # Apps
 # ------------------
 
-required_apps = ["omnexa_core"]
+required_apps = ["omnexa_core", "omnexa_accounting"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -117,9 +117,13 @@ required_apps = ["omnexa_core"]
 # -----------
 # Permissions evaluated in scripted ways
 
-# permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
+permission_query_conditions = {
+	"Tourism Booking": "omnexa_tourism.permissions.tourism_booking_query_conditions",
+	"Tourism Room Unit": "omnexa_tourism.permissions.tourism_room_unit_query_conditions",
+	"Tourism Room Type": "omnexa_tourism.permissions.tourism_room_type_query_conditions",
+	"Tourism Operation Model": "omnexa_tourism.permissions.tourism_operation_model_query_conditions",
+	"Tourism Housekeeping Task": "omnexa_tourism.permissions.tourism_housekeeping_task_query_conditions",
+}
 #
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
@@ -137,13 +141,28 @@ required_apps = ["omnexa_core"]
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Tourism Booking": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Room Unit": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Room Type": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Operation Model": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Housekeeping Task": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+}
 
 # Scheduled Tasks
 # ---------------

@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2026-04-15 12:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "type_name",
+  "type_code",
+  "company",
+  "branch",
+  "max_occupancy",
+  "rack_rate",
+  "status"
+ ],
+ "fields": [
+  {"fieldname": "type_name", "fieldtype": "Data", "in_list_view": 1, "label": "Type Name", "reqd": 1},
+  {"fieldname": "type_code", "fieldtype": "Data", "in_list_view": 1, "label": "Type Code", "reqd": 1},
+  {"fieldname": "company", "fieldtype": "Link", "in_list_view": 1, "label": "Company", "options": "Company", "reqd": 1},
+  {"fieldname": "branch", "fieldtype": "Link", "in_list_view": 1, "label": "Branch", "options": "Branch", "reqd": 1},
+  {"default": "2", "fieldname": "max_occupancy", "fieldtype": "Int", "label": "Max Occupancy", "reqd": 1},
+  {"fieldname": "rack_rate", "fieldtype": "Currency", "label": "Default Rack Rate (per night)"},
+  {"default": "Active", "fieldname": "status", "fieldtype": "Select", "in_list_view": 1, "label": "Status", "options": "Active\nInactive", "reqd": 1}
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-15 12:00:00",
+ "modified_by": "Administrator",
+ "module": "Omnexa Tourism",
+ "name": "Tourism Room Type",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1, "share": 1, "print": 1, "email": 1},
+  {"role": "Company Admin", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 1, "share": 0, "print": 1, "email": 1},
+  {"role": "Hotel Front Desk", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 1, "email": 0},
+  {"role": "Desk User", "read": 1, "write": 0, "create": 0, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 0, "email": 0}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
