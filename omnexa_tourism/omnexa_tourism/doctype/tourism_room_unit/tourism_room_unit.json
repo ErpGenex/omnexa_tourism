@@ -7,11 +7,13 @@
  "engine": "InnoDB",
  "field_order": [
   "unit_name",
+  "hotel",
   "company",
   "branch",
   "operation_model",
   "room_type",
   "floor",
+  "hotel_floor",
   "unit_code",
   "capacity",
   "status"
@@ -20,9 +22,11 @@
   {"fieldname": "unit_name", "fieldtype": "Data", "label": "Unit Name", "reqd": 1, "in_list_view": 1},
   {"fieldname": "company", "fieldtype": "Link", "label": "Company", "options": "Company", "reqd": 1, "in_list_view": 1},
   {"fieldname": "branch", "fieldtype": "Link", "label": "Branch", "options": "Branch", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "hotel", "fieldtype": "Link", "label": "Hotel", "options": "Tourism Hotel", "reqd": 0, "in_list_view": 1},
   {"fieldname": "operation_model", "fieldtype": "Link", "label": "Operation Model", "options": "Tourism Operation Model"},
   {"fieldname": "room_type", "fieldtype": "Link", "label": "Room Type", "options": "Tourism Room Type"},
   {"fieldname": "floor", "fieldtype": "Data", "label": "Floor / Zone"},
+  {"fieldname": "hotel_floor", "fieldtype": "Link", "label": "Hotel Floor", "options": "Tourism Hotel Floor"},
   {"fieldname": "unit_code", "fieldtype": "Data", "label": "Unit Code", "reqd": 1, "in_list_view": 1},
   {"fieldname": "capacity", "fieldtype": "Int", "label": "Capacity", "reqd": 1, "default": "1"},
   {"fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Available\nReserved\nOccupied\nMaintenance\nDisabled", "reqd": 1, "default": "Available", "in_list_view": 1}

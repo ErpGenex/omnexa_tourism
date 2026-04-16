@@ -53,6 +53,32 @@ class TestTourismOperationModel(FrappeTestCase):
 		doc.insert(ignore_permissions=True)
 		return doc.name
 
+	def _make_booking(self, company, branch, customer, unit_code="401"):
+		unit = frappe.get_doc(
+			{
+				"doctype": "Tourism Room Unit",
+				"unit_name": f"Room {unit_code}",
+				"company": company,
+				"branch": branch,
+				"unit_code": unit_code,
+				"capacity": 2,
+				"status": "Available",
+			}
+		).insert(ignore_permissions=True)
+		return frappe.get_doc(
+			{
+				"doctype": "Tourism Booking",
+				"customer": customer,
+				"company": company,
+				"branch": branch,
+				"unit": unit.name,
+				"check_in_date": "2026-04-20",
+				"check_out_date": "2026-04-25",
+				"rate_per_night": 100,
+				"status": "Draft",
+			}
+		).insert(ignore_permissions=True)
+
 	def test_operation_model_rejects_cross_company_branch(self):
 		company_a = self._make_company("A")
 		company_b = self._make_company("B")
@@ -160,3 +186,41 @@ class TestTourismOperationModel(FrappeTestCase):
 					"status": "Draft",
 				}
 			).insert(ignore_permissions=True)
+
+	def test_checked_in_booking_creates_folio_and_billed_service_creates_charge(self):
+		company = self._make_company("G")
+		branch = self._make_branch(company, "BRG")
+		customer = self._make_customer(company, "G")
+		booking = self._make_booking(company, branch, customer, "401")
+
+		booking.status = "Confirmed"
+		booking.save(ignore_permissions=True)
+		booking.status = "Checked In"
+		booking.save(ignore_permissions=True)
+
+		booking.reload()
+		self.assertTrue(booking.guest_folio)
+		self.assertTrue(frappe.db.exists("Tourism Guest Folio", booking.guest_folio))
+
+		service_order = frappe.get_doc(
+			{
+				"doctype": "Tourism Service Order",
+				"booking": booking.name,
+				"customer": customer,
+				"company": company,
+				"branch": branch,
+				"service_category": "Laundry",
+				"source_app": "Manual",
+				"service_date": "2026-04-21",
+				"description": "Laundry bag service",
+				"quantity": 2,
+				"rate": 25,
+				"status": "Ordered",
+			}
+		).insert(ignore_permissions=True)
+
+		service_order.status = "Billed"
+		service_order.save(ignore_permissions=True)
+		service_order.reload()
+		self.assertTrue(service_order.charge_entry)
+		self.assertTrue(frappe.db.exists("Tourism Charge Entry", service_order.charge_entry))

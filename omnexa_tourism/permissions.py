@@ -42,5 +42,77 @@ def tourism_operation_model_query_conditions(user=None):
 	return _get_query_for_table("Tourism Operation Model", user)
 
 
+def tourism_hotel_query_conditions(user=None):
+	return _get_query_for_table("Tourism Hotel", user)
+
+
+def tourism_hotel_floor_query_conditions(user=None):
+	return _get_query_for_table("Tourism Hotel Floor", user)
+
+
+def tourism_guest_folio_query_conditions(user=None):
+	return _get_query_for_table("Tourism Guest Folio", user)
+
+
+def tourism_charge_entry_query_conditions(user=None):
+	return _get_query_for_table("Tourism Charge Entry", user)
+
+
+def tourism_service_order_query_conditions(user=None):
+	return _get_query_for_table("Tourism Service Order", user)
+
+
+def tourism_travel_vendor_query_conditions(user=None):
+	return _get_query_for_table("Tourism Travel Vendor", user)
+
+
+def tourism_travel_package_query_conditions(user=None):
+	return _get_query_for_table("Tourism Travel Package", user)
+
+
+def tourism_package_booking_query_conditions(user=None):
+	return _get_query_for_table("Tourism Package Booking", user)
+
+
+def tourism_transport_booking_query_conditions(user=None):
+	return _get_query_for_table("Tourism Transport Booking", user)
+
+
+def tourism_flight_booking_query_conditions(user=None):
+	return _get_query_for_table("Tourism Flight Booking", user)
+
+
+def tourism_activity_booking_query_conditions(user=None):
+	return _get_query_for_table("Tourism Activity Booking", user)
+
+
 def tourism_housekeeping_task_query_conditions(user=None):
 	return _get_query_for_table("Tourism Housekeeping Task", user)
+
+
+def tourism_vendor_contract_query_conditions(user=None):
+	return _get_query_for_table("Tourism Vendor Contract", user)
+
+
+def tourism_pricing_rule_query_conditions(user=None):
+	return _get_query_for_table("Tourism Pricing Rule", user)
+
+
+def tourism_online_booking_request_query_conditions(user=None):
+	return _get_query_for_table("Tourism Online Booking Request", user)
+
+
+def tourism_beach_booking_query_conditions(user=None):
+	return _get_query_for_table("Tourism Beach Booking", user)
+
+
+def tourism_restaurant_reservation_query_conditions(user=None):
+	return _get_query_for_table("Tourism Restaurant Reservation", user)
+
+
+def tourism_restaurant_venue_query_conditions(user=None):
+	return _get_query_for_table("Tourism Restaurant Venue", user)
+
+
+def tourism_beach_facility_query_conditions(user=None):
+	return _get_query_for_table("Tourism Beach Facility", user)

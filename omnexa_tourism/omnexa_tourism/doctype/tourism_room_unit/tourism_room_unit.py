@@ -18,6 +18,8 @@ class TourismRoomUnit(Document):
 	def validate(self):
 		self.unit_code = (self.unit_code or "").strip().upper()
 		self._validate_branch_company_match()
+		self._validate_hotel_branch_company_match()
+		self._validate_floor_hotel_match()
 		self._validate_room_type_branch()
 		self._validate_unique_unit_code()
 		self._validate_status_transition()
@@ -40,6 +42,53 @@ class TourismRoomUnit(Document):
 			frappe.throw(_("Room Type does not exist."), title=_("Room Type"))
 		if rt.company != self.company or rt.branch != self.branch:
 			frappe.throw(_("Room Type must belong to the same company and branch."), title=_("Room Type"))
+
+	def _validate_hotel_branch_company_match(self):
+		if not getattr(self, "hotel", None):
+			return
+
+		hotel_data = frappe.db.get_value(
+			"Tourism Hotel",
+			self.hotel,
+			["company", "branch"],
+			as_dict=True,
+		)
+		if not hotel_data:
+			frappe.throw(_("Hotel does not exist."), title=_("Hotel"))
+		if hotel_data.get("company") != self.company or hotel_data.get("branch") != self.branch:
+			frappe.throw(
+				_("Hotel must belong to the same company and branch."),
+				title=_("Hotel"),
+			)
+
+	def _validate_floor_hotel_match(self):
+		if not getattr(self, "hotel_floor", None):
+			return
+
+		floor_data = frappe.db.get_value(
+			"Tourism Hotel Floor",
+			self.hotel_floor,
+			["hotel", "company", "branch"],
+			as_dict=True,
+		)
+		if not floor_data:
+			frappe.throw(_("Hotel floor does not exist."), title=_("Floor"))
+
+		# If hotel isn't set yet, infer it from the selected floor.
+		if not getattr(self, "hotel", None):
+			self.hotel = floor_data.get("hotel")
+
+		if floor_data.get("company") != self.company or floor_data.get("branch") != self.branch:
+			frappe.throw(
+				_("Hotel floor must belong to the same company and branch."),
+				title=_("Floor"),
+			)
+
+		if getattr(self, "hotel", None) and floor_data.get("hotel") != self.hotel:
+			frappe.throw(
+				_("Selected floor does not belong to the selected hotel."),
+				title=_("Validation"),
+			)
 
 	def _validate_unique_unit_code(self):
 		dupe = frappe.db.exists(

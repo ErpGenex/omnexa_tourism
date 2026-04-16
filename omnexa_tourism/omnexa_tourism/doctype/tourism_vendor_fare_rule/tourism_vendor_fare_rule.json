@@ -1,0 +1,34 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "istable": 1,
+ "field_order": [
+  "from_airport",
+  "to_airport",
+  "trip_type",
+  "cabin_class",
+  "fare_basis",
+  "base_fare",
+  "taxes",
+  "fees",
+  "currency",
+  "is_active"
+ ],
+ "fields": [
+  {"fieldname": "from_airport", "fieldtype": "Data", "label": "From (Airport)", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "to_airport", "fieldtype": "Data", "label": "To (Airport)", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "trip_type", "fieldtype": "Select", "label": "Trip Type", "options": "One-way\nRound-trip", "default": "One-way", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "cabin_class", "fieldtype": "Select", "label": "Cabin Class", "options": "Economy\nPremium Economy\nBusiness\nFirst", "default": "Economy", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "fare_basis", "fieldtype": "Data", "label": "Fare Basis"},
+  {"fieldname": "base_fare", "fieldtype": "Currency", "label": "Base Fare", "default": "0", "reqd": 1},
+  {"fieldname": "taxes", "fieldtype": "Currency", "label": "Taxes", "default": "0"},
+  {"fieldname": "fees", "fieldtype": "Currency", "label": "Fees", "default": "0"},
+  {"fieldname": "currency", "fieldtype": "Data", "label": "Currency"},
+  {"fieldname": "is_active", "fieldtype": "Check", "label": "Is Active", "default": "1"}
+ ],
+ "module": "Omnexa Tourism",
+ "name": "Tourism Vendor Fare Rule"
+}
+

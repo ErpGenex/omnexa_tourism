@@ -1,0 +1,21 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "disabled": 0,
+ "doctype": "Report",
+ "filters": [],
+ "is_standard": "Yes",
+ "json": "{}",
+ "module": "Omnexa Tourism",
+ "name": "Tourism Occupancy",
+ "ref_doctype": "Tourism Room Unit",
+ "report_name": "Tourism Occupancy",
+ "report_type": "Script Report",
+ "roles": [
+  { "role": "System Manager" },
+  { "role": "Hotel Front Desk" },
+  { "role": "Hotel General Manager" },
+  { "role": "Hotel Housekeeping" },
+  { "role": "Desk User" }
+ ]
+}

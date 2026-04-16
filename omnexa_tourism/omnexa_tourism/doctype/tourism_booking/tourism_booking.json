@@ -11,6 +11,7 @@
   "guest_name",
   "company",
   "branch",
+  "hotel",
   "stay_section",
   "unit",
   "check_in_date",
@@ -24,6 +25,7 @@
   "booking_channel",
   "status",
   "integration_section",
+  "guest_folio",
   "sales_invoice",
   "housekeeping_task"
  ],
@@ -40,6 +42,7 @@
   },
   {"fieldname": "company", "fieldtype": "Link", "in_list_view": 1, "label": "Company", "options": "Company", "reqd": 1},
   {"fieldname": "branch", "fieldtype": "Link", "in_list_view": 1, "label": "Branch", "options": "Branch", "reqd": 1},
+  {"fieldname": "hotel", "fieldtype": "Link", "in_list_view": 1, "label": "Hotel", "options": "Tourism Hotel", "read_only": 1},
   {"fieldname": "stay_section", "fieldtype": "Section Break", "label": "Stay"},
   {"fieldname": "unit", "fieldtype": "Link", "in_list_view": 1, "label": "Room Unit", "options": "Tourism Room Unit", "reqd": 1},
   {"fieldname": "check_in_date", "fieldtype": "Date", "label": "Check In Date", "reqd": 1},
@@ -68,6 +71,7 @@
    "reqd": 1
   },
   {"fieldname": "integration_section", "fieldtype": "Section Break", "label": "Accounting & operations"},
+  {"fieldname": "guest_folio", "fieldtype": "Link", "label": "Guest Folio", "options": "Tourism Guest Folio", "read_only": 1},
   {"fieldname": "sales_invoice", "fieldtype": "Link", "label": "Sales Invoice", "options": "Sales Invoice", "read_only": 1},
   {
    "fieldname": "housekeeping_task",

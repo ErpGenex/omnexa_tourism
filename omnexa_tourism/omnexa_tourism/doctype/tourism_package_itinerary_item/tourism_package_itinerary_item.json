@@ -1,0 +1,30 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "istable": 1,
+ "field_order": [
+  "day_no",
+  "item_type",
+  "title",
+  "location",
+  "vendor",
+  "start_datetime",
+  "end_datetime",
+  "notes"
+ ],
+ "fields": [
+  {"fieldname": "day_no", "fieldtype": "Int", "label": "Day #", "default": "1", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "item_type", "fieldtype": "Select", "label": "Item Type", "options": "Flight\nTransfer\nHotel Stay\nActivity\nMeal\nOther", "default": "Other", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "title", "fieldtype": "Data", "label": "Title", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "location", "fieldtype": "Data", "label": "Location"},
+  {"fieldname": "vendor", "fieldtype": "Link", "label": "Vendor", "options": "Tourism Travel Vendor"},
+  {"fieldname": "start_datetime", "fieldtype": "Datetime", "label": "Start"},
+  {"fieldname": "end_datetime", "fieldtype": "Datetime", "label": "End"},
+  {"fieldname": "notes", "fieldtype": "Small Text", "label": "Notes"}
+ ],
+ "module": "Omnexa Tourism",
+ "name": "Tourism Package Itinerary Item"
+}
+

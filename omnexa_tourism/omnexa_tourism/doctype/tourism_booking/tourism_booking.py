@@ -6,6 +6,8 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.utils import date_diff, flt, getdate
 
+from omnexa_tourism.folio_ops import ensure_guest_folio_for_booking
+
 
 ALLOWED_BOOKING_STATUS = {
 	"Draft": {"Confirmed", "Cancelled"},
@@ -34,6 +36,8 @@ class TourismBooking(Document):
 
 	def on_update(self):
 		prev = getattr(self, "_previous_status", None)
+		if self.status == "Checked In" and prev != "Checked In":
+			self._ensure_guest_folio()
 		if self.status == "Checked Out" and prev != "Checked Out":
 			self._on_checked_out()
 
@@ -70,13 +74,20 @@ class TourismBooking(Document):
 		unit_data = frappe.db.get_value(
 			"Tourism Room Unit",
 			self.unit,
-			["company", "branch", "status"],
+			["company", "branch", "hotel", "status"],
 			as_dict=True,
 		)
 		if not unit_data:
 			frappe.throw(_("Selected unit does not exist."), title=_("Unit"))
 		if unit_data.company != self.company or unit_data.branch != self.branch:
 			frappe.throw(_("Selected unit must belong to the same company and branch."), title=_("Unit"))
+		if hasattr(self, "hotel"):
+			unit_hotel = unit_data.get("hotel")
+			if unit_hotel:
+				if not getattr(self, "hotel", None):
+					self.hotel = unit_hotel
+				elif self.hotel != unit_hotel:
+					frappe.throw(_("Selected room unit belongs to a different hotel."), title=_("Hotel"))
 		if unit_data.status == "Disabled":
 			frappe.throw(_("Disabled unit cannot be assigned to a booking."), title=_("Unit"))
 
@@ -116,9 +127,13 @@ class TourismBooking(Document):
 			)
 
 	def _on_checked_out(self):
+		self._ensure_guest_folio()
 		self._ensure_housekeeping_task()
 		if self._can_create_sales_invoice():
 			self._ensure_sales_invoice()
+
+	def _ensure_guest_folio(self):
+		ensure_guest_folio_for_booking(self)
 
 	def _can_create_sales_invoice(self):
 		return (

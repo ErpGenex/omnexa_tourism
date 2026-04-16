@@ -11,15 +11,14 @@ app_license = "mit"
 required_apps = ["omnexa_core", "omnexa_accounting"]
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "omnexa_tourism",
-# 		"logo": "/assets/omnexa_tourism/logo.png",
-# 		"title": "Omnexa Tourism",
-# 		"route": "/omnexa_tourism",
-# 		"has_permission": "omnexa_tourism.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "omnexa_tourism",
+		"logo": "/assets/omnexa_tourism/tourism.svg",
+		"title": "Tourism",
+		"route": "/app/tourism",
+	}
+]
 
 # Includes in <head>
 # ------------------
@@ -83,7 +82,7 @@ required_apps = ["omnexa_core", "omnexa_accounting"]
 # ------------
 
 # before_install = "omnexa_tourism.install.before_install"
-# after_install = "omnexa_tourism.install.after_install"
+after_install = "omnexa_tourism.install.after_install"
 
 # Uninstallation
 # ------------
@@ -122,7 +121,25 @@ permission_query_conditions = {
 	"Tourism Room Unit": "omnexa_tourism.permissions.tourism_room_unit_query_conditions",
 	"Tourism Room Type": "omnexa_tourism.permissions.tourism_room_type_query_conditions",
 	"Tourism Operation Model": "omnexa_tourism.permissions.tourism_operation_model_query_conditions",
+	"Tourism Hotel": "omnexa_tourism.permissions.tourism_hotel_query_conditions",
+	"Tourism Hotel Floor": "omnexa_tourism.permissions.tourism_hotel_floor_query_conditions",
+	"Tourism Guest Folio": "omnexa_tourism.permissions.tourism_guest_folio_query_conditions",
+	"Tourism Charge Entry": "omnexa_tourism.permissions.tourism_charge_entry_query_conditions",
+	"Tourism Service Order": "omnexa_tourism.permissions.tourism_service_order_query_conditions",
+	"Tourism Travel Vendor": "omnexa_tourism.permissions.tourism_travel_vendor_query_conditions",
+	"Tourism Travel Package": "omnexa_tourism.permissions.tourism_travel_package_query_conditions",
+	"Tourism Package Booking": "omnexa_tourism.permissions.tourism_package_booking_query_conditions",
+	"Tourism Transport Booking": "omnexa_tourism.permissions.tourism_transport_booking_query_conditions",
+	"Tourism Flight Booking": "omnexa_tourism.permissions.tourism_flight_booking_query_conditions",
+	"Tourism Activity Booking": "omnexa_tourism.permissions.tourism_activity_booking_query_conditions",
 	"Tourism Housekeeping Task": "omnexa_tourism.permissions.tourism_housekeeping_task_query_conditions",
+	"Tourism Vendor Contract": "omnexa_tourism.permissions.tourism_vendor_contract_query_conditions",
+	"Tourism Pricing Rule": "omnexa_tourism.permissions.tourism_pricing_rule_query_conditions",
+	"Tourism Online Booking Request": "omnexa_tourism.permissions.tourism_online_booking_request_query_conditions",
+	"Tourism Beach Booking": "omnexa_tourism.permissions.tourism_beach_booking_query_conditions",
+	"Tourism Restaurant Reservation": "omnexa_tourism.permissions.tourism_restaurant_reservation_query_conditions",
+	"Tourism Restaurant Venue": "omnexa_tourism.permissions.tourism_restaurant_venue_query_conditions",
+	"Tourism Beach Facility": "omnexa_tourism.permissions.tourism_beach_facility_query_conditions",
 }
 #
 # has_permission = {
@@ -155,6 +172,79 @@ doc_events = {
 		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
 	},
 	"Tourism Operation Model": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Hotel": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Hotel Floor": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Guest Folio": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Charge Entry": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"on_update": "omnexa_tourism.accounting_integration.post_charge_entry_journal",
+	},
+	"Tourism Service Order": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Travel Vendor": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Travel Package": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Package Booking": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Transport Booking": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Flight Booking": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Vendor Contract": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Pricing Rule": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Online Booking Request": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Beach Booking": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Restaurant Reservation": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Restaurant Venue": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Beach Facility": {
+		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+	},
+	"Tourism Activity Booking": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
 		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
 	},
@@ -215,6 +305,8 @@ doc_events = {
 
 # Request Events
 # ----------------
+after_migrate = ["omnexa_tourism.install.after_migrate"]
+
 before_request = ["omnexa_tourism.license_gate.before_request"]
 # after_request = ["omnexa_tourism.utils.after_request"]
 
