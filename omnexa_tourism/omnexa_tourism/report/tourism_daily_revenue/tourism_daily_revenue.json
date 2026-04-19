@@ -12,10 +12,38 @@
  "report_name": "Tourism Daily Revenue",
  "report_type": "Script Report",
  "roles": [
-  { "role": "System Manager" },
-  { "role": "Hotel Front Desk" },
-  { "role": "Hotel General Manager" },
-  { "role": "Hotel Housekeeping" },
-  { "role": "Desk User" }
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Company Admin"
+  },
+  {
+   "role": "Hotel General Manager"
+  },
+  {
+   "role": "Hotel Front Desk"
+  },
+  {
+   "role": "Hotel Housekeeping"
+  },
+  {
+   "role": "Desk User"
+  },
+  {
+   "role": "Report Manager"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "Sales User"
+  }
  ]
 }

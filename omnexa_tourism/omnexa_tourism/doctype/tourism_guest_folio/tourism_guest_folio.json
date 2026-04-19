@@ -30,7 +30,7 @@
   {"fieldname": "room_unit", "fieldtype": "Link", "label": "Room Unit", "options": "Tourism Room Unit"},
   {"fieldname": "folio_date", "fieldtype": "Date", "label": "Folio Date", "reqd": 1},
   {"fieldname": "cost_center", "fieldtype": "Link", "label": "Cost Center", "options": "Cost Center"},
-  {"fieldname": "project", "fieldtype": "Link", "label": "Project", "options": "Project"},
+  {"fieldname": "project", "fieldtype": "Link", "label": "Project Contract", "options": "Project Contract"},
   {"fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Open\nClosed\nCancelled", "default": "Open", "reqd": 1, "in_list_view": 1},
   {"fieldname": "total_charges", "fieldtype": "Currency", "label": "Total Charges", "read_only": 1},
   {"fieldname": "paid_amount", "fieldtype": "Currency", "label": "Paid Amount", "read_only": 1},

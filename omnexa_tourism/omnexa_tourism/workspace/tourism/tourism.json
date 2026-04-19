@@ -1,6 +1,20 @@
 {
- "charts": [],
- "content": "[{\"id\":\"tour-h\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Tourism & Hospitality</b></span>\",\"col\":12}},{\"id\":\"tour-c1\",\"type\":\"card\",\"data\":{\"card_name\":\"Portfolio & setup\",\"col\":4}},{\"id\":\"tour-c2\",\"type\":\"card\",\"data\":{\"card_name\":\"Hotels & rooms\",\"col\":4}},{\"id\":\"tour-c3\",\"type\":\"card\",\"data\":{\"card_name\":\"Reservations & guest\",\"col\":4}},{\"id\":\"tour-c4\",\"type\":\"card\",\"data\":{\"card_name\":\"Guest services & folio\",\"col\":4}},{\"id\":\"tour-c5\",\"type\":\"card\",\"data\":{\"card_name\":\"Finance & reports\",\"col\":4}},{\"id\":\"tour-c6\",\"type\":\"card\",\"data\":{\"card_name\":\"Integrations\",\"col\":4}}]",
+ "charts": [
+  {
+   "chart_name": "tourism · Status Bar",
+   "label": "Status Bar"
+  },
+  {
+   "chart_name": "tourism · Tourism Operation Model Mix",
+   "label": "Tourism Operation Model Mix"
+  },
+  {
+   "chart_name": "tourism · Tourism Hotel Mix",
+   "label": "Tourism Hotel Mix"
+  }
+ ],
+ "content": "[{\"id\": \"tourism-h\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Tourism</b></span>\", \"col\": 12}}, {\"id\": \"tourism-ops\", \"type\": \"header\", \"data\": {\"text\": \"<b>📌 Operations</b>\", \"col\": 12}}, {\"id\": \"tourism-op2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Operation Model\", \"col\": 4}}, {\"id\": \"tourism-op3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Hotel\", \"col\": 4}}, {\"id\": \"tourism-op4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Hotel Floor\", \"col\": 4}}, {\"id\": \"tourism-op5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Restaurant Venue\", \"col\": 4}}, {\"id\": \"tourism-op6\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Beach Facility\", \"col\": 4}}, {\"id\": \"tourism-op7\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Travel Vendor\", \"col\": 4}}, {\"id\": \"tourism-op8\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Vendor Contract\", \"col\": 4}}, {\"id\": \"tourism-op9\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Travel Package\", \"col\": 4}}, {\"id\": \"tourism-op10\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Pricing Rule\", \"col\": 4}}, {\"id\": \"tourism-op11\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Room Type\", \"col\": 4}}, {\"id\": \"tourism-op12\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Room Unit\", \"col\": 4}}, {\"id\": \"tourism-op13\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Housekeeping Task\", \"col\": 4}}, {\"id\": \"tourism-op14\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Booking\", \"col\": 4}}, {\"id\": \"tourism-op15\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Package Booking\", \"col\": 4}}, {\"id\": \"tourism-op16\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Transport Booking\", \"col\": 4}}, {\"id\": \"tourism-op17\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Flight Booking\", \"col\": 4}}, {\"id\": \"tourism-op18\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Activity Booking\", \"col\": 4}}, {\"id\": \"tourism-op19\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Beach Booking\", \"col\": 4}}, {\"id\": \"tourism-op20\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Restaurant Reservation\", \"col\": 4}}, {\"id\": \"tourism-op21\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Online Booking Request\", \"col\": 4}}, {\"id\": \"tourism-op22\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Customer\", \"col\": 4}}, {\"id\": \"tourism-op23\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Customer Profile\", \"col\": 4}}, {\"id\": \"tourism-op24\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Guest Folio\", \"col\": 4}}, {\"id\": \"tourism-op25\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Order\", \"col\": 4}}, {\"id\": \"tourism-op26\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Charge Entry\", \"col\": 4}}, {\"id\": \"tourism-op27\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Sales Invoice\", \"col\": 4}}, {\"id\": \"tourism-op28\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Journal Entry\", \"col\": 4}}, {\"id\": \"tourism-op29\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Cost Center\", \"col\": 4}}, {\"id\": \"tourism-op30\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Restaurant Order\", \"col\": 4}}, {\"id\": \"tourism-op31\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service Ticket\", \"col\": 4}}, {\"id\": \"tourism-rpt\", \"type\": \"header\", \"data\": {\"text\": \"<b>📊 Reports</b>\", \"col\": 12}}, {\"id\": \"tourism-rp0\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Occupancy\", \"col\": 4}}, {\"id\": \"tourism-rp1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Booking status summary\", \"col\": 4}}, {\"id\": \"tourism-rp2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Channel performance\", \"col\": 4}}, {\"id\": \"tourism-rp3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Lead time analysis\", \"col\": 4}}, {\"id\": \"tourism-rp4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Cancellation & no-show\", \"col\": 4}}, {\"id\": \"tourism-rp5\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Housekeeping performance\", \"col\": 4}}, {\"id\": \"tourism-rp6\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI summary (ADR/RevPAR)\", \"col\": 4}}, {\"id\": \"tourism-rp7\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Daily revenue\", \"col\": 4}}, {\"id\": \"tourism-rp8\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Room type performance\", \"col\": 4}}, {\"id\": \"tourism-rp9\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Service profitability\", \"col\": 4}}, {\"id\": \"tourism-rp10\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Package profitability\", \"col\": 4}}, {\"id\": \"tourism-rp11\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Flight ticket sales\", \"col\": 4}}, {\"id\": \"tourism-rp12\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Guest folio outstanding\", \"col\": 4}}, {\"id\": \"tourism-kpi\", \"type\": \"header\", \"data\": {\"text\": \"<b>📊 KPIs</b>\", \"col\": 12}}, {\"id\": \"tourism-nc0\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Operation Model\", \"col\": 4}}, {\"id\": \"tourism-nc1\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Hotel\", \"col\": 4}}, {\"id\": \"tourism-nc2\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Hotel Floor\", \"col\": 4}}, {\"id\": \"tourism-nc3\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Restaurant Venue\", \"col\": 4}}, {\"id\": \"tourism-nc4\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Beach Facility\", \"col\": 4}}, {\"id\": \"tourism-nc5\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Travel Vendor\", \"col\": 4}}, {\"id\": \"tourism-nc6\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Vendor Contract\", \"col\": 4}}, {\"id\": \"tourism-nc7\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Travel Package\", \"col\": 4}}, {\"id\": \"tourism-chr\", \"type\": \"header\", \"data\": {\"text\": \"<b>📈 Charts</b>\", \"col\": 12}}, {\"id\": \"tourism-ch0\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Status Bar\", \"col\": 4}}, {\"id\": \"tourism-ch1\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Tourism Operation Model Mix\", \"col\": 4}}, {\"id\": \"tourism-ch2\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Tourism Hotel Mix\", \"col\": 4}}]",
+ "creation": "2026-04-17 23:43:00.974255",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -11,63 +25,889 @@
  "is_hidden": 0,
  "label": "Tourism",
  "links": [
-  {"hidden": 0, "label": "Portfolio & setup", "type": "Card Break"},
-  {"hidden": 0, "icon": "organization", "label": "Company", "link_to": "Company", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "organization", "label": "Branch", "link_to": "Branch", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "list", "label": "Tourism Operation Model", "link_to": "Tourism Operation Model", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "organization", "label": "Tourism Hotel", "link_to": "Tourism Hotel", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "map", "label": "Tourism Hotel Floor", "link_to": "Tourism Hotel Floor", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "restaurant", "label": "Tourism Restaurant Venue", "link_to": "Tourism Restaurant Venue", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "map", "label": "Tourism Beach Facility", "link_to": "Tourism Beach Facility", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "customer", "label": "Tourism Travel Vendor", "link_to": "Tourism Travel Vendor", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "list", "label": "Tourism Vendor Contract", "link_to": "Tourism Vendor Contract", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "list", "label": "Tourism Pricing Rule", "link_to": "Tourism Pricing Rule", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "list", "label": "Tourism Travel Package", "link_to": "Tourism Travel Package", "link_type": "DocType", "type": "Link"},
-
-  {"hidden": 0, "label": "Hotels & rooms", "type": "Card Break"},
-  {"hidden": 0, "icon": "map", "label": "Tourism Room Type", "link_to": "Tourism Room Type", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "home", "label": "Tourism Room Unit", "link_to": "Tourism Room Unit", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "support", "label": "Tourism Housekeeping Task", "link_to": "Tourism Housekeeping Task", "link_type": "DocType", "type": "Link"},
-
-  {"hidden": 0, "label": "Reservations & guest", "type": "Card Break"},
-  {"hidden": 0, "icon": "users", "label": "Tourism Booking", "link_to": "Tourism Booking", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "list", "label": "Tourism Package Booking", "link_to": "Tourism Package Booking", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "car", "label": "Tourism Transport Booking", "link_to": "Tourism Transport Booking", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "airplane", "label": "Tourism Flight Booking", "link_to": "Tourism Flight Booking", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "activity", "label": "Tourism Activity Booking", "link_to": "Tourism Activity Booking", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "web", "label": "Tourism Online Booking Request", "link_to": "Tourism Online Booking Request", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "map", "label": "Tourism Beach Booking", "link_to": "Tourism Beach Booking", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "restaurant", "label": "Tourism Restaurant Reservation", "link_to": "Tourism Restaurant Reservation", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "customer", "label": "Customer", "link_to": "Customer", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "customer", "label": "Customer Profile", "link_to": "Customer Profile", "link_type": "DocType", "type": "Link"},
-
-  {"hidden": 0, "label": "Guest services & folio", "type": "Card Break"},
-  {"hidden": 0, "icon": "receipt", "label": "Tourism Guest Folio", "link_to": "Tourism Guest Folio", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "shopping-cart", "label": "Tourism Service Order", "link_to": "Tourism Service Order", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "list", "label": "Tourism Charge Entry", "link_to": "Tourism Charge Entry", "link_type": "DocType", "type": "Link"},
-
-  {"hidden": 0, "label": "Finance & reports", "type": "Card Break"},
-  {"hidden": 0, "icon": "income", "label": "Sales Invoice", "link_to": "Sales Invoice", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "book", "label": "Journal Entry", "link_to": "Journal Entry", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "income", "is_query_report": 1, "label": "Tourism Daily Revenue", "link_to": "Tourism Daily Revenue", "link_type": "Report", "type": "Link"},
-  {"hidden": 0, "icon": "chart", "is_query_report": 1, "label": "Tourism Occupancy", "link_to": "Tourism Occupancy", "link_type": "Report", "type": "Link"},
-  {"hidden": 0, "icon": "activity", "is_query_report": 1, "label": "Tourism Service Profitability", "link_to": "Tourism Service Profitability", "link_type": "Report", "type": "Link"},
-  {"hidden": 0, "icon": "chart", "is_query_report": 1, "label": "Tourism Package Profitability", "link_to": "Tourism Package Profitability", "link_type": "Report", "type": "Link"},
-  {"hidden": 0, "icon": "chart", "is_query_report": 1, "label": "Tourism Flight Ticket Sales", "link_to": "Tourism Flight Ticket Sales", "link_type": "Report", "type": "Link"},
-  {"hidden": 0, "icon": "setting-gear", "label": "Cost Center", "link_to": "Cost Center", "link_type": "DocType", "type": "Link"},
-
-  {"hidden": 0, "label": "Integrations", "type": "Card Break"},
-  {"hidden": 0, "icon": "restaurant", "label": "Restaurant Order", "link_to": "Restaurant Order", "link_type": "DocType", "type": "Link"},
-  {"hidden": 0, "icon": "support", "label": "Service Ticket", "link_to": "Service Ticket", "link_type": "DocType", "type": "Link"}
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Portfolio & setup",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Operation Model",
+   "link_count": 0,
+   "link_to": "Tourism Operation Model",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Hotel",
+   "link_count": 0,
+   "link_to": "Tourism Hotel",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Hotel Floor",
+   "link_count": 0,
+   "link_to": "Tourism Hotel Floor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Restaurant Venue",
+   "link_count": 0,
+   "link_to": "Tourism Restaurant Venue",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Beach Facility",
+   "link_count": 0,
+   "link_to": "Tourism Beach Facility",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Travel Vendor",
+   "link_count": 0,
+   "link_to": "Tourism Travel Vendor",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vendor Contract",
+   "link_count": 0,
+   "link_to": "Tourism Vendor Contract",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Travel Package",
+   "link_count": 0,
+   "link_to": "Tourism Travel Package",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pricing Rule",
+   "link_count": 0,
+   "link_to": "Tourism Pricing Rule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Hotels & rooms",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Room Type",
+   "link_count": 0,
+   "link_to": "Tourism Room Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Room Unit",
+   "link_count": 0,
+   "link_to": "Tourism Room Unit",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Housekeeping Task",
+   "link_count": 0,
+   "link_to": "Tourism Housekeeping Task",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Bookings & travel",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Booking",
+   "link_count": 0,
+   "link_to": "Tourism Booking",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Package Booking",
+   "link_count": 0,
+   "link_to": "Tourism Package Booking",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Transport Booking",
+   "link_count": 0,
+   "link_to": "Tourism Transport Booking",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Flight Booking",
+   "link_count": 0,
+   "link_to": "Tourism Flight Booking",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Activity Booking",
+   "link_count": 0,
+   "link_to": "Tourism Activity Booking",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Beach Booking",
+   "link_count": 0,
+   "link_to": "Tourism Beach Booking",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Restaurant Reservation",
+   "link_count": 0,
+   "link_to": "Tourism Restaurant Reservation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Online Booking Request",
+   "link_count": 0,
+   "link_to": "Tourism Online Booking Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Guests & CRM",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Customer",
+   "link_count": 0,
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Customer Profile",
+   "link_count": 0,
+   "link_to": "Customer Profile",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Guest services & folio",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Guest Folio",
+   "link_count": 0,
+   "link_to": "Tourism Guest Folio",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Service Order",
+   "link_count": 0,
+   "link_to": "Tourism Service Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Charge Entry",
+   "link_count": 0,
+   "link_to": "Tourism Charge Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Finance",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sales Invoice",
+   "link_count": 0,
+   "link_to": "Sales Invoice",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Journal Entry",
+   "link_count": 0,
+   "link_to": "Journal Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cost Center",
+   "link_count": 0,
+   "link_to": "Cost Center",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports · Operations & demand",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Occupancy",
+   "link_count": 0,
+   "link_to": "Tourism Occupancy",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Room Unit",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Booking status summary",
+   "link_count": 0,
+   "link_to": "Tourism Booking Status Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Channel performance",
+   "link_count": 0,
+   "link_to": "Tourism Channel Performance",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Lead time analysis",
+   "link_count": 0,
+   "link_to": "Tourism Lead Time Analysis",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Cancellation & no-show",
+   "link_count": 0,
+   "link_to": "Tourism Cancellation & No-show",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Housekeeping performance",
+   "link_count": 0,
+   "link_to": "Tourism Housekeeping Performance",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Housekeeping Task",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports · Revenue & profitability",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "KPI summary (ADR/RevPAR)",
+   "link_count": 0,
+   "link_to": "Tourism KPI Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Daily revenue",
+   "link_count": 0,
+   "link_to": "Tourism Daily Revenue",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Room type performance",
+   "link_count": 0,
+   "link_to": "Tourism Room Type Performance",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Service profitability",
+   "link_count": 0,
+   "link_to": "Tourism Service Profitability",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Package profitability",
+   "link_count": 0,
+   "link_to": "Tourism Package Profitability",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Package Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Flight ticket sales",
+   "link_count": 0,
+   "link_to": "Tourism Flight Ticket Sales",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Flight Booking",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Guest folio outstanding",
+   "link_count": 0,
+   "link_to": "Tourism Guest Folio Outstanding",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Tourism Guest Folio",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Integrations",
+   "link_count": 0,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Restaurant Order",
+   "link_count": 0,
+   "link_to": "Restaurant Order",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Service Ticket",
+   "link_count": 0,
+   "link_to": "Service Ticket",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
  ],
+ "modified": "2026-04-18 21:37:29.615123",
+ "modified_by": "Administrator",
  "module": "Omnexa Tourism",
- "name": "tourism",
- "number_cards": [],
+ "name": "Tourism",
+ "number_cards": [
+  {
+   "label": "Operation Model",
+   "number_card_name": "Operation Model"
+  },
+  {
+   "label": "Hotel",
+   "number_card_name": "Hotel"
+  },
+  {
+   "label": "Hotel Floor",
+   "number_card_name": "Hotel Floor"
+  },
+  {
+   "label": "Restaurant Venue",
+   "number_card_name": "Restaurant Venue"
+  },
+  {
+   "label": "Beach Facility",
+   "number_card_name": "Beach Facility"
+  },
+  {
+   "label": "Travel Vendor",
+   "number_card_name": "Travel Vendor"
+  },
+  {
+   "label": "Vendor Contract",
+   "number_card_name": "Vendor Contract"
+  },
+  {
+   "label": "Travel Package",
+   "number_card_name": "Travel Package"
+  }
+ ],
+ "owner": "Administrator",
  "public": 1,
  "quick_lists": [],
  "roles": [],
  "sequence_id": 7.5,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "color": "Purple",
+   "doc_view": "List",
+   "label": "Operation Model",
+   "link_to": "Tourism Operation Model",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Hotel",
+   "link_to": "Tourism Hotel",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Hotel Floor",
+   "link_to": "Tourism Hotel Floor",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Restaurant Venue",
+   "link_to": "Tourism Restaurant Venue",
+   "type": "DocType"
+  },
+  {
+   "color": "Teal",
+   "doc_view": "List",
+   "label": "Beach Facility",
+   "link_to": "Tourism Beach Facility",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "List",
+   "label": "Travel Vendor",
+   "link_to": "Tourism Travel Vendor",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "label": "Vendor Contract",
+   "link_to": "Tourism Vendor Contract",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Travel Package",
+   "link_to": "Tourism Travel Package",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "List",
+   "label": "Pricing Rule",
+   "link_to": "Tourism Pricing Rule",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Room Type",
+   "link_to": "Tourism Room Type",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Room Unit",
+   "link_to": "Tourism Room Unit",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Housekeeping Task",
+   "link_to": "Tourism Housekeeping Task",
+   "type": "DocType"
+  },
+  {
+   "color": "Teal",
+   "doc_view": "List",
+   "label": "Booking",
+   "link_to": "Tourism Booking",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "List",
+   "label": "Package Booking",
+   "link_to": "Tourism Package Booking",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "label": "Transport Booking",
+   "link_to": "Tourism Transport Booking",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Flight Booking",
+   "link_to": "Tourism Flight Booking",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "List",
+   "label": "Activity Booking",
+   "link_to": "Tourism Activity Booking",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Beach Booking",
+   "link_to": "Tourism Beach Booking",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Restaurant Reservation",
+   "link_to": "Tourism Restaurant Reservation",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Online Booking Request",
+   "link_to": "Tourism Online Booking Request",
+   "type": "DocType"
+  },
+  {
+   "color": "Teal",
+   "doc_view": "List",
+   "label": "Customer",
+   "link_to": "Customer",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "List",
+   "label": "Customer Profile",
+   "link_to": "Customer Profile",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "label": "Guest Folio",
+   "link_to": "Tourism Guest Folio",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Service Order",
+   "link_to": "Tourism Service Order",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "List",
+   "label": "Charge Entry",
+   "link_to": "Tourism Charge Entry",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Sales Invoice",
+   "link_to": "Sales Invoice",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Journal Entry",
+   "link_to": "Journal Entry",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Cost Center",
+   "link_to": "Cost Center",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "",
+   "label": "Occupancy",
+   "link_to": "Tourism Occupancy",
+   "report_ref_doctype": "Tourism Room Unit",
+   "type": "Report"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "",
+   "label": "Booking status summary",
+   "link_to": "Tourism Booking Status Summary",
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "",
+   "label": "Channel performance",
+   "link_to": "Tourism Channel Performance",
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "",
+   "label": "Lead time analysis",
+   "link_to": "Tourism Lead Time Analysis",
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "",
+   "label": "Cancellation & no-show",
+   "link_to": "Tourism Cancellation & No-show",
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Green",
+   "doc_view": "",
+   "label": "Housekeeping performance",
+   "link_to": "Tourism Housekeeping Performance",
+   "report_ref_doctype": "Tourism Housekeeping Task",
+   "type": "Report"
+  },
+  {
+   "color": "Red",
+   "doc_view": "",
+   "label": "KPI summary (ADR/RevPAR)",
+   "link_to": "Tourism KPI Summary",
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Teal",
+   "doc_view": "",
+   "label": "Daily revenue",
+   "link_to": "Tourism Daily Revenue",
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "",
+   "label": "Room type performance",
+   "link_to": "Tourism Room Type Performance",
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "",
+   "label": "Service profitability",
+   "link_to": "Tourism Service Profitability",
+   "report_ref_doctype": "Tourism Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "",
+   "label": "Package profitability",
+   "link_to": "Tourism Package Profitability",
+   "report_ref_doctype": "Tourism Package Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "",
+   "label": "Flight ticket sales",
+   "link_to": "Tourism Flight Ticket Sales",
+   "report_ref_doctype": "Tourism Flight Booking",
+   "type": "Report"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "",
+   "label": "Guest folio outstanding",
+   "link_to": "Tourism Guest Folio Outstanding",
+   "report_ref_doctype": "Tourism Guest Folio",
+   "type": "Report"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Restaurant Order",
+   "link_to": "Restaurant Order",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Service Ticket",
+   "link_to": "Service Ticket",
+   "type": "DocType"
+  }
+ ],
  "title": "Tourism"
 }
-

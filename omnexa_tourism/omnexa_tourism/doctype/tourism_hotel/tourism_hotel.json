@@ -66,13 +66,13 @@
    "fieldname": "revenue_account",
    "fieldtype": "Link",
    "label": "Revenue Account",
-   "options": "Account"
+   "options": "GL Account"
   },
   {
    "fieldname": "receivable_account",
    "fieldtype": "Link",
    "label": "Receivable Account",
-   "options": "Account"
+   "options": "GL Account"
   },
   {
    "default": "Active",

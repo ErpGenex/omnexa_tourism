@@ -17,6 +17,40 @@
  "prepared_report": 0,
  "ref_doctype": "Tourism Flight Booking",
  "report_name": "Tourism Flight Ticket Sales",
- "report_type": "Script Report"
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Company Admin"
+  },
+  {
+   "role": "Hotel General Manager"
+  },
+  {
+   "role": "Hotel Front Desk"
+  },
+  {
+   "role": "Hotel Housekeeping"
+  },
+  {
+   "role": "Desk User"
+  },
+  {
+   "role": "Report Manager"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Sales Manager"
+  },
+  {
+   "role": "Sales User"
+  }
+ ]
 }
-
