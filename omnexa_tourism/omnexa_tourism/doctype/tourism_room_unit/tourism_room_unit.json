@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "identity_section",
   "unit_name",
   "hotel",
   "company",
@@ -16,20 +17,97 @@
   "hotel_floor",
   "unit_code",
   "capacity",
-  "status"
+  "status",
+  "control_section"
  ],
  "fields": [
-  {"fieldname": "unit_name", "fieldtype": "Data", "label": "Unit Name", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "company", "fieldtype": "Link", "label": "Company", "options": "Company", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "branch", "fieldtype": "Link", "label": "Branch", "options": "Branch", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "hotel", "fieldtype": "Link", "label": "Hotel", "options": "Tourism Hotel", "reqd": 0, "in_list_view": 1},
-  {"fieldname": "operation_model", "fieldtype": "Link", "label": "Operation Model", "options": "Tourism Operation Model"},
-  {"fieldname": "room_type", "fieldtype": "Link", "label": "Room Type", "options": "Tourism Room Type"},
-  {"fieldname": "floor", "fieldtype": "Data", "label": "Floor / Zone"},
-  {"fieldname": "hotel_floor", "fieldtype": "Link", "label": "Hotel Floor", "options": "Tourism Hotel Floor"},
-  {"fieldname": "unit_code", "fieldtype": "Data", "label": "Unit Code", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "capacity", "fieldtype": "Int", "label": "Capacity", "reqd": 1, "default": "1"},
-  {"fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Available\nReserved\nOccupied\nMaintenance\nDisabled", "reqd": 1, "default": "Available", "in_list_view": 1}
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Room Unit Identity"
+  },
+  {
+   "fieldname": "unit_name",
+   "fieldtype": "Data",
+   "label": "Unit Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "hotel",
+   "fieldtype": "Link",
+   "label": "Hotel",
+   "options": "Tourism Hotel",
+   "reqd": 0,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "operation_model",
+   "fieldtype": "Link",
+   "label": "Operation Model",
+   "options": "Tourism Operation Model"
+  },
+  {
+   "fieldname": "room_type",
+   "fieldtype": "Link",
+   "label": "Room Type",
+   "options": "Tourism Room Type"
+  },
+  {
+   "fieldname": "floor",
+   "fieldtype": "Data",
+   "label": "Floor / Zone"
+  },
+  {
+   "fieldname": "hotel_floor",
+   "fieldtype": "Link",
+   "label": "Hotel Floor",
+   "options": "Tourism Hotel Floor"
+  },
+  {
+   "fieldname": "unit_code",
+   "fieldtype": "Data",
+   "label": "Unit Code",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "capacity",
+   "fieldtype": "Int",
+   "label": "Capacity",
+   "reqd": 1,
+   "default": "1"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Available\nReserved\nOccupied\nMaintenance\nDisabled",
+   "reqd": 1,
+   "default": "Available",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Control"
+  }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
@@ -40,11 +118,66 @@
  "name": "Tourism Room Unit",
  "owner": "Administrator",
  "permissions": [
-  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1, "share": 1, "print": 1, "email": 1},
-  {"role": "Company Admin", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 1, "share": 0, "print": 1, "email": 1},
-  {"role": "Hotel Front Desk", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 1, "email": 0},
-  {"role": "Hotel Housekeeping", "read": 1, "write": 1, "create": 0, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 1, "email": 0},
-  {"role": "Desk User", "read": 1, "write": 0, "create": 0, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 0, "email": 0}
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Company Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "share": 0,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Hotel Front Desk",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 0,
+   "print": 1,
+   "email": 0
+  },
+  {
+   "role": "Hotel Housekeeping",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 0,
+   "print": 1,
+   "email": 0
+  },
+  {
+   "role": "Desk User",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 0,
+   "print": 0,
+   "email": 0
+  }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",

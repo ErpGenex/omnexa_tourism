@@ -6,15 +6,22 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "identity_section",
   "hotel",
   "floor_name",
   "floor_code",
   "company",
   "branch",
   "sort_order",
-  "status"
+  "status",
+  "control_section"
  ],
  "fields": [
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Floor Identity"
+  },
   {
    "fieldname": "hotel",
    "fieldtype": "Link",
@@ -67,6 +74,11 @@
    "label": "Status",
    "options": "Active\nInactive",
    "reqd": 1
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Control"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -156,4 +168,3 @@
  "states": [],
  "track_changes": 1
 }
-

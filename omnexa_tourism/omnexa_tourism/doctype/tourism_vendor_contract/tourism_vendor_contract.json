@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "identity_section",
   "contract_name",
   "vendor",
   "company",
@@ -14,29 +15,136 @@
   "currency",
   "status",
   "fare_rules_section",
-  "fare_rules"
+  "fare_rules",
+  "control_section",
+  "contract_owner"
  ],
  "fields": [
-  {"fieldname": "contract_name", "fieldtype": "Data", "label": "Contract Name", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "vendor", "fieldtype": "Link", "label": "Vendor", "options": "Tourism Travel Vendor", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "company", "fieldtype": "Link", "label": "Company", "options": "Company", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "branch", "fieldtype": "Link", "label": "Branch", "options": "Branch", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "valid_from", "fieldtype": "Date", "label": "Valid From", "reqd": 1},
-  {"fieldname": "valid_until", "fieldtype": "Date", "label": "Valid Until"},
-  {"fieldname": "currency", "fieldtype": "Data", "label": "Currency"},
-  {"fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Active\nInactive", "default": "Active", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "fare_rules_section", "fieldtype": "Section Break", "label": "Fare Rules"},
-  {"fieldname": "fare_rules", "fieldtype": "Table", "label": "Fare Rules", "options": "Tourism Vendor Fare Rule"}
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Vendor Contract Identity"
+  },
+  {
+   "fieldname": "contract_name",
+   "fieldtype": "Data",
+   "label": "Contract Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Tourism Travel Vendor",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valid From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "valid_until",
+   "fieldtype": "Date",
+   "label": "Valid Until"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Data",
+   "label": "Currency"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive",
+   "default": "Active",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "fare_rules_section",
+   "fieldtype": "Section Break",
+   "label": "Fare Rules"
+  },
+  {
+   "fieldname": "fare_rules",
+   "fieldtype": "Table",
+   "label": "Fare Rules",
+   "options": "Tourism Vendor Fare Rule"
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Governance"
+  },
+  {
+   "fieldname": "contract_owner",
+   "fieldtype": "Link",
+   "label": "Contract Owner",
+   "options": "User"
+  }
  ],
  "module": "Omnexa Tourism",
  "name": "Tourism Vendor Contract",
  "permissions": [
-  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1, "share": 1, "print": 1, "email": 1},
-  {"role": "Company Admin", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 1, "share": 0, "print": 1, "email": 1},
-  {"role": "Desk User", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 0, "email": 0}
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Company Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "share": 0,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Desk User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 0,
+   "print": 0,
+   "email": 0
+  }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
 }
-

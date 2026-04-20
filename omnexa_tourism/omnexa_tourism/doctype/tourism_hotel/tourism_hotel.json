@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "identity_section",
   "hotel_name",
   "company",
   "branch",
@@ -15,9 +16,16 @@
   "operation_model",
   "revenue_account",
   "receivable_account",
-  "status"
+  "status",
+  "control_section",
+  "hotel_code"
  ],
  "fields": [
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Hotel Identity"
+  },
   {
    "fieldname": "hotel_name",
    "fieldtype": "Data",
@@ -82,6 +90,16 @@
    "label": "Status",
    "options": "Active\nInactive",
    "reqd": 1
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Control"
+  },
+  {
+   "fieldname": "hotel_code",
+   "fieldtype": "Data",
+   "label": "Hotel Code"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -171,4 +189,3 @@
  "states": [],
  "track_changes": 1
 }
-

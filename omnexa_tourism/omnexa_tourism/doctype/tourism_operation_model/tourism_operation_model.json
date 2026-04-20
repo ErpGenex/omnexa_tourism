@@ -6,13 +6,21 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "identity_section",
   "model_name",
   "company",
   "branch",
   "operation_model",
-  "status"
+  "status",
+  "control_section",
+  "model_owner"
  ],
  "fields": [
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Operation Model Identity"
+  },
   {
    "fieldname": "model_name",
    "fieldtype": "Data",
@@ -52,6 +60,17 @@
    "label": "Status",
    "options": "Active\nInactive",
    "reqd": 1
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Governance"
+  },
+  {
+   "fieldname": "model_owner",
+   "fieldtype": "Link",
+   "label": "Model Owner",
+   "options": "User"
   }
  ],
  "grid_page_length": 50,

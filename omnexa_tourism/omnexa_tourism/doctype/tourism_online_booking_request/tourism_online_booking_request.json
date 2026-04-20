@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "identity_section",
   "request_type",
   "status",
   "customer_section",
@@ -40,61 +41,285 @@
   "created_flight_booking",
   "created_beach_booking",
   "created_restaurant_order",
-  "created_activity_booking"
+  "created_activity_booking",
+  "control_section",
+  "request_reference"
  ],
  "fields": [
-  {"fieldname": "request_type", "fieldtype": "Select", "label": "Request Type", "options": "Hotel\nFlight Ticket\nBeach\nRestaurant\nActivity", "default": "Hotel", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "New\nIn Progress\nConverted\nClosed\nCancelled", "default": "New", "reqd": 1, "in_list_view": 1},
-
-  {"fieldname": "customer_section", "fieldtype": "Section Break", "label": "Customer"},
-  {"fieldname": "customer_name", "fieldtype": "Data", "label": "Customer Name", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "email", "fieldtype": "Data", "label": "Email", "reqd": 1},
-  {"fieldname": "phone", "fieldtype": "Data", "label": "Phone"},
-  {"fieldname": "company", "fieldtype": "Link", "label": "Company", "options": "Company", "reqd": 1},
-  {"fieldname": "branch", "fieldtype": "Link", "label": "Branch", "options": "Branch", "reqd": 1},
-
-  {"fieldname": "details_section", "fieldtype": "Section Break", "label": "Details"},
-  {"fieldname": "hotel", "fieldtype": "Link", "label": "Hotel (optional)", "options": "Tourism Hotel"},
-  {"fieldname": "room_unit", "fieldtype": "Link", "label": "Room Unit (optional)", "options": "Tourism Room Unit"},
-  {"fieldname": "restaurant_venue", "fieldtype": "Link", "label": "Restaurant Venue", "options": "Tourism Restaurant Venue"},
-  {"fieldname": "beach_facility", "fieldtype": "Link", "label": "Beach Facility", "options": "Tourism Beach Facility"},
-  {"fieldname": "check_in_date", "fieldtype": "Date", "label": "Check In Date"},
-  {"fieldname": "check_out_date", "fieldtype": "Date", "label": "Check Out Date"},
-
-  {"fieldname": "from_airport", "fieldtype": "Data", "label": "From (Airport)"},
-  {"fieldname": "to_airport", "fieldtype": "Data", "label": "To (Airport)"},
-  {"fieldname": "departure_datetime", "fieldtype": "Datetime", "label": "Departure"},
-  {"fieldname": "return_datetime", "fieldtype": "Datetime", "label": "Return"},
-  {"fieldname": "trip_type", "fieldtype": "Select", "label": "Trip Type", "options": "One-way\nRound-trip", "default": "One-way"},
-  {"fieldname": "cabin_class", "fieldtype": "Select", "label": "Cabin Class", "options": "Economy\nPremium Economy\nBusiness\nFirst", "default": "Economy"},
-  {"fieldname": "passengers", "fieldtype": "Int", "label": "Passengers", "default": "1"},
-
-  {"fieldname": "service_datetime", "fieldtype": "Datetime", "label": "Service Date/Time"},
-  {"fieldname": "party_size", "fieldtype": "Int", "label": "Party Size", "default": "2"},
-  {"fieldname": "activity_name", "fieldtype": "Data", "label": "Activity Name"},
-  {"fieldname": "location", "fieldtype": "Data", "label": "Location"},
-  {"fieldname": "activity_date", "fieldtype": "Date", "label": "Activity Date"},
-  {"fieldname": "participants", "fieldtype": "Int", "label": "Participants", "default": "1"},
-
-  {"fieldname": "notes", "fieldtype": "Small Text", "label": "Notes"},
-
-  {"fieldname": "system_section", "fieldtype": "Section Break", "label": "System"},
-  {"fieldname": "source", "fieldtype": "Data", "label": "Source", "read_only": 1},
-  {"fieldname": "created_booking", "fieldtype": "Link", "label": "Created Hotel Booking", "options": "Tourism Booking", "read_only": 1},
-  {"fieldname": "created_flight_booking", "fieldtype": "Link", "label": "Created Flight Booking", "options": "Tourism Flight Booking", "read_only": 1},
-  {"fieldname": "created_beach_booking", "fieldtype": "Link", "label": "Created Beach Booking", "options": "Tourism Beach Booking", "read_only": 1},
-  {"fieldname": "created_restaurant_order", "fieldtype": "Link", "label": "Created Restaurant Order", "options": "Restaurant Order", "read_only": 1},
-  {"fieldname": "created_activity_booking", "fieldtype": "Link", "label": "Created Activity Booking", "options": "Tourism Activity Booking", "read_only": 1}
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Online Request Identity"
+  },
+  {
+   "fieldname": "request_type",
+   "fieldtype": "Select",
+   "label": "Request Type",
+   "options": "Hotel\nFlight Ticket\nBeach\nRestaurant\nActivity",
+   "default": "Hotel",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "New\nIn Progress\nConverted\nClosed\nCancelled",
+   "default": "New",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer_section",
+   "fieldtype": "Section Break",
+   "label": "Customer"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "hotel",
+   "fieldtype": "Link",
+   "label": "Hotel (optional)",
+   "options": "Tourism Hotel"
+  },
+  {
+   "fieldname": "room_unit",
+   "fieldtype": "Link",
+   "label": "Room Unit (optional)",
+   "options": "Tourism Room Unit"
+  },
+  {
+   "fieldname": "restaurant_venue",
+   "fieldtype": "Link",
+   "label": "Restaurant Venue",
+   "options": "Tourism Restaurant Venue"
+  },
+  {
+   "fieldname": "beach_facility",
+   "fieldtype": "Link",
+   "label": "Beach Facility",
+   "options": "Tourism Beach Facility"
+  },
+  {
+   "fieldname": "check_in_date",
+   "fieldtype": "Date",
+   "label": "Check In Date"
+  },
+  {
+   "fieldname": "check_out_date",
+   "fieldtype": "Date",
+   "label": "Check Out Date"
+  },
+  {
+   "fieldname": "from_airport",
+   "fieldtype": "Data",
+   "label": "From (Airport)"
+  },
+  {
+   "fieldname": "to_airport",
+   "fieldtype": "Data",
+   "label": "To (Airport)"
+  },
+  {
+   "fieldname": "departure_datetime",
+   "fieldtype": "Datetime",
+   "label": "Departure"
+  },
+  {
+   "fieldname": "return_datetime",
+   "fieldtype": "Datetime",
+   "label": "Return"
+  },
+  {
+   "fieldname": "trip_type",
+   "fieldtype": "Select",
+   "label": "Trip Type",
+   "options": "One-way\nRound-trip",
+   "default": "One-way"
+  },
+  {
+   "fieldname": "cabin_class",
+   "fieldtype": "Select",
+   "label": "Cabin Class",
+   "options": "Economy\nPremium Economy\nBusiness\nFirst",
+   "default": "Economy"
+  },
+  {
+   "fieldname": "passengers",
+   "fieldtype": "Int",
+   "label": "Passengers",
+   "default": "1"
+  },
+  {
+   "fieldname": "service_datetime",
+   "fieldtype": "Datetime",
+   "label": "Service Date/Time"
+  },
+  {
+   "fieldname": "party_size",
+   "fieldtype": "Int",
+   "label": "Party Size",
+   "default": "2"
+  },
+  {
+   "fieldname": "activity_name",
+   "fieldtype": "Data",
+   "label": "Activity Name"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "activity_date",
+   "fieldtype": "Date",
+   "label": "Activity Date"
+  },
+  {
+   "fieldname": "participants",
+   "fieldtype": "Int",
+   "label": "Participants",
+   "default": "1"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "system_section",
+   "fieldtype": "Section Break",
+   "label": "System"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_booking",
+   "fieldtype": "Link",
+   "label": "Created Hotel Booking",
+   "options": "Tourism Booking",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_flight_booking",
+   "fieldtype": "Link",
+   "label": "Created Flight Booking",
+   "options": "Tourism Flight Booking",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_beach_booking",
+   "fieldtype": "Link",
+   "label": "Created Beach Booking",
+   "options": "Tourism Beach Booking",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_restaurant_order",
+   "fieldtype": "Link",
+   "label": "Created Restaurant Order",
+   "options": "Restaurant Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_activity_booking",
+   "fieldtype": "Link",
+   "label": "Created Activity Booking",
+   "options": "Tourism Activity Booking",
+   "read_only": 1
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Control"
+  },
+  {
+   "fieldname": "request_reference",
+   "fieldtype": "Data",
+   "label": "Request Reference"
+  }
  ],
  "module": "Omnexa Tourism",
  "name": "Tourism Online Booking Request",
  "permissions": [
-  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1, "share": 1, "print": 1, "email": 1},
-  {"role": "Company Admin", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 1, "share": 0, "print": 1, "email": 1},
-  {"role": "Desk User", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 1, "email": 0}
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Company Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "share": 0,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Desk User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 0,
+   "print": 1,
+   "email": 0
+  }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
 }
-

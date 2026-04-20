@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "identity_section",
   "rule_name",
   "applies_to",
   "company",
@@ -18,33 +19,169 @@
   "priority",
   "markup_type",
   "markup_value",
-  "is_active"
+  "is_active",
+  "control_section",
+  "rule_owner"
  ],
  "fields": [
-  {"fieldname": "rule_name", "fieldtype": "Data", "label": "Rule Name", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "applies_to", "fieldtype": "Select", "label": "Applies To", "options": "Flight Ticket\nTransport\nActivity\nPackage", "default": "Flight Ticket", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "company", "fieldtype": "Link", "label": "Company", "options": "Company", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "branch", "fieldtype": "Link", "label": "Branch", "options": "Branch", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "customer", "fieldtype": "Link", "label": "Customer (optional)", "options": "Customer"},
-  {"fieldname": "vendor", "fieldtype": "Link", "label": "Vendor (optional)", "options": "Tourism Travel Vendor"},
-  {"fieldname": "from_airport", "fieldtype": "Data", "label": "From (Airport) (optional)"},
-  {"fieldname": "to_airport", "fieldtype": "Data", "label": "To (Airport) (optional)"},
-  {"fieldname": "trip_type", "fieldtype": "Select", "label": "Trip Type (optional)", "options": "\nOne-way\nRound-trip", "default": ""},
-  {"fieldname": "cabin_class", "fieldtype": "Select", "label": "Cabin Class (optional)", "options": "\nEconomy\nPremium Economy\nBusiness\nFirst", "default": ""},
-  {"fieldname": "priority", "fieldtype": "Int", "label": "Priority", "default": "100", "in_list_view": 1, "description": "Lower number wins."},
-  {"fieldname": "markup_type", "fieldtype": "Select", "label": "Markup Type", "options": "Amount\nPercent", "default": "Percent", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "markup_value", "fieldtype": "Float", "label": "Markup Value", "default": "0", "reqd": 1, "in_list_view": 1},
-  {"fieldname": "is_active", "fieldtype": "Check", "label": "Is Active", "default": "1", "in_list_view": 1}
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing Rule Identity"
+  },
+  {
+   "fieldname": "rule_name",
+   "fieldtype": "Data",
+   "label": "Rule Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "applies_to",
+   "fieldtype": "Select",
+   "label": "Applies To",
+   "options": "Flight Ticket\nTransport\nActivity\nPackage",
+   "default": "Flight Ticket",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer (optional)",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor (optional)",
+   "options": "Tourism Travel Vendor"
+  },
+  {
+   "fieldname": "from_airport",
+   "fieldtype": "Data",
+   "label": "From (Airport) (optional)"
+  },
+  {
+   "fieldname": "to_airport",
+   "fieldtype": "Data",
+   "label": "To (Airport) (optional)"
+  },
+  {
+   "fieldname": "trip_type",
+   "fieldtype": "Select",
+   "label": "Trip Type (optional)",
+   "options": "\nOne-way\nRound-trip",
+   "default": ""
+  },
+  {
+   "fieldname": "cabin_class",
+   "fieldtype": "Select",
+   "label": "Cabin Class (optional)",
+   "options": "\nEconomy\nPremium Economy\nBusiness\nFirst",
+   "default": ""
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority",
+   "default": "100",
+   "in_list_view": 1,
+   "description": "Lower number wins."
+  },
+  {
+   "fieldname": "markup_type",
+   "fieldtype": "Select",
+   "label": "Markup Type",
+   "options": "Amount\nPercent",
+   "default": "Percent",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "markup_value",
+   "fieldtype": "Float",
+   "label": "Markup Value",
+   "default": "0",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Governance"
+  },
+  {
+   "fieldname": "rule_owner",
+   "fieldtype": "Link",
+   "label": "Rule Owner",
+   "options": "User"
+  }
  ],
  "module": "Omnexa Tourism",
  "name": "Tourism Pricing Rule",
  "permissions": [
-  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1, "share": 1, "print": 1, "email": 1},
-  {"role": "Company Admin", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 1, "share": 0, "print": 1, "email": 1},
-  {"role": "Desk User", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 0, "email": 0}
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Company Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "share": 0,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Desk User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 0,
+   "print": 0,
+   "email": 0
+  }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
 }
-

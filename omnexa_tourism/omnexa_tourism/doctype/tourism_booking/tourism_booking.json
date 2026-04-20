@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "identity_section",
   "guest_section",
   "customer",
   "guest_name",
@@ -27,11 +28,29 @@
   "integration_section",
   "guest_folio",
   "sales_invoice",
-  "housekeeping_task"
+  "housekeeping_task",
+  "control_section",
+  "booking_owner"
  ],
  "fields": [
-  {"fieldname": "guest_section", "fieldtype": "Section Break", "label": "Guest"},
-  {"fieldname": "customer", "fieldtype": "Link", "in_list_view": 1, "label": "Customer", "options": "Customer", "reqd": 1},
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Booking Identity"
+  },
+  {
+   "fieldname": "guest_section",
+   "fieldtype": "Section Break",
+   "label": "Guest"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
   {
    "fetch_from": "customer.customer_name",
    "fieldname": "guest_name",
@@ -40,19 +59,93 @@
    "label": "Guest display name",
    "read_only": 1
   },
-  {"fieldname": "company", "fieldtype": "Link", "in_list_view": 1, "label": "Company", "options": "Company", "reqd": 1},
-  {"fieldname": "branch", "fieldtype": "Link", "in_list_view": 1, "label": "Branch", "options": "Branch", "reqd": 1},
-  {"fieldname": "hotel", "fieldtype": "Link", "in_list_view": 1, "label": "Hotel", "options": "Tourism Hotel", "read_only": 1},
-  {"fieldname": "stay_section", "fieldtype": "Section Break", "label": "Stay"},
-  {"fieldname": "unit", "fieldtype": "Link", "in_list_view": 1, "label": "Room Unit", "options": "Tourism Room Unit", "reqd": 1},
-  {"fieldname": "check_in_date", "fieldtype": "Date", "label": "Check In Date", "reqd": 1},
-  {"fieldname": "check_out_date", "fieldtype": "Date", "label": "Check Out Date", "reqd": 1},
-  {"fieldname": "nights", "fieldtype": "Int", "label": "Nights", "read_only": 1, "in_list_view": 1},
-  {"default": "1", "fieldname": "adults", "fieldtype": "Int", "label": "Adults", "reqd": 1},
-  {"default": "0", "fieldname": "children", "fieldtype": "Int", "label": "Children"},
-  {"fieldname": "pricing_section", "fieldtype": "Section Break", "label": "Pricing"},
-  {"default": "0", "fieldname": "rate_per_night", "fieldtype": "Currency", "label": "Rate per night", "reqd": 1},
-  {"fieldname": "total_room_charges", "fieldtype": "Currency", "label": "Total room charges", "read_only": 1},
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hotel",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Hotel",
+   "options": "Tourism Hotel",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stay_section",
+   "fieldtype": "Section Break",
+   "label": "Stay"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Room Unit",
+   "options": "Tourism Room Unit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "check_in_date",
+   "fieldtype": "Date",
+   "label": "Check In Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "check_out_date",
+   "fieldtype": "Date",
+   "label": "Check Out Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "nights",
+   "fieldtype": "Int",
+   "label": "Nights",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "adults",
+   "fieldtype": "Int",
+   "label": "Adults",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "children",
+   "fieldtype": "Int",
+   "label": "Children"
+  },
+  {
+   "fieldname": "pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing"
+  },
+  {
+   "default": "0",
+   "fieldname": "rate_per_night",
+   "fieldtype": "Currency",
+   "label": "Rate per night",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_room_charges",
+   "fieldtype": "Currency",
+   "label": "Total room charges",
+   "read_only": 1
+  },
   {
    "default": "Direct",
    "fieldname": "booking_channel",
@@ -70,15 +163,42 @@
    "options": "Draft\nConfirmed\nChecked In\nChecked Out\nCancelled",
    "reqd": 1
   },
-  {"fieldname": "integration_section", "fieldtype": "Section Break", "label": "Accounting & operations"},
-  {"fieldname": "guest_folio", "fieldtype": "Link", "label": "Guest Folio", "options": "Tourism Guest Folio", "read_only": 1},
-  {"fieldname": "sales_invoice", "fieldtype": "Link", "label": "Sales Invoice", "options": "Sales Invoice", "read_only": 1},
+  {
+   "fieldname": "integration_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting & operations"
+  },
+  {
+   "fieldname": "guest_folio",
+   "fieldtype": "Link",
+   "label": "Guest Folio",
+   "options": "Tourism Guest Folio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
   {
    "fieldname": "housekeeping_task",
    "fieldtype": "Link",
    "label": "Housekeeping task",
    "options": "Tourism Housekeeping Task",
    "read_only": 1
+  },
+  {
+   "fieldname": "control_section",
+   "fieldtype": "Section Break",
+   "label": "Control"
+  },
+  {
+   "fieldname": "booking_owner",
+   "fieldtype": "Link",
+   "label": "Booking Owner",
+   "options": "User"
   }
  ],
  "grid_page_length": 50,
@@ -91,10 +211,54 @@
  "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [
-  {"role": "System Manager", "read": 1, "write": 1, "create": 1, "delete": 1, "report": 1, "export": 1, "share": 1, "print": 1, "email": 1},
-  {"role": "Company Admin", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 1, "share": 0, "print": 1, "email": 1},
-  {"role": "Hotel Front Desk", "read": 1, "write": 1, "create": 1, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 1, "email": 0},
-  {"role": "Desk User", "read": 1, "write": 0, "create": 0, "delete": 0, "report": 1, "export": 0, "share": 0, "print": 0, "email": 0}
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Company Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "share": 0,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "Hotel Front Desk",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 0,
+   "print": 1,
+   "email": 0
+  },
+  {
+   "role": "Desk User",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 0,
+   "print": 0,
+   "email": 0
+  }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
