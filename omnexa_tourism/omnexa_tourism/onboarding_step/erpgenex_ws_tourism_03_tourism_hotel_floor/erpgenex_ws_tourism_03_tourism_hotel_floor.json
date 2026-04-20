@@ -1,0 +1,21 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create",
+ "creation": "2026-04-20 00:31:43.316805",
+ "description": "Create or review your first **Tourism Hotel Floor** record from this workspace.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-04-20 02:24:49.429428",
+ "modified_by": "Administrator",
+ "name": "ERPGENEX-WS-tourism-03-tourism_hotel_floor",
+ "owner": "Administrator",
+ "reference_document": "Tourism Hotel Floor",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Get started with Tourism Hotel Floor",
+ "validate_action": 1
+}

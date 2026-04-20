@@ -1,0 +1,41 @@
+{
+ "allow_roles": [
+  {
+   "role": "Desk User"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "creation": "2026-04-20 00:31:43.331730",
+ "docstatus": 0,
+ "doctype": "Module Onboarding",
+ "documentation_url": "https://frappe.io/framework",
+ "idx": 0,
+ "is_complete": 0,
+ "modified": "2026-04-20 02:24:49.461342",
+ "modified_by": "Administrator",
+ "module": "Omnexa Tourism",
+ "name": "ERPGENEX \u2014 tourism",
+ "owner": "Administrator",
+ "steps": [
+  {
+   "step": "ERPGENEX-WS-tourism-01-tourism_operation_model"
+  },
+  {
+   "step": "ERPGENEX-WS-tourism-02-tourism_hotel"
+  },
+  {
+   "step": "ERPGENEX-WS-tourism-03-tourism_hotel_floor"
+  },
+  {
+   "step": "ERPGENEX-WS-tourism-04-tourism_restaurant_venue"
+  },
+  {
+   "step": "ERPGENEX-WS-tourism-home"
+  }
+ ],
+ "subtitle": "Guided setup for this workspace.",
+ "success_message": "You are ready to work in tourism.",
+ "title": "ERPGENEX \u00b7 tourism"
+}
