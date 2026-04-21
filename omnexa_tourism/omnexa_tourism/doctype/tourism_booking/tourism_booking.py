@@ -26,6 +26,7 @@ class TourismBooking(Document):
 		self._validate_unit_assignment()
 		self._validate_no_overlapping_booking()
 		self._validate_status_transition()
+		self._validate_lifecycle_controls()
 		self._set_charges()
 
 	def before_save(self):
@@ -125,6 +126,15 @@ class TourismBooking(Document):
 				),
 				title=_("Status"),
 			)
+
+	def _validate_lifecycle_controls(self):
+		if self.status in {"Confirmed", "Checked In", "Checked Out"}:
+			if not self.customer:
+				frappe.throw(_("Customer is mandatory for confirmed/active bookings."), title=_("Booking"))
+			if not self.unit:
+				frappe.throw(_("Room unit is mandatory for confirmed/active bookings."), title=_("Booking"))
+			if flt(self.rate_per_night) <= 0:
+				frappe.throw(_("Rate per night must be greater than zero."), title=_("Pricing"))
 
 	def _on_checked_out(self):
 		self._ensure_guest_folio()

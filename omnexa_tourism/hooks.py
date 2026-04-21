@@ -81,7 +81,8 @@ add_to_apps_screen = [
 # Installation
 # ------------
 
-# before_install = "omnexa_tourism.install.before_install"
+before_install = "omnexa_tourism.install.enforce_supported_frappe_version"
+before_migrate = "omnexa_tourism.install.enforce_supported_frappe_version"
 after_install = "omnexa_tourism.install.after_install"
 
 # Uninstallation

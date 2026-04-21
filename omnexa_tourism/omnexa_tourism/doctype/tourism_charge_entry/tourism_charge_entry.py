@@ -9,6 +9,10 @@ from omnexa_tourism.folio_ops import recalculate_guest_folio
 class TourismChargeEntry(Document):
 	def validate(self):
 		self.amount = flt(self.quantity) * flt(self.rate)
+		if not self.folio:
+			frappe.throw(_("Guest folio is mandatory for charge entry."), title=_("Folio"))
+		if flt(self.amount) <= 0:
+			frappe.throw(_("Charge amount must be greater than zero."), title=_("Charge"))
 		self._validate_folio_alignment()
 
 	def on_update(self):
