@@ -1,163 +1,161 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "format:RES-{YYYY}-{#####}",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "identity_section",
-  "customer",
-  "company",
-  "branch",
-  "hotel",
-  "restaurant_venue",
-  "restaurant_name",
-  "service_datetime",
-  "party_size",
-  "status",
-  "restaurant_order",
-  "online_request",
-  "control_section",
-  "reservation_reference"
- ],
- "fields": [
-  {
-   "fieldname": "identity_section",
-   "fieldtype": "Section Break",
-   "label": "Reservation Identity"
-  },
-  {
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "label": "Customer",
-   "options": "Customer",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "branch",
-   "fieldtype": "Link",
-   "label": "Branch",
-   "options": "Branch",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "hotel",
-   "fieldtype": "Link",
-   "label": "Hotel (optional)",
-   "options": "Tourism Hotel"
-  },
-  {
-   "fieldname": "restaurant_venue",
-   "fieldtype": "Link",
-   "label": "Restaurant Venue",
-   "options": "Tourism Restaurant Venue"
-  },
-  {
-   "fieldname": "restaurant_name",
-   "fieldtype": "Data",
-   "label": "Restaurant",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "service_datetime",
-   "fieldtype": "Datetime",
-   "label": "Date/Time",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "party_size",
-   "fieldtype": "Int",
-   "label": "Guests",
-   "default": "2",
-   "reqd": 1
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Draft\nConfirmed\nCancelled\nClosed",
-   "default": "Draft",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "restaurant_order",
-   "fieldtype": "Link",
-   "label": "Restaurant Order",
-   "options": "Restaurant Order",
-   "read_only": 1
-  },
-  {
-   "fieldname": "online_request",
-   "fieldtype": "Link",
-   "label": "Online Request",
-   "options": "Tourism Online Booking Request",
-   "read_only": 1
-  },
-  {
-   "fieldname": "control_section",
-   "fieldtype": "Section Break",
-   "label": "Control"
-  },
-  {
-   "fieldname": "reservation_reference",
-   "fieldtype": "Data",
-   "label": "Reservation Reference"
-  }
- ],
- "module": "Omnexa Tourism",
- "name": "Tourism Restaurant Reservation",
- "permissions": [
-  {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "report": 1,
-   "export": 1,
-   "share": 1,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Company Admin",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 1,
-   "share": 0,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Desk User",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+	"actions": [],
+	"allow_rename": 1,
+	"autoname": "format:RES-{YYYY}-{#####}",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"customer",
+		"company",
+		"branch",
+		"hotel",
+		"column_break_omnexa_1",
+		"restaurant_venue",
+		"restaurant_name",
+		"service_datetime",
+		"party_size",
+		"column_break_omnexa_2",
+		"status",
+		"restaurant_order",
+		"online_request",
+		"reservation_reference"
+	],
+	"fields": [
+		{
+			"fieldname": "customer",
+			"fieldtype": "Link",
+			"label": "Customer",
+			"options": "Customer",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "Company",
+			"options": "Company",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "branch",
+			"fieldtype": "Link",
+			"label": "Branch",
+			"options": "Branch",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "hotel",
+			"fieldtype": "Link",
+			"label": "Hotel (optional)",
+			"options": "Tourism Hotel"
+		},
+		{
+			"fieldname": "restaurant_venue",
+			"fieldtype": "Link",
+			"label": "Restaurant Venue",
+			"options": "Tourism Restaurant Venue"
+		},
+		{
+			"fieldname": "restaurant_name",
+			"fieldtype": "Data",
+			"label": "Restaurant",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "service_datetime",
+			"fieldtype": "Datetime",
+			"label": "Date/Time",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "party_size",
+			"fieldtype": "Int",
+			"label": "Guests",
+			"default": "2",
+			"reqd": 1
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Draft\nConfirmed\nCancelled\nClosed",
+			"default": "Draft",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "restaurant_order",
+			"fieldtype": "Link",
+			"label": "Restaurant Order",
+			"options": "Restaurant Order",
+			"read_only": 1
+		},
+		{
+			"fieldname": "online_request",
+			"fieldtype": "Link",
+			"label": "Online Request",
+			"options": "Tourism Online Booking Request",
+			"read_only": 1
+		},
+		{
+			"fieldname": "reservation_reference",
+			"fieldtype": "Data",
+			"label": "Reservation Reference"
+		},
+		{
+			"fieldname": "column_break_omnexa_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_2",
+			"fieldtype": "Column Break"
+		}
+	],
+	"module": "Omnexa Tourism",
+	"name": "Tourism Restaurant Reservation",
+	"permissions": [
+		{
+			"role": "System Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 1,
+			"report": 1,
+			"export": 1,
+			"share": 1,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Company Admin",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 1,
+			"share": 0,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Desk User",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
 }

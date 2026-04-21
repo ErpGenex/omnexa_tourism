@@ -1,192 +1,190 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "format:TPB-{YYYY}-{#####}",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "identity_section",
-  "customer",
-  "company",
-  "branch",
-  "travel_package",
-  "start_date",
-  "end_date",
-  "adults",
-  "children",
-  "vendor",
-  "currency",
-  "package_price",
-  "status",
-  "folio",
-  "service_order",
-  "charge_entry",
-  "control_section",
-  "booking_reference"
- ],
- "fields": [
-  {
-   "fieldname": "identity_section",
-   "fieldtype": "Section Break",
-   "label": "Package Booking Identity"
-  },
-  {
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "label": "Customer",
-   "options": "Customer",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "branch",
-   "fieldtype": "Link",
-   "label": "Branch",
-   "options": "Branch",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "travel_package",
-   "fieldtype": "Link",
-   "label": "Travel Package",
-   "options": "Tourism Travel Package",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "start_date",
-   "fieldtype": "Date",
-   "label": "Start Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "end_date",
-   "fieldtype": "Date",
-   "label": "End Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "adults",
-   "fieldtype": "Int",
-   "label": "Adults",
-   "default": "1",
-   "reqd": 1
-  },
-  {
-   "fieldname": "children",
-   "fieldtype": "Int",
-   "label": "Children",
-   "default": "0"
-  },
-  {
-   "fieldname": "vendor",
-   "fieldtype": "Link",
-   "label": "Vendor",
-   "options": "Tourism Travel Vendor"
-  },
-  {
-   "fieldname": "currency",
-   "fieldtype": "Data",
-   "label": "Currency"
-  },
-  {
-   "fieldname": "package_price",
-   "fieldtype": "Currency",
-   "label": "Package Price",
-   "default": "0",
-   "reqd": 1
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Draft\nConfirmed\nCancelled\nBilled",
-   "default": "Draft",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "folio",
-   "fieldtype": "Link",
-   "label": "Guest Folio",
-   "options": "Tourism Guest Folio",
-   "read_only": 1
-  },
-  {
-   "fieldname": "service_order",
-   "fieldtype": "Link",
-   "label": "Tourism Service Order",
-   "options": "Tourism Service Order",
-   "read_only": 1
-  },
-  {
-   "fieldname": "charge_entry",
-   "fieldtype": "Link",
-   "label": "Tourism Charge Entry",
-   "options": "Tourism Charge Entry",
-   "read_only": 1
-  },
-  {
-   "fieldname": "control_section",
-   "fieldtype": "Section Break",
-   "label": "Control"
-  },
-  {
-   "fieldname": "booking_reference",
-   "fieldtype": "Data",
-   "label": "Booking Reference"
-  }
- ],
- "module": "Omnexa Tourism",
- "name": "Tourism Package Booking",
- "permissions": [
-  {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "report": 1,
-   "export": 1,
-   "share": 1,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Company Admin",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 1,
-   "share": 0,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Desk User",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+	"actions": [],
+	"allow_rename": 1,
+	"autoname": "format:TPB-{YYYY}-{#####}",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"customer",
+		"company",
+		"branch",
+		"travel_package",
+		"start_date",
+		"column_break_omnexa_1",
+		"end_date",
+		"adults",
+		"children",
+		"vendor",
+		"currency",
+		"column_break_omnexa_2",
+		"package_price",
+		"status",
+		"folio",
+		"service_order",
+		"charge_entry",
+		"booking_reference"
+	],
+	"fields": [
+		{
+			"fieldname": "customer",
+			"fieldtype": "Link",
+			"label": "Customer",
+			"options": "Customer",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "Company",
+			"options": "Company",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "branch",
+			"fieldtype": "Link",
+			"label": "Branch",
+			"options": "Branch",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "travel_package",
+			"fieldtype": "Link",
+			"label": "Travel Package",
+			"options": "Tourism Travel Package",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "start_date",
+			"fieldtype": "Date",
+			"label": "Start Date",
+			"reqd": 1
+		},
+		{
+			"fieldname": "end_date",
+			"fieldtype": "Date",
+			"label": "End Date",
+			"reqd": 1
+		},
+		{
+			"fieldname": "adults",
+			"fieldtype": "Int",
+			"label": "Adults",
+			"default": "1",
+			"reqd": 1
+		},
+		{
+			"fieldname": "children",
+			"fieldtype": "Int",
+			"label": "Children",
+			"default": "0"
+		},
+		{
+			"fieldname": "vendor",
+			"fieldtype": "Link",
+			"label": "Vendor",
+			"options": "Tourism Travel Vendor"
+		},
+		{
+			"fieldname": "currency",
+			"fieldtype": "Data",
+			"label": "Currency"
+		},
+		{
+			"fieldname": "package_price",
+			"fieldtype": "Currency",
+			"label": "Package Price",
+			"default": "0",
+			"reqd": 1
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Draft\nConfirmed\nCancelled\nBilled",
+			"default": "Draft",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "folio",
+			"fieldtype": "Link",
+			"label": "Guest Folio",
+			"options": "Tourism Guest Folio",
+			"read_only": 1
+		},
+		{
+			"fieldname": "service_order",
+			"fieldtype": "Link",
+			"label": "Tourism Service Order",
+			"options": "Tourism Service Order",
+			"read_only": 1
+		},
+		{
+			"fieldname": "charge_entry",
+			"fieldtype": "Link",
+			"label": "Tourism Charge Entry",
+			"options": "Tourism Charge Entry",
+			"read_only": 1
+		},
+		{
+			"fieldname": "booking_reference",
+			"fieldtype": "Data",
+			"label": "Booking Reference"
+		},
+		{
+			"fieldname": "column_break_omnexa_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_2",
+			"fieldtype": "Column Break"
+		}
+	],
+	"module": "Omnexa Tourism",
+	"name": "Tourism Package Booking",
+	"permissions": [
+		{
+			"role": "System Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 1,
+			"report": 1,
+			"export": 1,
+			"share": 1,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Company Admin",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 1,
+			"share": 0,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Desk User",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
 }

@@ -1,108 +1,106 @@
 {
- "actions": [],
- "allow_rename": 1,
- "doctype": "DocType",
- "engine": "InnoDB",
- "istable": 1,
- "field_order": [
-  "identity_section",
-  "from_airport",
-  "to_airport",
-  "trip_type",
-  "cabin_class",
-  "fare_basis",
-  "base_fare",
-  "taxes",
-  "fees",
-  "currency",
-  "is_active",
-  "control_section",
-  "rule_reference"
- ],
- "fields": [
-  {
-   "fieldname": "identity_section",
-   "fieldtype": "Section Break",
-   "label": "Fare Rule Identity"
-  },
-  {
-   "fieldname": "from_airport",
-   "fieldtype": "Data",
-   "label": "From (Airport)",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "to_airport",
-   "fieldtype": "Data",
-   "label": "To (Airport)",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "trip_type",
-   "fieldtype": "Select",
-   "label": "Trip Type",
-   "options": "One-way\nRound-trip",
-   "default": "One-way",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "cabin_class",
-   "fieldtype": "Select",
-   "label": "Cabin Class",
-   "options": "Economy\nPremium Economy\nBusiness\nFirst",
-   "default": "Economy",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "fare_basis",
-   "fieldtype": "Data",
-   "label": "Fare Basis"
-  },
-  {
-   "fieldname": "base_fare",
-   "fieldtype": "Currency",
-   "label": "Base Fare",
-   "default": "0",
-   "reqd": 1
-  },
-  {
-   "fieldname": "taxes",
-   "fieldtype": "Currency",
-   "label": "Taxes",
-   "default": "0"
-  },
-  {
-   "fieldname": "fees",
-   "fieldtype": "Currency",
-   "label": "Fees",
-   "default": "0"
-  },
-  {
-   "fieldname": "currency",
-   "fieldtype": "Data",
-   "label": "Currency"
-  },
-  {
-   "fieldname": "is_active",
-   "fieldtype": "Check",
-   "label": "Is Active",
-   "default": "1"
-  },
-  {
-   "fieldname": "control_section",
-   "fieldtype": "Section Break",
-   "label": "Governance"
-  },
-  {
-   "fieldname": "rule_reference",
-   "fieldtype": "Data",
-   "label": "Rule Reference"
-  }
- ],
- "module": "Omnexa Tourism",
- "name": "Tourism Vendor Fare Rule"
+	"actions": [],
+	"allow_rename": 1,
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"istable": 1,
+	"field_order": [
+		"from_airport",
+		"to_airport",
+		"trip_type",
+		"column_break_omnexa_1",
+		"cabin_class",
+		"fare_basis",
+		"base_fare",
+		"taxes",
+		"column_break_omnexa_2",
+		"fees",
+		"currency",
+		"is_active",
+		"rule_reference"
+	],
+	"fields": [
+		{
+			"fieldname": "from_airport",
+			"fieldtype": "Data",
+			"label": "From (Airport)",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "to_airport",
+			"fieldtype": "Data",
+			"label": "To (Airport)",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "trip_type",
+			"fieldtype": "Select",
+			"label": "Trip Type",
+			"options": "One-way\nRound-trip",
+			"default": "One-way",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "cabin_class",
+			"fieldtype": "Select",
+			"label": "Cabin Class",
+			"options": "Economy\nPremium Economy\nBusiness\nFirst",
+			"default": "Economy",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "fare_basis",
+			"fieldtype": "Data",
+			"label": "Fare Basis"
+		},
+		{
+			"fieldname": "base_fare",
+			"fieldtype": "Currency",
+			"label": "Base Fare",
+			"default": "0",
+			"reqd": 1
+		},
+		{
+			"fieldname": "taxes",
+			"fieldtype": "Currency",
+			"label": "Taxes",
+			"default": "0"
+		},
+		{
+			"fieldname": "fees",
+			"fieldtype": "Currency",
+			"label": "Fees",
+			"default": "0"
+		},
+		{
+			"fieldname": "currency",
+			"fieldtype": "Data",
+			"label": "Currency"
+		},
+		{
+			"fieldname": "is_active",
+			"fieldtype": "Check",
+			"label": "Is Active",
+			"default": "1"
+		},
+		{
+			"fieldname": "rule_reference",
+			"fieldtype": "Data",
+			"label": "Rule Reference"
+		},
+		{
+			"fieldname": "column_break_omnexa_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_2",
+			"fieldtype": "Column Break"
+		}
+	],
+	"module": "Omnexa Tourism",
+	"name": "Tourism Vendor Fare Rule"
 }

@@ -1,191 +1,189 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "hash",
- "creation": "2026-04-16 00:00:00",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "identity_section",
-  "hotel_name",
-  "company",
-  "branch",
-  "country",
-  "timezone",
-  "operating_currency",
-  "operation_model",
-  "revenue_account",
-  "receivable_account",
-  "status",
-  "control_section",
-  "hotel_code"
- ],
- "fields": [
-  {
-   "fieldname": "identity_section",
-   "fieldtype": "Section Break",
-   "label": "Hotel Identity"
-  },
-  {
-   "fieldname": "hotel_name",
-   "fieldtype": "Data",
-   "label": "Hotel Name",
-   "in_list_view": 1,
-   "reqd": 1
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company",
-   "in_list_view": 1,
-   "reqd": 1
-  },
-  {
-   "fieldname": "branch",
-   "fieldtype": "Link",
-   "label": "Branch",
-   "options": "Branch",
-   "in_list_view": 1,
-   "reqd": 1
-  },
-  {
-   "fieldname": "country",
-   "fieldtype": "Data",
-   "label": "Country"
-  },
-  {
-   "fieldname": "timezone",
-   "fieldtype": "Data",
-   "label": "Timezone"
-  },
-  {
-   "fieldname": "operating_currency",
-   "fieldtype": "Data",
-   "label": "Operating Currency"
-  },
-  {
-   "fieldname": "operation_model",
-   "fieldtype": "Link",
-   "label": "Operation Model",
-   "options": "Tourism Operation Model"
-  },
-  {
-   "fieldname": "revenue_account",
-   "fieldtype": "Link",
-   "label": "Revenue Account",
-   "options": "GL Account"
-  },
-  {
-   "fieldname": "receivable_account",
-   "fieldtype": "Link",
-   "label": "Receivable Account",
-   "options": "GL Account"
-  },
-  {
-   "default": "Active",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "options": "Active\nInactive",
-   "reqd": 1
-  },
-  {
-   "fieldname": "control_section",
-   "fieldtype": "Section Break",
-   "label": "Control"
-  },
-  {
-   "fieldname": "hotel_code",
-   "fieldtype": "Data",
-   "label": "Hotel Code"
-  }
- ],
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2026-04-16 00:00:00",
- "modified_by": "Administrator",
- "module": "Omnexa Tourism",
- "name": "Tourism Hotel",
- "naming_rule": "Random",
- "owner": "Administrator",
- "permissions": [
-  {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "report": 1,
-   "export": 1,
-   "share": 1,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Company Admin",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 1,
-   "share": 0,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Hotel Front Desk",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  },
-  {
-   "role": "Hotel Housekeeping",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  },
-  {
-   "role": "Hotel General Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "report": 1,
-   "export": 1,
-   "share": 1,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Desk User",
-   "read": 1,
-   "write": 0,
-   "create": 0,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": [],
- "track_changes": 1
+	"actions": [],
+	"allow_rename": 1,
+	"autoname": "hash",
+	"creation": "2026-04-16 00:00:00",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"hotel_name",
+		"company",
+		"branch",
+		"column_break_omnexa_1",
+		"country",
+		"timezone",
+		"operating_currency",
+		"operation_model",
+		"column_break_omnexa_2",
+		"revenue_account",
+		"receivable_account",
+		"status",
+		"hotel_code"
+	],
+	"fields": [
+		{
+			"fieldname": "hotel_name",
+			"fieldtype": "Data",
+			"label": "Hotel Name",
+			"in_list_view": 1,
+			"reqd": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "Company",
+			"options": "Company",
+			"in_list_view": 1,
+			"reqd": 1
+		},
+		{
+			"fieldname": "branch",
+			"fieldtype": "Link",
+			"label": "Branch",
+			"options": "Branch",
+			"in_list_view": 1,
+			"reqd": 1
+		},
+		{
+			"fieldname": "country",
+			"fieldtype": "Data",
+			"label": "Country"
+		},
+		{
+			"fieldname": "timezone",
+			"fieldtype": "Data",
+			"label": "Timezone"
+		},
+		{
+			"fieldname": "operating_currency",
+			"fieldtype": "Data",
+			"label": "Operating Currency"
+		},
+		{
+			"fieldname": "operation_model",
+			"fieldtype": "Link",
+			"label": "Operation Model",
+			"options": "Tourism Operation Model"
+		},
+		{
+			"fieldname": "revenue_account",
+			"fieldtype": "Link",
+			"label": "Revenue Account",
+			"options": "GL Account"
+		},
+		{
+			"fieldname": "receivable_account",
+			"fieldtype": "Link",
+			"label": "Receivable Account",
+			"options": "GL Account"
+		},
+		{
+			"default": "Active",
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "Status",
+			"options": "Active\nInactive",
+			"reqd": 1
+		},
+		{
+			"fieldname": "hotel_code",
+			"fieldtype": "Data",
+			"label": "Hotel Code"
+		},
+		{
+			"fieldname": "column_break_omnexa_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_2",
+			"fieldtype": "Column Break"
+		}
+	],
+	"index_web_pages_for_search": 1,
+	"links": [],
+	"modified": "2026-04-16 00:00:00",
+	"modified_by": "Administrator",
+	"module": "Omnexa Tourism",
+	"name": "Tourism Hotel",
+	"naming_rule": "Random",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"role": "System Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 1,
+			"report": 1,
+			"export": 1,
+			"share": 1,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Company Admin",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 1,
+			"share": 0,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Hotel Front Desk",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		},
+		{
+			"role": "Hotel Housekeeping",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		},
+		{
+			"role": "Hotel General Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 1,
+			"report": 1,
+			"export": 1,
+			"share": 1,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Desk User",
+			"read": 1,
+			"write": 0,
+			"create": 0,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
 }

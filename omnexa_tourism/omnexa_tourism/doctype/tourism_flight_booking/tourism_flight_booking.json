@@ -1,312 +1,320 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "format:FLT-{YYYY}-{#####}",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "identity_section",
-  "customer",
-  "company",
-  "branch",
-  "vendor",
-  "from_airport",
-  "to_airport",
-  "trip_type",
-  "cabin_class",
-  "fare_basis",
-  "departure_datetime",
-  "return_datetime",
-  "passengers",
-  "pnr",
-  "ticket_no",
-  "currency",
-  "base_fare",
-  "taxes",
-  "fees",
-  "total_price",
-  "pricing_section",
-  "auto_price",
-  "markup_rule",
-  "markup_type",
-  "markup_value",
-  "markup_amount",
-  "price",
-  "status",
-  "status_dates_section",
-  "confirmed_on",
-  "ticketed_on",
-  "service_order",
-  "charge_entry",
-  "control_section",
-  "pnr_reference"
- ],
- "fields": [
-  {
-   "fieldname": "identity_section",
-   "fieldtype": "Section Break",
-   "label": "Flight Booking Identity"
-  },
-  {
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "label": "Customer",
-   "options": "Customer",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "branch",
-   "fieldtype": "Link",
-   "label": "Branch",
-   "options": "Branch",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "vendor",
-   "fieldtype": "Link",
-   "label": "Airline / Vendor",
-   "options": "Tourism Travel Vendor"
-  },
-  {
-   "fieldname": "from_airport",
-   "fieldtype": "Data",
-   "label": "From (Airport)",
-   "reqd": 1
-  },
-  {
-   "fieldname": "to_airport",
-   "fieldtype": "Data",
-   "label": "To (Airport)",
-   "reqd": 1
-  },
-  {
-   "fieldname": "trip_type",
-   "fieldtype": "Select",
-   "label": "Trip Type",
-   "options": "One-way\nRound-trip",
-   "default": "One-way",
-   "reqd": 1
-  },
-  {
-   "fieldname": "cabin_class",
-   "fieldtype": "Select",
-   "label": "Cabin Class",
-   "options": "Economy\nPremium Economy\nBusiness\nFirst",
-   "default": "Economy",
-   "reqd": 1
-  },
-  {
-   "fieldname": "fare_basis",
-   "fieldtype": "Data",
-   "label": "Fare Basis"
-  },
-  {
-   "fieldname": "departure_datetime",
-   "fieldtype": "Datetime",
-   "label": "Departure",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "return_datetime",
-   "fieldtype": "Datetime",
-   "label": "Return"
-  },
-  {
-   "fieldname": "passengers",
-   "fieldtype": "Int",
-   "label": "Passengers",
-   "default": "1",
-   "reqd": 1
-  },
-  {
-   "fieldname": "pnr",
-   "fieldtype": "Data",
-   "label": "PNR"
-  },
-  {
-   "fieldname": "ticket_no",
-   "fieldtype": "Data",
-   "label": "Ticket Number"
-  },
-  {
-   "fieldname": "currency",
-   "fieldtype": "Data",
-   "label": "Currency"
-  },
-  {
-   "fieldname": "base_fare",
-   "fieldtype": "Currency",
-   "label": "Base Fare",
-   "default": "0"
-  },
-  {
-   "fieldname": "taxes",
-   "fieldtype": "Currency",
-   "label": "Taxes",
-   "default": "0"
-  },
-  {
-   "fieldname": "fees",
-   "fieldtype": "Currency",
-   "label": "Fees",
-   "default": "0"
-  },
-  {
-   "fieldname": "total_price",
-   "fieldtype": "Currency",
-   "label": "Total Ticket Price",
-   "default": "0",
-   "read_only": 1
-  },
-  {
-   "fieldname": "pricing_section",
-   "fieldtype": "Section Break",
-   "label": "Pricing"
-  },
-  {
-   "fieldname": "auto_price",
-   "fieldtype": "Check",
-   "label": "Auto Price (apply markup)",
-   "default": "1"
-  },
-  {
-   "fieldname": "markup_rule",
-   "fieldtype": "Link",
-   "label": "Pricing Rule",
-   "options": "Tourism Pricing Rule",
-   "read_only": 1
-  },
-  {
-   "fieldname": "markup_type",
-   "fieldtype": "Select",
-   "label": "Markup Type",
-   "options": "Percent\nAmount",
-   "default": "Percent"
-  },
-  {
-   "fieldname": "markup_value",
-   "fieldtype": "Float",
-   "label": "Markup Value",
-   "default": "0"
-  },
-  {
-   "fieldname": "markup_amount",
-   "fieldtype": "Currency",
-   "label": "Markup Amount",
-   "default": "0",
-   "read_only": 1
-  },
-  {
-   "fieldname": "price",
-   "fieldtype": "Currency",
-   "label": "Billed Price",
-   "default": "0",
-   "reqd": 1,
-   "description": "Amount that will be billed to the customer (can include markups)."
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Draft\nQuoted\nConfirmed\nTicketed\nCancelled\nBilled",
-   "default": "Draft",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "status_dates_section",
-   "fieldtype": "Section Break",
-   "label": "Dates"
-  },
-  {
-   "fieldname": "confirmed_on",
-   "fieldtype": "Datetime",
-   "label": "Confirmed On",
-   "read_only": 1
-  },
-  {
-   "fieldname": "ticketed_on",
-   "fieldtype": "Datetime",
-   "label": "Ticketed On",
-   "read_only": 1
-  },
-  {
-   "fieldname": "service_order",
-   "fieldtype": "Link",
-   "label": "Tourism Service Order",
-   "options": "Tourism Service Order",
-   "read_only": 1
-  },
-  {
-   "fieldname": "charge_entry",
-   "fieldtype": "Link",
-   "label": "Tourism Charge Entry",
-   "options": "Tourism Charge Entry",
-   "read_only": 1
-  },
-  {
-   "fieldname": "control_section",
-   "fieldtype": "Section Break",
-   "label": "Control"
-  },
-  {
-   "fieldname": "pnr_reference",
-   "fieldtype": "Data",
-   "label": "PNR Reference"
-  }
- ],
- "module": "Omnexa Tourism",
- "name": "Tourism Flight Booking",
- "permissions": [
-  {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "report": 1,
-   "export": 1,
-   "share": 1,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Company Admin",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 1,
-   "share": 0,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Desk User",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+	"actions": [],
+	"allow_rename": 1,
+	"autoname": "format:FLT-{YYYY}-{#####}",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"customer",
+		"company",
+		"branch",
+		"vendor",
+		"from_airport",
+		"to_airport",
+		"column_break_omnexa_1",
+		"trip_type",
+		"cabin_class",
+		"fare_basis",
+		"departure_datetime",
+		"return_datetime",
+		"passengers",
+		"column_break_omnexa_2",
+		"pnr",
+		"ticket_no",
+		"currency",
+		"base_fare",
+		"taxes",
+		"fees",
+		"total_price",
+		"pricing_section",
+		"auto_price",
+		"markup_rule",
+		"markup_type",
+		"column_break_omnexa_3",
+		"markup_value",
+		"markup_amount",
+		"price",
+		"status",
+		"status_dates_section",
+		"confirmed_on",
+		"ticketed_on",
+		"column_break_omnexa_4",
+		"service_order",
+		"charge_entry",
+		"pnr_reference"
+	],
+	"fields": [
+		{
+			"fieldname": "customer",
+			"fieldtype": "Link",
+			"label": "Customer",
+			"options": "Customer",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "Company",
+			"options": "Company",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "branch",
+			"fieldtype": "Link",
+			"label": "Branch",
+			"options": "Branch",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "vendor",
+			"fieldtype": "Link",
+			"label": "Airline / Vendor",
+			"options": "Tourism Travel Vendor"
+		},
+		{
+			"fieldname": "from_airport",
+			"fieldtype": "Data",
+			"label": "From (Airport)",
+			"reqd": 1
+		},
+		{
+			"fieldname": "to_airport",
+			"fieldtype": "Data",
+			"label": "To (Airport)",
+			"reqd": 1
+		},
+		{
+			"fieldname": "trip_type",
+			"fieldtype": "Select",
+			"label": "Trip Type",
+			"options": "One-way\nRound-trip",
+			"default": "One-way",
+			"reqd": 1
+		},
+		{
+			"fieldname": "cabin_class",
+			"fieldtype": "Select",
+			"label": "Cabin Class",
+			"options": "Economy\nPremium Economy\nBusiness\nFirst",
+			"default": "Economy",
+			"reqd": 1
+		},
+		{
+			"fieldname": "fare_basis",
+			"fieldtype": "Data",
+			"label": "Fare Basis"
+		},
+		{
+			"fieldname": "departure_datetime",
+			"fieldtype": "Datetime",
+			"label": "Departure",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "return_datetime",
+			"fieldtype": "Datetime",
+			"label": "Return"
+		},
+		{
+			"fieldname": "passengers",
+			"fieldtype": "Int",
+			"label": "Passengers",
+			"default": "1",
+			"reqd": 1
+		},
+		{
+			"fieldname": "pnr",
+			"fieldtype": "Data",
+			"label": "PNR"
+		},
+		{
+			"fieldname": "ticket_no",
+			"fieldtype": "Data",
+			"label": "Ticket Number"
+		},
+		{
+			"fieldname": "currency",
+			"fieldtype": "Data",
+			"label": "Currency"
+		},
+		{
+			"fieldname": "base_fare",
+			"fieldtype": "Currency",
+			"label": "Base Fare",
+			"default": "0"
+		},
+		{
+			"fieldname": "taxes",
+			"fieldtype": "Currency",
+			"label": "Taxes",
+			"default": "0"
+		},
+		{
+			"fieldname": "fees",
+			"fieldtype": "Currency",
+			"label": "Fees",
+			"default": "0"
+		},
+		{
+			"fieldname": "total_price",
+			"fieldtype": "Currency",
+			"label": "Total Ticket Price",
+			"default": "0",
+			"read_only": 1
+		},
+		{
+			"fieldname": "pricing_section",
+			"fieldtype": "Section Break",
+			"label": "Pricing"
+		},
+		{
+			"fieldname": "auto_price",
+			"fieldtype": "Check",
+			"label": "Auto Price (apply markup)",
+			"default": "1"
+		},
+		{
+			"fieldname": "markup_rule",
+			"fieldtype": "Link",
+			"label": "Pricing Rule",
+			"options": "Tourism Pricing Rule",
+			"read_only": 1
+		},
+		{
+			"fieldname": "markup_type",
+			"fieldtype": "Select",
+			"label": "Markup Type",
+			"options": "Percent\nAmount",
+			"default": "Percent"
+		},
+		{
+			"fieldname": "markup_value",
+			"fieldtype": "Float",
+			"label": "Markup Value",
+			"default": "0"
+		},
+		{
+			"fieldname": "markup_amount",
+			"fieldtype": "Currency",
+			"label": "Markup Amount",
+			"default": "0",
+			"read_only": 1
+		},
+		{
+			"fieldname": "price",
+			"fieldtype": "Currency",
+			"label": "Billed Price",
+			"default": "0",
+			"reqd": 1,
+			"description": "Amount that will be billed to the customer (can include markups)."
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Draft\nQuoted\nConfirmed\nTicketed\nCancelled\nBilled",
+			"default": "Draft",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "status_dates_section",
+			"fieldtype": "Section Break",
+			"label": "Dates"
+		},
+		{
+			"fieldname": "confirmed_on",
+			"fieldtype": "Datetime",
+			"label": "Confirmed On",
+			"read_only": 1
+		},
+		{
+			"fieldname": "ticketed_on",
+			"fieldtype": "Datetime",
+			"label": "Ticketed On",
+			"read_only": 1
+		},
+		{
+			"fieldname": "service_order",
+			"fieldtype": "Link",
+			"label": "Tourism Service Order",
+			"options": "Tourism Service Order",
+			"read_only": 1
+		},
+		{
+			"fieldname": "charge_entry",
+			"fieldtype": "Link",
+			"label": "Tourism Charge Entry",
+			"options": "Tourism Charge Entry",
+			"read_only": 1
+		},
+		{
+			"fieldname": "pnr_reference",
+			"fieldtype": "Data",
+			"label": "PNR Reference"
+		},
+		{
+			"fieldname": "column_break_omnexa_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_2",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_3",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_4",
+			"fieldtype": "Column Break"
+		}
+	],
+	"module": "Omnexa Tourism",
+	"name": "Tourism Flight Booking",
+	"permissions": [
+		{
+			"role": "System Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 1,
+			"report": 1,
+			"export": 1,
+			"share": 1,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Company Admin",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 1,
+			"share": 0,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Desk User",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
 }

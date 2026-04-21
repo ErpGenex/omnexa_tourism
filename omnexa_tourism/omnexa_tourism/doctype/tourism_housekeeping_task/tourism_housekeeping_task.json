@@ -1,182 +1,180 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "hash",
- "creation": "2026-04-15 12:00:00",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "identity_section",
-  "company",
-  "branch",
-  "unit",
-  "booking",
-  "task_type",
-  "status",
-  "priority",
-  "scheduled_date",
-  "notes",
-  "control_section",
-  "task_owner"
- ],
- "fields": [
-  {
-   "fieldname": "identity_section",
-   "fieldtype": "Section Break",
-   "label": "Housekeeping Task Identity"
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Company",
-   "options": "Company",
-   "reqd": 1
-  },
-  {
-   "fieldname": "branch",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Branch",
-   "options": "Branch",
-   "reqd": 1
-  },
-  {
-   "fieldname": "unit",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Room Unit",
-   "options": "Tourism Room Unit",
-   "reqd": 1
-  },
-  {
-   "fieldname": "booking",
-   "fieldtype": "Link",
-   "label": "Booking",
-   "options": "Tourism Booking"
-  },
-  {
-   "default": "Post-stay clean",
-   "fieldname": "task_type",
-   "fieldtype": "Select",
-   "label": "Task Type",
-   "options": "Post-stay clean\nDeep clean\nTurndown\nInspection",
-   "reqd": 1
-  },
-  {
-   "default": "Pending",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "options": "Pending\nIn Progress\nCompleted\nVerified",
-   "reqd": 1
-  },
-  {
-   "default": "Normal",
-   "fieldname": "priority",
-   "fieldtype": "Select",
-   "label": "Priority",
-   "options": "Low\nNormal\nHigh\nUrgent",
-   "reqd": 1
-  },
-  {
-   "default": "Today",
-   "fieldname": "scheduled_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Scheduled Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "notes",
-   "fieldtype": "Small Text",
-   "label": "Notes"
-  },
-  {
-   "fieldname": "control_section",
-   "fieldtype": "Section Break",
-   "label": "Control"
-  },
-  {
-   "fieldname": "task_owner",
-   "fieldtype": "Link",
-   "label": "Task Owner",
-   "options": "User"
-  }
- ],
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2026-04-15 12:00:00",
- "modified_by": "Administrator",
- "module": "Omnexa Tourism",
- "name": "Tourism Housekeeping Task",
- "naming_rule": "Random",
- "owner": "Administrator",
- "permissions": [
-  {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "report": 1,
-   "export": 1,
-   "share": 1,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Company Admin",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 1,
-   "share": 0,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Hotel Front Desk",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 1,
-   "email": 0
-  },
-  {
-   "role": "Hotel Housekeeping",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 1,
-   "email": 0
-  },
-  {
-   "role": "Desk User",
-   "read": 1,
-   "write": 0,
-   "create": 0,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": [],
- "track_changes": 1
+	"actions": [],
+	"allow_rename": 1,
+	"autoname": "hash",
+	"creation": "2026-04-15 12:00:00",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"company",
+		"branch",
+		"unit",
+		"column_break_omnexa_1",
+		"booking",
+		"task_type",
+		"status",
+		"column_break_omnexa_2",
+		"priority",
+		"scheduled_date",
+		"notes",
+		"task_owner"
+	],
+	"fields": [
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "Company",
+			"options": "Company",
+			"reqd": 1
+		},
+		{
+			"fieldname": "branch",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "Branch",
+			"options": "Branch",
+			"reqd": 1
+		},
+		{
+			"fieldname": "unit",
+			"fieldtype": "Link",
+			"in_list_view": 1,
+			"label": "Room Unit",
+			"options": "Tourism Room Unit",
+			"reqd": 1
+		},
+		{
+			"fieldname": "booking",
+			"fieldtype": "Link",
+			"label": "Booking",
+			"options": "Tourism Booking"
+		},
+		{
+			"default": "Post-stay clean",
+			"fieldname": "task_type",
+			"fieldtype": "Select",
+			"label": "Task Type",
+			"options": "Post-stay clean\nDeep clean\nTurndown\nInspection",
+			"reqd": 1
+		},
+		{
+			"default": "Pending",
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"in_list_view": 1,
+			"label": "Status",
+			"options": "Pending\nIn Progress\nCompleted\nVerified",
+			"reqd": 1
+		},
+		{
+			"default": "Normal",
+			"fieldname": "priority",
+			"fieldtype": "Select",
+			"label": "Priority",
+			"options": "Low\nNormal\nHigh\nUrgent",
+			"reqd": 1
+		},
+		{
+			"default": "Today",
+			"fieldname": "scheduled_date",
+			"fieldtype": "Date",
+			"in_list_view": 1,
+			"label": "Scheduled Date",
+			"reqd": 1
+		},
+		{
+			"fieldname": "notes",
+			"fieldtype": "Small Text",
+			"label": "Notes"
+		},
+		{
+			"fieldname": "task_owner",
+			"fieldtype": "Link",
+			"label": "Task Owner",
+			"options": "User"
+		},
+		{
+			"fieldname": "column_break_omnexa_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_2",
+			"fieldtype": "Column Break"
+		}
+	],
+	"index_web_pages_for_search": 1,
+	"links": [],
+	"modified": "2026-04-15 12:00:00",
+	"modified_by": "Administrator",
+	"module": "Omnexa Tourism",
+	"name": "Tourism Housekeeping Task",
+	"naming_rule": "Random",
+	"owner": "Administrator",
+	"permissions": [
+		{
+			"role": "System Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 1,
+			"report": 1,
+			"export": 1,
+			"share": 1,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Company Admin",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 1,
+			"share": 0,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Hotel Front Desk",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 1,
+			"email": 0
+		},
+		{
+			"role": "Hotel Housekeeping",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 1,
+			"email": 0
+		},
+		{
+			"role": "Desk User",
+			"read": 1,
+			"write": 0,
+			"create": 0,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"states": [],
+	"track_changes": 1
 }

@@ -1,182 +1,180 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "format:PKG-{YYYY}-{#####}",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "identity_section",
-  "package_name",
-  "package_code",
-  "company",
-  "branch",
-  "country",
-  "city",
-  "duration_days",
-  "currency",
-  "base_price",
-  "default_vendor",
-  "status",
-  "itinerary_section",
-  "itinerary",
-  "control_section",
-  "package_owner"
- ],
- "fields": [
-  {
-   "fieldname": "identity_section",
-   "fieldtype": "Section Break",
-   "label": "Package Identity"
-  },
-  {
-   "fieldname": "package_name",
-   "fieldtype": "Data",
-   "label": "Package Name",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "package_code",
-   "fieldtype": "Data",
-   "label": "Package Code",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "branch",
-   "fieldtype": "Link",
-   "label": "Branch",
-   "options": "Branch",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "country",
-   "fieldtype": "Data",
-   "label": "Country"
-  },
-  {
-   "fieldname": "city",
-   "fieldtype": "Data",
-   "label": "City"
-  },
-  {
-   "fieldname": "duration_days",
-   "fieldtype": "Int",
-   "label": "Duration (Days)",
-   "default": "1",
-   "reqd": 1
-  },
-  {
-   "fieldname": "currency",
-   "fieldtype": "Data",
-   "label": "Currency"
-  },
-  {
-   "fieldname": "base_price",
-   "fieldtype": "Currency",
-   "label": "Base Price",
-   "default": "0"
-  },
-  {
-   "fieldname": "default_vendor",
-   "fieldtype": "Link",
-   "label": "Default Vendor",
-   "options": "Tourism Travel Vendor"
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Active\nInactive",
-   "default": "Active",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "itinerary_section",
-   "fieldtype": "Section Break",
-   "label": "Itinerary"
-  },
-  {
-   "fieldname": "itinerary",
-   "fieldtype": "Table",
-   "label": "Itinerary Items",
-   "options": "Tourism Package Itinerary Item"
-  },
-  {
-   "fieldname": "control_section",
-   "fieldtype": "Section Break",
-   "label": "Control"
-  },
-  {
-   "fieldname": "package_owner",
-   "fieldtype": "Link",
-   "label": "Package Owner",
-   "options": "User"
-  }
- ],
- "module": "Omnexa Tourism",
- "name": "Tourism Travel Package",
- "permissions": [
-  {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "report": 1,
-   "export": 1,
-   "share": 1,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Company Admin",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 1,
-   "share": 0,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Hotel General Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 1,
-   "email": 0
-  },
-  {
-   "role": "Desk User",
-   "read": 1,
-   "write": 0,
-   "create": 0,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+	"actions": [],
+	"allow_rename": 1,
+	"autoname": "format:PKG-{YYYY}-{#####}",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"package_name",
+		"package_code",
+		"company",
+		"column_break_omnexa_1",
+		"branch",
+		"country",
+		"city",
+		"duration_days",
+		"column_break_omnexa_2",
+		"currency",
+		"base_price",
+		"default_vendor",
+		"status",
+		"itinerary_section",
+		"itinerary",
+		"package_owner"
+	],
+	"fields": [
+		{
+			"fieldname": "package_name",
+			"fieldtype": "Data",
+			"label": "Package Name",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "package_code",
+			"fieldtype": "Data",
+			"label": "Package Code",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "Company",
+			"options": "Company",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "branch",
+			"fieldtype": "Link",
+			"label": "Branch",
+			"options": "Branch",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "country",
+			"fieldtype": "Data",
+			"label": "Country"
+		},
+		{
+			"fieldname": "city",
+			"fieldtype": "Data",
+			"label": "City"
+		},
+		{
+			"fieldname": "duration_days",
+			"fieldtype": "Int",
+			"label": "Duration (Days)",
+			"default": "1",
+			"reqd": 1
+		},
+		{
+			"fieldname": "currency",
+			"fieldtype": "Data",
+			"label": "Currency"
+		},
+		{
+			"fieldname": "base_price",
+			"fieldtype": "Currency",
+			"label": "Base Price",
+			"default": "0"
+		},
+		{
+			"fieldname": "default_vendor",
+			"fieldtype": "Link",
+			"label": "Default Vendor",
+			"options": "Tourism Travel Vendor"
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Active\nInactive",
+			"default": "Active",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "itinerary_section",
+			"fieldtype": "Section Break",
+			"label": "Itinerary"
+		},
+		{
+			"fieldname": "itinerary",
+			"fieldtype": "Table",
+			"label": "Itinerary Items",
+			"options": "Tourism Package Itinerary Item"
+		},
+		{
+			"fieldname": "package_owner",
+			"fieldtype": "Link",
+			"label": "Package Owner",
+			"options": "User"
+		},
+		{
+			"fieldname": "column_break_omnexa_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_2",
+			"fieldtype": "Column Break"
+		}
+	],
+	"module": "Omnexa Tourism",
+	"name": "Tourism Travel Package",
+	"permissions": [
+		{
+			"role": "System Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 1,
+			"report": 1,
+			"export": 1,
+			"share": 1,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Company Admin",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 1,
+			"share": 0,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Hotel General Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 1,
+			"email": 0
+		},
+		{
+			"role": "Desk User",
+			"read": 1,
+			"write": 0,
+			"create": 0,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
 }

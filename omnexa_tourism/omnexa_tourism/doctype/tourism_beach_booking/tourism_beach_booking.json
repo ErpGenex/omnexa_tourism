@@ -1,155 +1,153 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "format:BEA-{YYYY}-{#####}",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "identity_section",
-  "customer",
-  "company",
-  "branch",
-  "hotel",
-  "beach_facility",
-  "beach_name",
-  "service_datetime",
-  "party_size",
-  "status",
-  "online_request",
-  "control_section",
-  "booking_reference"
- ],
- "fields": [
-  {
-   "fieldname": "identity_section",
-   "fieldtype": "Section Break",
-   "label": "Booking Identity"
-  },
-  {
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "label": "Customer",
-   "options": "Customer",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "branch",
-   "fieldtype": "Link",
-   "label": "Branch",
-   "options": "Branch",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "hotel",
-   "fieldtype": "Link",
-   "label": "Hotel (optional)",
-   "options": "Tourism Hotel"
-  },
-  {
-   "fieldname": "beach_facility",
-   "fieldtype": "Link",
-   "label": "Beach Facility",
-   "options": "Tourism Beach Facility"
-  },
-  {
-   "fieldname": "beach_name",
-   "fieldtype": "Data",
-   "label": "Beach / Facility",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "service_datetime",
-   "fieldtype": "Datetime",
-   "label": "Date/Time",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "party_size",
-   "fieldtype": "Int",
-   "label": "Guests",
-   "default": "2",
-   "reqd": 1
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Draft\nConfirmed\nCancelled\nBilled",
-   "default": "Draft",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "online_request",
-   "fieldtype": "Link",
-   "label": "Online Request",
-   "options": "Tourism Online Booking Request",
-   "read_only": 1
-  },
-  {
-   "fieldname": "control_section",
-   "fieldtype": "Section Break",
-   "label": "Control"
-  },
-  {
-   "fieldname": "booking_reference",
-   "fieldtype": "Data",
-   "label": "Booking Reference"
-  }
- ],
- "module": "Omnexa Tourism",
- "name": "Tourism Beach Booking",
- "permissions": [
-  {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "report": 1,
-   "export": 1,
-   "share": 1,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Company Admin",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 1,
-   "share": 0,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Desk User",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+	"actions": [],
+	"allow_rename": 1,
+	"autoname": "format:BEA-{YYYY}-{#####}",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"customer",
+		"company",
+		"branch",
+		"column_break_omnexa_1",
+		"hotel",
+		"beach_facility",
+		"beach_name",
+		"service_datetime",
+		"column_break_omnexa_2",
+		"party_size",
+		"status",
+		"online_request",
+		"booking_reference"
+	],
+	"fields": [
+		{
+			"fieldname": "customer",
+			"fieldtype": "Link",
+			"label": "Customer",
+			"options": "Customer",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "Company",
+			"options": "Company",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "branch",
+			"fieldtype": "Link",
+			"label": "Branch",
+			"options": "Branch",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "hotel",
+			"fieldtype": "Link",
+			"label": "Hotel (optional)",
+			"options": "Tourism Hotel"
+		},
+		{
+			"fieldname": "beach_facility",
+			"fieldtype": "Link",
+			"label": "Beach Facility",
+			"options": "Tourism Beach Facility"
+		},
+		{
+			"fieldname": "beach_name",
+			"fieldtype": "Data",
+			"label": "Beach / Facility",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "service_datetime",
+			"fieldtype": "Datetime",
+			"label": "Date/Time",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "party_size",
+			"fieldtype": "Int",
+			"label": "Guests",
+			"default": "2",
+			"reqd": 1
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Draft\nConfirmed\nCancelled\nBilled",
+			"default": "Draft",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "online_request",
+			"fieldtype": "Link",
+			"label": "Online Request",
+			"options": "Tourism Online Booking Request",
+			"read_only": 1
+		},
+		{
+			"fieldname": "booking_reference",
+			"fieldtype": "Data",
+			"label": "Booking Reference"
+		},
+		{
+			"fieldname": "column_break_omnexa_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_2",
+			"fieldtype": "Column Break"
+		}
+	],
+	"module": "Omnexa Tourism",
+	"name": "Tourism Beach Booking",
+	"permissions": [
+		{
+			"role": "System Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 1,
+			"report": 1,
+			"export": 1,
+			"share": 1,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Company Admin",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 1,
+			"share": 0,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Desk User",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
 }

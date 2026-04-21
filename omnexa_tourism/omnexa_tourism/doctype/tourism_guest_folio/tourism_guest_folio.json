@@ -1,195 +1,193 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "format:FOL-{YYYY}-{#####}",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "identity_section",
-  "customer",
-  "guest_name",
-  "booking",
-  "company",
-  "branch",
-  "hotel",
-  "room_unit",
-  "folio_date",
-  "cost_center",
-  "project",
-  "status",
-  "total_charges",
-  "paid_amount",
-  "balance_due",
-  "control_section",
-  "folio_reference"
- ],
- "fields": [
-  {
-   "fieldname": "identity_section",
-   "fieldtype": "Section Break",
-   "label": "Guest Folio Identity"
-  },
-  {
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "label": "Customer",
-   "options": "Customer",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "guest_name",
-   "fieldtype": "Data",
-   "label": "Guest Name",
-   "read_only": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "booking",
-   "fieldtype": "Link",
-   "label": "Booking",
-   "options": "Tourism Booking",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "branch",
-   "fieldtype": "Link",
-   "label": "Branch",
-   "options": "Branch",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "hotel",
-   "fieldtype": "Link",
-   "label": "Hotel",
-   "options": "Tourism Hotel",
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "room_unit",
-   "fieldtype": "Link",
-   "label": "Room Unit",
-   "options": "Tourism Room Unit"
-  },
-  {
-   "fieldname": "folio_date",
-   "fieldtype": "Date",
-   "label": "Folio Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "cost_center",
-   "fieldtype": "Link",
-   "label": "Cost Center",
-   "options": "Cost Center"
-  },
-  {
-   "fieldname": "project",
-   "fieldtype": "Link",
-   "label": "Project Contract",
-   "options": "Project Contract"
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Open\nClosed\nCancelled",
-   "default": "Open",
-   "reqd": 1,
-   "in_list_view": 1
-  },
-  {
-   "fieldname": "total_charges",
-   "fieldtype": "Currency",
-   "label": "Total Charges",
-   "read_only": 1
-  },
-  {
-   "fieldname": "paid_amount",
-   "fieldtype": "Currency",
-   "label": "Paid Amount",
-   "read_only": 1
-  },
-  {
-   "fieldname": "balance_due",
-   "fieldtype": "Currency",
-   "label": "Balance Due",
-   "read_only": 1
-  },
-  {
-   "fieldname": "control_section",
-   "fieldtype": "Section Break",
-   "label": "Control"
-  },
-  {
-   "fieldname": "folio_reference",
-   "fieldtype": "Data",
-   "label": "Folio Reference"
-  }
- ],
- "module": "Omnexa Tourism",
- "name": "Tourism Guest Folio",
- "permissions": [
-  {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 1,
-   "report": 1,
-   "export": 1,
-   "share": 1,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Company Admin",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 1,
-   "share": 0,
-   "print": 1,
-   "email": 1
-  },
-  {
-   "role": "Hotel Front Desk",
-   "read": 1,
-   "write": 1,
-   "create": 1,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 1,
-   "email": 0
-  },
-  {
-   "role": "Desk User",
-   "read": 1,
-   "write": 0,
-   "create": 0,
-   "delete": 0,
-   "report": 1,
-   "export": 0,
-   "share": 0,
-   "print": 0,
-   "email": 0
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+	"actions": [],
+	"allow_rename": 1,
+	"autoname": "format:FOL-{YYYY}-{#####}",
+	"doctype": "DocType",
+	"engine": "InnoDB",
+	"field_order": [
+		"customer",
+		"guest_name",
+		"booking",
+		"company",
+		"branch",
+		"column_break_omnexa_1",
+		"hotel",
+		"room_unit",
+		"folio_date",
+		"cost_center",
+		"project",
+		"column_break_omnexa_2",
+		"status",
+		"total_charges",
+		"paid_amount",
+		"balance_due",
+		"folio_reference"
+	],
+	"fields": [
+		{
+			"fieldname": "customer",
+			"fieldtype": "Link",
+			"label": "Customer",
+			"options": "Customer",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "guest_name",
+			"fieldtype": "Data",
+			"label": "Guest Name",
+			"read_only": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "booking",
+			"fieldtype": "Link",
+			"label": "Booking",
+			"options": "Tourism Booking",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "company",
+			"fieldtype": "Link",
+			"label": "Company",
+			"options": "Company",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "branch",
+			"fieldtype": "Link",
+			"label": "Branch",
+			"options": "Branch",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "hotel",
+			"fieldtype": "Link",
+			"label": "Hotel",
+			"options": "Tourism Hotel",
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "room_unit",
+			"fieldtype": "Link",
+			"label": "Room Unit",
+			"options": "Tourism Room Unit"
+		},
+		{
+			"fieldname": "folio_date",
+			"fieldtype": "Date",
+			"label": "Folio Date",
+			"reqd": 1
+		},
+		{
+			"fieldname": "cost_center",
+			"fieldtype": "Link",
+			"label": "Cost Center",
+			"options": "Cost Center"
+		},
+		{
+			"fieldname": "project",
+			"fieldtype": "Link",
+			"label": "Project Contract",
+			"options": "Project Contract"
+		},
+		{
+			"fieldname": "status",
+			"fieldtype": "Select",
+			"label": "Status",
+			"options": "Open\nClosed\nCancelled",
+			"default": "Open",
+			"reqd": 1,
+			"in_list_view": 1
+		},
+		{
+			"fieldname": "total_charges",
+			"fieldtype": "Currency",
+			"label": "Total Charges",
+			"read_only": 1
+		},
+		{
+			"fieldname": "paid_amount",
+			"fieldtype": "Currency",
+			"label": "Paid Amount",
+			"read_only": 1
+		},
+		{
+			"fieldname": "balance_due",
+			"fieldtype": "Currency",
+			"label": "Balance Due",
+			"read_only": 1
+		},
+		{
+			"fieldname": "folio_reference",
+			"fieldtype": "Data",
+			"label": "Folio Reference"
+		},
+		{
+			"fieldname": "column_break_omnexa_1",
+			"fieldtype": "Column Break"
+		},
+		{
+			"fieldname": "column_break_omnexa_2",
+			"fieldtype": "Column Break"
+		}
+	],
+	"module": "Omnexa Tourism",
+	"name": "Tourism Guest Folio",
+	"permissions": [
+		{
+			"role": "System Manager",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 1,
+			"report": 1,
+			"export": 1,
+			"share": 1,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Company Admin",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 1,
+			"share": 0,
+			"print": 1,
+			"email": 1
+		},
+		{
+			"role": "Hotel Front Desk",
+			"read": 1,
+			"write": 1,
+			"create": 1,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 1,
+			"email": 0
+		},
+		{
+			"role": "Desk User",
+			"read": 1,
+			"write": 0,
+			"create": 0,
+			"delete": 0,
+			"report": 1,
+			"export": 0,
+			"share": 0,
+			"print": 0,
+			"email": 0
+		}
+	],
+	"sort_field": "modified",
+	"sort_order": "DESC",
+	"track_changes": 1
 }
