@@ -1,8 +1,8 @@
 app_name = "omnexa_tourism"
 app_title = "ErpGenEx — Tourism"
-app_publisher = "Omnexa"
+app_publisher = "ErpGenEx"
 app_description = "Tourism vertical"
-app_email = "dev@omnexa.com"
+app_email = "dev@erpgenex.com"
 app_license = "mit"
 
 # Apps
