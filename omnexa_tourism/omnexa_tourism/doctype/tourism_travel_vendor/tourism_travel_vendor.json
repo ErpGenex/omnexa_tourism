@@ -5,12 +5,14 @@
 	"doctype": "DocType",
 	"engine": "InnoDB",
 	"field_order": [
+		"tab_break_overview",
 		"vendor_name",
 		"vendor_type",
 		"company",
 		"column_break_omnexa_1",
 		"branch",
 		"linked_supplier",
+		"tab_break_details",
 		"country",
 		"column_break_omnexa_2",
 		"contact_phone",
@@ -19,6 +21,16 @@
 		"vendor_code"
 	],
 	"fields": [
+		{
+			"fieldname": "tab_break_overview",
+			"fieldtype": "Tab Break",
+			"label": "Overview"
+		},
+		{
+			"fieldname": "tab_break_details",
+			"fieldtype": "Tab Break",
+			"label": "Details"
+		},
 		{
 			"fieldname": "vendor_name",
 			"fieldtype": "Data",

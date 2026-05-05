@@ -5,6 +5,7 @@
 	"doctype": "DocType",
 	"engine": "InnoDB",
 	"field_order": [
+		"tab_break_overview",
 		"package_name",
 		"package_code",
 		"company",
@@ -18,11 +19,22 @@
 		"base_price",
 		"default_vendor",
 		"status",
+		"tab_break_1",
 		"itinerary_section",
 		"itinerary",
 		"package_owner"
 	],
 	"fields": [
+		{
+			"fieldname": "tab_break_overview",
+			"fieldtype": "Tab Break",
+			"label": "Overview"
+		},
+		{
+			"fieldname": "tab_break_1",
+			"fieldtype": "Tab Break",
+			"label": "Details"
+		},
 		{
 			"fieldname": "package_name",
 			"fieldtype": "Data",

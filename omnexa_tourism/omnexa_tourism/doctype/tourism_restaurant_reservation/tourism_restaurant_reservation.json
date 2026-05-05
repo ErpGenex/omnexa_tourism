@@ -5,6 +5,7 @@
 	"doctype": "DocType",
 	"engine": "InnoDB",
 	"field_order": [
+		"tab_break_overview",
 		"customer",
 		"company",
 		"branch",
@@ -12,6 +13,7 @@
 		"column_break_omnexa_1",
 		"restaurant_venue",
 		"restaurant_name",
+		"tab_break_details",
 		"service_datetime",
 		"party_size",
 		"column_break_omnexa_2",
@@ -21,6 +23,16 @@
 		"reservation_reference"
 	],
 	"fields": [
+		{
+			"fieldname": "tab_break_overview",
+			"fieldtype": "Tab Break",
+			"label": "Overview"
+		},
+		{
+			"fieldname": "tab_break_details",
+			"fieldtype": "Tab Break",
+			"label": "Details"
+		},
 		{
 			"fieldname": "customer",
 			"fieldtype": "Link",
