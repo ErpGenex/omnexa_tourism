@@ -111,7 +111,7 @@ after_install = "omnexa_tourism.install.after_install"
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "omnexa_tourism.notifications.get_notification_config"
+notification_config = "omnexa_tourism.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -258,23 +258,10 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"omnexa_tourism.tasks.all"
-# 	],
-# 	"daily": [
-# 		"omnexa_tourism.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"omnexa_tourism.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"omnexa_tourism.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"omnexa_tourism.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	"hourly": ["omnexa_tourism.tasks.hourly"],
+	"daily": ["omnexa_tourism.tasks.daily"],
+}
 
 # Testing
 # -------
