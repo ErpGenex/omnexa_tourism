@@ -119,15 +119,28 @@ def _ensure_front_office_widgets():
 
 def _ensure_workspace():
 	name = "Hotel Front Office"
+	# Keep workspace placement and icon stable in sidebar.
+	desired = {
+		"title": name,
+		"label": name,
+		"module": "Omnexa Tourism",
+		"icon": "map",
+		"public": 1,
+		"sequence_id": 7.6,  # Tourism is 7.5; keep this immediately after it.
+	}
 	if frappe.db.exists("Workspace", name):
-		return frappe.get_doc("Workspace", name)
+		ws = frappe.get_doc("Workspace", name)
+		changed = False
+		for key, value in desired.items():
+			if ws.get(key) != value:
+				ws.set(key, value)
+				changed = True
+		if changed:
+			ws.save(ignore_permissions=True)
+		return ws
 
 	ws = frappe.new_doc("Workspace")
-	ws.title = name
-	ws.label = name
-	ws.module = "Omnexa Tourism"
-	ws.icon = "hotel"
-	ws.public = 1
+	ws.update(desired)
 	ws.content = "[]"
 	ws.insert(ignore_permissions=True)
 	return ws
