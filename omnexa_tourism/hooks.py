@@ -24,7 +24,7 @@ add_to_apps_screen = [
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/omnexa_tourism/css/omnexa_tourism.css"
+app_include_css = "/assets/omnexa_tourism/css/workspace_modern_charts.css"
 # app_include_js = "/assets/omnexa_tourism/js/omnexa_tourism.js"
 
 # include js, css files in header of web template
