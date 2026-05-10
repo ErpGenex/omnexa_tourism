@@ -11,10 +11,60 @@ from frappe import _
 
 PALETTE = '{"colors": ["#2490ef", "#ffa00a", "#743ee2", "#5e64ff", "#39e4a5", "#fc6164"]}'
 
+# Desk chart FilterGroup expects each entry as [doctype, fieldname, operator, value] (4 items).
+# A 3-tuple [field, operator, value] makes the UI treat operator "<" as fieldname → "Invalid filter: <".
+_DOCSTATUS_SUBMITTED = json.dumps([["{doctype}", "docstatus", "<", 2]])
+
+_FRONT_OFFICE_CHART_NAMES = (
+	"TOUR · Booking Status Mix",
+	"TOUR · Booking Channels",
+	"TOUR · Arrivals Trend",
+	"TOUR · Service Orders Status",
+)
+
+
+def _prune_stale_dashboard_chart_filters() -> None:
+	"""Drop per-user chart filter overrides that used the old 3-value row shape (breaks Desk widgets)."""
+	for user in frappe.get_all("Dashboard Settings", pluck="name"):
+		raw = frappe.db.get_value("Dashboard Settings", user, "chart_config")
+		if not raw:
+			continue
+		try:
+			cfg = frappe.parse_json(raw) or {}
+		except Exception:
+			continue
+		changed = False
+		for cname in _FRONT_OFFICE_CHART_NAMES:
+			if cname not in cfg or not isinstance(cfg[cname], dict):
+				continue
+			entry = cfg[cname]
+			filters = entry.get("filters")
+			if not filters or not isinstance(filters, list):
+				continue
+			if any(isinstance(f, (list, tuple)) and len(f) == 3 for f in filters):
+				entry.pop("filters", None)
+				changed = True
+		if changed:
+			frappe.db.set_value(
+				"Dashboard Settings",
+				user,
+				"chart_config",
+				json.dumps(cfg),
+				update_modified=False,
+			)
+
 
 def _upsert_dashboard_chart(doc_dict: dict) -> None:
 	name = doc_dict["chart_name"]
 	if frappe.db.exists("Dashboard Chart", name):
+		doc = frappe.get_doc("Dashboard Chart", name)
+		changed = False
+		want = doc_dict.get("filters_json")
+		if want is not None and doc.filters_json != want:
+			doc.filters_json = want
+			changed = True
+		if changed:
+			doc.save(ignore_permissions=True)
 		return
 	doc = frappe.new_doc("Dashboard Chart")
 	doc.update(doc_dict)
@@ -40,7 +90,7 @@ def _ensure_front_office_widgets():
 			"chart_name": "TOUR · Booking Status Mix",
 			"chart_type": "Group By",
 			"document_type": "Tourism Booking",
-			"filters_json": json.dumps([["docstatus", "<", 2]]),
+			"filters_json": _DOCSTATUS_SUBMITTED.format(doctype="Tourism Booking"),
 			"group_by_based_on": "status",
 			"group_by_type": "Count",
 			"number_of_groups": 10,
@@ -54,7 +104,7 @@ def _ensure_front_office_widgets():
 			"chart_name": "TOUR · Booking Channels",
 			"chart_type": "Group By",
 			"document_type": "Tourism Booking",
-			"filters_json": json.dumps([["docstatus", "<", 2]]),
+			"filters_json": _DOCSTATUS_SUBMITTED.format(doctype="Tourism Booking"),
 			"group_by_based_on": "booking_channel",
 			"group_by_type": "Count",
 			"number_of_groups": 10,
@@ -68,7 +118,7 @@ def _ensure_front_office_widgets():
 			"chart_name": "TOUR · Arrivals Trend",
 			"chart_type": "Count",
 			"document_type": "Tourism Booking",
-			"filters_json": json.dumps([["docstatus", "<", 2]]),
+			"filters_json": _DOCSTATUS_SUBMITTED.format(doctype="Tourism Booking"),
 			"timeseries": 1,
 			"based_on": "check_in_date",
 			"timespan": "Last Month",
@@ -83,7 +133,7 @@ def _ensure_front_office_widgets():
 			"chart_name": "TOUR · Service Orders Status",
 			"chart_type": "Group By",
 			"document_type": "Tourism Service Order",
-			"filters_json": json.dumps([["docstatus", "<", 2]]),
+			"filters_json": _DOCSTATUS_SUBMITTED.format(doctype="Tourism Service Order"),
 			"group_by_based_on": "status",
 			"group_by_type": "Count",
 			"number_of_groups": 10,
@@ -152,15 +202,20 @@ def ensure_hotel_front_office_workspace():
 		return
 
 	nc_names = _ensure_front_office_widgets()
+	_prune_stale_dashboard_chart_filters()
 	ws = _ensure_workspace()
 
 	# Attach widgets (idempotent)
 	existing_charts = {row.chart_name for row in (ws.charts or [])}
-	for chart_name, lbl in (
-		("TOUR · Booking Status Mix", _("Booking status mix")),
-		("TOUR · Booking Channels", _("Booking channels")),
-		("TOUR · Arrivals Trend", _("Arrivals trend")),
-		("TOUR · Service Orders Status", _("Service orders status")),
+	for chart_name, lbl in zip(
+		_FRONT_OFFICE_CHART_NAMES,
+		(
+			_("Booking status mix"),
+			_("Booking channels"),
+			_("Arrivals trend"),
+			_("Service orders status"),
+		),
+		strict=True,
 	):
 		if frappe.db.exists("Dashboard Chart", chart_name) and chart_name not in existing_charts:
 			ws.append("charts", {"chart_name": chart_name, "label": lbl})
