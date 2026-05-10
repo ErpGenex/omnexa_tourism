@@ -3,21 +3,48 @@
 
 import frappe
 
-from omnexa_core.omnexa_core.branch_access import enforce_branch_access, get_allowed_branches
 from omnexa_core.omnexa_core.user_context import apply_company_branch_defaults
 
 
 def enforce_branch_access_for_doc(doc, method=None):
-	enforce_branch_access(doc)
+	user = frappe.session.user
+	if _tourism_user_can_access_all_branches(user):
+		return
+	branch = getattr(doc, "branch", None)
+	company = getattr(doc, "company", None)
+	if not branch:
+		return
+	allowed = set(_tourism_allowed_branches(user=user, company=company) or [])
+	if branch not in allowed:
+		frappe.throw("You are not allowed to access this hotel branch.", title="Branch Access")
 
 
 def populate_company_branch_from_user_context(doc, method=None):
 	apply_company_branch_defaults(doc)
 
 
+def _tourism_user_can_access_all_branches(user=None):
+	user = user or frappe.session.user
+	if user in ("Administrator",):
+		return True
+	roles = set(frappe.get_roles(user))
+	# Explicit policy: only General Manager (plus System Manager) can see all branches.
+	return bool({"System Manager", "Hotel General Manager"} & roles)
+
+
+def _tourism_allowed_branches(user=None, company=None):
+	user = user or frappe.session.user
+	if _tourism_user_can_access_all_branches(user):
+		return None
+	filters = {"user": user}
+	if company:
+		filters["company"] = company
+	return frappe.get_all("User Branch Access", filters=filters, pluck="branch")
+
+
 def _get_query_for_table(table: str, user=None):
 	user = user or frappe.session.user
-	allowed = get_allowed_branches(user)
+	allowed = _tourism_allowed_branches(user=user)
 	if allowed is None:
 		return ""
 	if not allowed:

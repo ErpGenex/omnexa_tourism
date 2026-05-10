@@ -5,12 +5,14 @@
 	"doctype": "DocType",
 	"engine": "InnoDB",
 	"field_order": [
+		"tab_break_overview",
 		"customer",
 		"company",
 		"branch",
 		"column_break_omnexa_1",
 		"hotel",
 		"beach_facility",
+		"tab_break_details",
 		"beach_name",
 		"service_datetime",
 		"column_break_omnexa_2",
@@ -20,6 +22,16 @@
 		"booking_reference"
 	],
 	"fields": [
+		{
+			"fieldname": "tab_break_overview",
+			"fieldtype": "Tab Break",
+			"label": "Overview"
+		},
+		{
+			"fieldname": "tab_break_details",
+			"fieldtype": "Tab Break",
+			"label": "Details"
+		},
 		{
 			"fieldname": "customer",
 			"fieldtype": "Link",

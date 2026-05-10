@@ -1,0 +1,46 @@
+/* Modern workspace chart presentation for Tourism modules. */
+
+.workspace .chart-group,
+.workspace .charts-section {
+  gap: 14px;
+}
+
+.workspace .chart-wrapper,
+.workspace .dashboard-chart {
+  background: linear-gradient(145deg, #ffffff 0%, #f7faff 100%);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+  padding: 10px 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.workspace .chart-wrapper:hover,
+.workspace .dashboard-chart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.14);
+}
+
+.workspace .chart-title,
+.workspace .widget-head .title {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #1e293b;
+}
+
+.workspace .chart-container svg text {
+  fill: #475569;
+  font-size: 12px;
+}
+
+.workspace .chart-container svg .data-point,
+.workspace .chart-container svg .bar,
+.workspace .chart-container svg .slice {
+  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.16));
+}
+
+.workspace .chart-container svg path,
+.workspace .chart-container svg rect {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
