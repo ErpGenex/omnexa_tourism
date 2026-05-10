@@ -170,6 +170,135 @@ def ensure_hotel_front_office_workspace():
 		if nc_name and nc_name not in existing_cards:
 			ws.append("number_cards", {"number_card_name": nc_name})
 
+	# Shortcuts (used by workspace content blocks)
+	existing_shortcuts = {(row.get("label"), row.get("type"), row.get("link_to")) for row in (ws.shortcuts or [])}
+
+	def add_shortcut(label: str, shortcut_type: str, link_to: str, doc_view: str = "List"):
+		key = (label, shortcut_type, link_to)
+		if key in existing_shortcuts:
+			return
+		row = {
+			"label": label,
+			"type": shortcut_type,
+			"link_to": link_to,
+			"color": "Blue",
+		}
+		if shortcut_type == "DocType":
+			row["doc_view"] = doc_view
+		ws.append("shortcuts", row)
+		existing_shortcuts.add(key)
+
+	add_shortcut("Booking", "DocType", "Tourism Booking")
+	add_shortcut("Online Booking Request", "DocType", "Tourism Online Booking Request")
+	add_shortcut("Guest Folio", "DocType", "Tourism Guest Folio")
+	add_shortcut("Charge Entry", "DocType", "Tourism Charge Entry")
+	add_shortcut("Service Order", "DocType", "Tourism Service Order")
+	add_shortcut("Restaurant Reservation", "DocType", "Tourism Restaurant Reservation")
+	add_shortcut("Beach Booking", "DocType", "Tourism Beach Booking")
+	add_shortcut("Activity Booking", "DocType", "Tourism Activity Booking")
+	add_shortcut("Housekeeping Task", "DocType", "Tourism Housekeeping Task")
+	add_shortcut("Restaurant Order", "DocType", "Restaurant Order")
+	add_shortcut("Sales Invoice", "DocType", "Sales Invoice")
+	add_shortcut("Journal Entry", "DocType", "Journal Entry")
+
+	for rpt in (
+		"Tourism Front Office Arrivals Departures",
+		"Tourism Service Order Backlog",
+		"Tourism POS Sales Summary",
+		"Tourism Occupancy",
+		"Tourism Booking Status Summary",
+		"Tourism Cancellation NoShow",
+		"Tourism Guest Folio Outstanding",
+		"Tourism Daily Revenue",
+		"Tourism KPI Summary",
+		"Tourism Housekeeping Performance",
+		"Tourism Channel Performance",
+		"Tourism Lead Time Analysis",
+		"Tourism Room Type Performance",
+		"Tourism Service Profitability",
+		"Tourism Package Profitability",
+		"Tourism Flight Ticket Sales",
+	):
+		if frappe.db.exists("Report", rpt):
+			add_shortcut(rpt.replace("Tourism ", ""), "Report", rpt, doc_view="")
+
+	# Workspace visual content blocks (what users actually see on /app/...).
+	# If content remains empty, charts/shortcuts/number_cards will exist in tables
+	# but won't render in the page canvas.
+	blocks = [
+		{"id": "fo-onboarding", "type": "onboarding", "data": {"onboarding_name": "ERPGENEX · Hotel Front Office", "col": 12}},
+		{"id": "fo-h", "type": "header", "data": {"text": "<span class=\"h4\"><b>Hotel Front Office</b></span>", "col": 12}},
+		{"id": "fo-ops-h", "type": "header", "data": {"text": "<b>📌 Operations</b>", "col": 12}},
+	]
+
+	for idx, name in enumerate(
+		[
+			"Booking",
+			"Online Booking Request",
+			"Guest Folio",
+			"Charge Entry",
+			"Service Order",
+			"Restaurant Reservation",
+			"Beach Booking",
+			"Activity Booking",
+			"Housekeeping Task",
+			"Restaurant Order",
+			"Sales Invoice",
+			"Journal Entry",
+		]
+	):
+		blocks.append({"id": f"fo-op-{idx}", "type": "shortcut", "data": {"shortcut_name": name, "col": 4}})
+
+	blocks.append({"id": "fo-r-h", "type": "header", "data": {"text": "<b>📊 Reports</b>", "col": 12}})
+	for idx, rpt in enumerate(
+		[
+			"Arrivals Departures",
+			"Service Order Backlog",
+			"POS Sales Summary",
+			"Occupancy",
+			"Booking Status Summary",
+			"Cancellation NoShow",
+			"Guest Folio Outstanding",
+			"Daily Revenue",
+			"KPI Summary",
+			"Housekeeping Performance",
+			"Channel Performance",
+			"Lead Time Analysis",
+			"Room Type Performance",
+			"Service Profitability",
+			"Package Profitability",
+			"Flight Ticket Sales",
+		]
+	):
+		if (rpt, "Report", f"Tourism {rpt}") in existing_shortcuts:
+			blocks.append({"id": f"fo-r-{idx}", "type": "shortcut", "data": {"shortcut_name": rpt, "col": 4}})
+
+	blocks.append({"id": "fo-kpi-h", "type": "header", "data": {"text": "<b>📊 KPIs</b>", "col": 12}})
+	for idx, label in enumerate(
+		[
+			"TOUR KPI — Arrivals Today",
+			"TOUR KPI — Departures Today",
+			"TOUR KPI — In House",
+			"TOUR KPI — Pending Web Requests",
+			"TOUR KPI — Open Service Orders",
+			"TOUR KPI — Outstanding Folios",
+		]
+	):
+		blocks.append({"id": f"fo-kpi-{idx}", "type": "number_card", "data": {"number_card_name": label, "col": 4}})
+
+	blocks.append({"id": "fo-ch-h", "type": "header", "data": {"text": "<b>📈 Charts</b>", "col": 12}})
+	for idx, name in enumerate(
+		[
+			"Booking status mix",
+			"Booking channels",
+			"Arrivals trend",
+			"Service orders status",
+		]
+	):
+		blocks.append({"id": f"fo-ch-{idx}", "type": "chart", "data": {"chart_name": name, "col": 6}})
+
+	ws.content = json.dumps(blocks)
+
 	# Links (card breaks + links)
 	existing_links = {(row.get("type"), row.get("label"), row.get("link_type"), row.get("link_to")) for row in (ws.links or [])}
 	def add_card(label: str):
