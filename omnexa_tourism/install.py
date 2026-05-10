@@ -27,7 +27,7 @@ def enforce_supported_frappe_version():
 
 
 def _ensure_hospitality_roles():
-	for name in ("Hotel Front Desk", "Hotel Housekeeping", "Hotel General Manager"):
+	for name in ("Hotel Front Desk", "Hotel Housekeeping", "Hotel Branch Manager", "Hotel General Manager"):
 		if frappe.db.exists("Role", name):
 			continue
 		frappe.get_doc({"doctype": "Role", "desk_access": 1, "role_name": name}).insert(
@@ -37,8 +37,14 @@ def _ensure_hospitality_roles():
 
 def after_install():
 	_ensure_hospitality_roles()
+	from omnexa_tourism.workspace_front_office import ensure_hotel_front_office_workspace
+
+	ensure_hotel_front_office_workspace()
 
 
 def after_migrate():
 	_ensure_hospitality_roles()
+	from omnexa_tourism.workspace_front_office import ensure_hotel_front_office_workspace
+
+	ensure_hotel_front_office_workspace()
 

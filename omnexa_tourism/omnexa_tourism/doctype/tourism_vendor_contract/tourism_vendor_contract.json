@@ -5,6 +5,7 @@
 	"doctype": "DocType",
 	"engine": "InnoDB",
 	"field_order": [
+		"tab_break_overview",
 		"contract_name",
 		"vendor",
 		"company",
@@ -14,11 +15,22 @@
 		"valid_until",
 		"currency",
 		"status",
+		"tab_break_1",
 		"fare_rules_section",
 		"fare_rules",
 		"contract_owner"
 	],
 	"fields": [
+		{
+			"fieldname": "tab_break_overview",
+			"fieldtype": "Tab Break",
+			"label": "Overview"
+		},
+		{
+			"fieldname": "tab_break_1",
+			"fieldtype": "Tab Break",
+			"label": "Details"
+		},
 		{
 			"fieldname": "contract_name",
 			"fieldtype": "Data",

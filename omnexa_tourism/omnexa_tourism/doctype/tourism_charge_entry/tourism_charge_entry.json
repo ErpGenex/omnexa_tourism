@@ -5,6 +5,7 @@
 	"doctype": "DocType",
 	"engine": "InnoDB",
 	"field_order": [
+		"tab_break_overview",
 		"folio",
 		"booking",
 		"service_order",
@@ -16,6 +17,7 @@
 		"room_unit",
 		"charge_date",
 		"charge_type",
+		"tab_break_details",
 		"reference_doctype",
 		"reference_name",
 		"description",
@@ -30,6 +32,16 @@
 		"entry_reference"
 	],
 	"fields": [
+		{
+			"fieldname": "tab_break_overview",
+			"fieldtype": "Tab Break",
+			"label": "Overview"
+		},
+		{
+			"fieldname": "tab_break_details",
+			"fieldtype": "Tab Break",
+			"label": "Details"
+		},
 		{
 			"fieldname": "folio",
 			"fieldtype": "Link",

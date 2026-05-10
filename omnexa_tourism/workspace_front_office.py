@@ -1,0 +1,426 @@
+# Copyright (c) 2026, Omnexa and contributors
+# License: MIT. See license.txt
+
+from __future__ import annotations
+
+import json
+
+import frappe
+from frappe import _
+
+
+PALETTE = '{"colors": ["#2490ef", "#ffa00a", "#743ee2", "#5e64ff", "#39e4a5", "#fc6164"]}'
+
+# Desk chart FilterGroup expects each entry as [doctype, fieldname, operator, value] (4 items).
+# A 3-tuple [field, operator, value] makes the UI treat operator "<" as fieldname → "Invalid filter: <".
+_DOCSTATUS_SUBMITTED = json.dumps([["{doctype}", "docstatus", "<", 2]])
+
+_FRONT_OFFICE_CHART_NAMES = (
+	"TOUR · Booking Status Mix",
+	"TOUR · Booking Channels",
+	"TOUR · Arrivals Trend",
+	"TOUR · Service Orders Status",
+)
+
+
+def _prune_stale_dashboard_chart_filters() -> None:
+	"""Drop per-user chart filter overrides that used the old 3-value row shape (breaks Desk widgets)."""
+	for user in frappe.get_all("Dashboard Settings", pluck="name"):
+		raw = frappe.db.get_value("Dashboard Settings", user, "chart_config")
+		if not raw:
+			continue
+		try:
+			cfg = frappe.parse_json(raw) or {}
+		except Exception:
+			continue
+		changed = False
+		for cname in _FRONT_OFFICE_CHART_NAMES:
+			if cname not in cfg or not isinstance(cfg[cname], dict):
+				continue
+			entry = cfg[cname]
+			filters = entry.get("filters")
+			if not filters or not isinstance(filters, list):
+				continue
+			if any(isinstance(f, (list, tuple)) and len(f) == 3 for f in filters):
+				entry.pop("filters", None)
+				changed = True
+		if changed:
+			frappe.db.set_value(
+				"Dashboard Settings",
+				user,
+				"chart_config",
+				json.dumps(cfg),
+				update_modified=False,
+			)
+
+
+def _upsert_dashboard_chart(doc_dict: dict) -> None:
+	name = doc_dict["chart_name"]
+	if frappe.db.exists("Dashboard Chart", name):
+		doc = frappe.get_doc("Dashboard Chart", name)
+		changed = False
+		want = doc_dict.get("filters_json")
+		if want is not None and doc.filters_json != want:
+			doc.filters_json = want
+			changed = True
+		if changed:
+			doc.save(ignore_permissions=True)
+		return
+	doc = frappe.new_doc("Dashboard Chart")
+	doc.update(doc_dict)
+	doc.insert(ignore_permissions=True)
+
+
+def _upsert_number_card(doc_dict: dict) -> str:
+	# Keep stable identity using label as primary key
+	label = doc_dict["label"]
+	name = frappe.db.get_value("Number Card", {"label": label}, "name")
+	if name:
+		return name
+	doc = frappe.new_doc("Number Card")
+	doc.update(doc_dict)
+	doc.insert(ignore_permissions=True)
+	return doc.name
+
+
+def _ensure_front_office_widgets():
+	# Charts
+	_upsert_dashboard_chart(
+		{
+			"chart_name": "TOUR · Booking Status Mix",
+			"chart_type": "Group By",
+			"document_type": "Tourism Booking",
+			"filters_json": _DOCSTATUS_SUBMITTED.format(doctype="Tourism Booking"),
+			"group_by_based_on": "status",
+			"group_by_type": "Count",
+			"number_of_groups": 10,
+			"type": "Donut",
+			"is_public": 1,
+			"custom_options": PALETTE,
+		}
+	)
+	_upsert_dashboard_chart(
+		{
+			"chart_name": "TOUR · Booking Channels",
+			"chart_type": "Group By",
+			"document_type": "Tourism Booking",
+			"filters_json": _DOCSTATUS_SUBMITTED.format(doctype="Tourism Booking"),
+			"group_by_based_on": "booking_channel",
+			"group_by_type": "Count",
+			"number_of_groups": 10,
+			"type": "Bar",
+			"is_public": 1,
+			"custom_options": PALETTE,
+		}
+	)
+	_upsert_dashboard_chart(
+		{
+			"chart_name": "TOUR · Arrivals Trend",
+			"chart_type": "Count",
+			"document_type": "Tourism Booking",
+			"filters_json": _DOCSTATUS_SUBMITTED.format(doctype="Tourism Booking"),
+			"timeseries": 1,
+			"based_on": "check_in_date",
+			"timespan": "Last Month",
+			"time_interval": "Daily",
+			"type": "Line",
+			"is_public": 1,
+			"custom_options": PALETTE,
+		}
+	)
+	_upsert_dashboard_chart(
+		{
+			"chart_name": "TOUR · Service Orders Status",
+			"chart_type": "Group By",
+			"document_type": "Tourism Service Order",
+			"filters_json": _DOCSTATUS_SUBMITTED.format(doctype="Tourism Service Order"),
+			"group_by_based_on": "status",
+			"group_by_type": "Count",
+			"number_of_groups": 10,
+			"type": "Bar",
+			"is_public": 1,
+			"custom_options": PALETTE,
+		}
+	)
+
+	# Number cards (dynamic via custom whitelisted methods)
+	nc_names = []
+	for label, method in (
+		("TOUR KPI — Arrivals Today", "omnexa_tourism.front_office_kpis.kpi_arrivals_today"),
+		("TOUR KPI — Departures Today", "omnexa_tourism.front_office_kpis.kpi_departures_today"),
+		("TOUR KPI — In House", "omnexa_tourism.front_office_kpis.kpi_in_house"),
+		("TOUR KPI — Pending Web Requests", "omnexa_tourism.front_office_kpis.kpi_pending_web_requests"),
+		("TOUR KPI — Open Service Orders", "omnexa_tourism.front_office_kpis.kpi_open_service_orders"),
+		("TOUR KPI — Outstanding Folios", "omnexa_tourism.front_office_kpis.kpi_outstanding_folios"),
+	):
+		nc_names.append(
+			_upsert_number_card(
+				{
+					"label": label,
+					"type": "Custom",
+					"method": method,
+					"is_public": 1,
+					"show_percentage_stats": 0,
+				}
+			)
+		)
+	return nc_names
+
+
+def _ensure_workspace():
+	name = "Hotel Front Office"
+	# Keep workspace placement and icon stable in sidebar.
+	desired = {
+		"title": name,
+		"label": name,
+		"module": "Omnexa Tourism",
+		"icon": "map",
+		"public": 1,
+		"sequence_id": 7.6,  # Tourism is 7.5; keep this immediately after it.
+	}
+	if frappe.db.exists("Workspace", name):
+		ws = frappe.get_doc("Workspace", name)
+		changed = False
+		for key, value in desired.items():
+			if ws.get(key) != value:
+				ws.set(key, value)
+				changed = True
+		if changed:
+			ws.save(ignore_permissions=True)
+		return ws
+
+	ws = frappe.new_doc("Workspace")
+	ws.update(desired)
+	ws.content = "[]"
+	ws.insert(ignore_permissions=True)
+	return ws
+
+
+def ensure_hotel_front_office_workspace():
+	"""Create/refresh a dedicated hotel front-office workspace with charts, KPIs, reports and shortcuts."""
+	if not frappe.db.exists("DocType", "Workspace"):
+		return
+
+	nc_names = _ensure_front_office_widgets()
+	_prune_stale_dashboard_chart_filters()
+	ws = _ensure_workspace()
+
+	# Attach widgets (idempotent)
+	existing_charts = {row.chart_name for row in (ws.charts or [])}
+	for chart_name, lbl in zip(
+		_FRONT_OFFICE_CHART_NAMES,
+		(
+			_("Booking status mix"),
+			_("Booking channels"),
+			_("Arrivals trend"),
+			_("Service orders status"),
+		),
+		strict=True,
+	):
+		if frappe.db.exists("Dashboard Chart", chart_name) and chart_name not in existing_charts:
+			ws.append("charts", {"chart_name": chart_name, "label": lbl})
+
+	existing_cards = {row.number_card_name for row in (ws.number_cards or [])}
+	for nc_name in nc_names:
+		if nc_name and nc_name not in existing_cards:
+			ws.append("number_cards", {"number_card_name": nc_name})
+
+	# Shortcuts (used by workspace content blocks)
+	existing_shortcuts = {(row.get("label"), row.get("type"), row.get("link_to")) for row in (ws.shortcuts or [])}
+
+	def add_shortcut(label: str, shortcut_type: str, link_to: str, doc_view: str = "List"):
+		key = (label, shortcut_type, link_to)
+		if key in existing_shortcuts:
+			return
+		row = {
+			"label": label,
+			"type": shortcut_type,
+			"link_to": link_to,
+			"color": "Blue",
+		}
+		if shortcut_type == "DocType":
+			row["doc_view"] = doc_view
+		ws.append("shortcuts", row)
+		existing_shortcuts.add(key)
+
+	add_shortcut("Booking", "DocType", "Tourism Booking")
+	add_shortcut("Online Booking Request", "DocType", "Tourism Online Booking Request")
+	add_shortcut("Guest Folio", "DocType", "Tourism Guest Folio")
+	add_shortcut("Charge Entry", "DocType", "Tourism Charge Entry")
+	add_shortcut("Service Order", "DocType", "Tourism Service Order")
+	add_shortcut("Restaurant Reservation", "DocType", "Tourism Restaurant Reservation")
+	add_shortcut("Beach Booking", "DocType", "Tourism Beach Booking")
+	add_shortcut("Activity Booking", "DocType", "Tourism Activity Booking")
+	add_shortcut("Housekeeping Task", "DocType", "Tourism Housekeeping Task")
+	add_shortcut("Restaurant Order", "DocType", "Restaurant Order")
+	add_shortcut("Sales Invoice", "DocType", "Sales Invoice")
+	add_shortcut("Journal Entry", "DocType", "Journal Entry")
+
+	for rpt in (
+		"Tourism Front Office Arrivals Departures",
+		"Tourism Service Order Backlog",
+		"Tourism POS Sales Summary",
+		"Tourism Occupancy",
+		"Tourism Booking Status Summary",
+		"Tourism Cancellation NoShow",
+		"Tourism Guest Folio Outstanding",
+		"Tourism Daily Revenue",
+		"Tourism KPI Summary",
+		"Tourism Housekeeping Performance",
+		"Tourism Channel Performance",
+		"Tourism Lead Time Analysis",
+		"Tourism Room Type Performance",
+		"Tourism Service Profitability",
+		"Tourism Package Profitability",
+		"Tourism Flight Ticket Sales",
+	):
+		if frappe.db.exists("Report", rpt):
+			add_shortcut(rpt.replace("Tourism ", ""), "Report", rpt, doc_view="")
+
+	# Workspace visual content blocks (what users actually see on /app/...).
+	# If content remains empty, charts/shortcuts/number_cards will exist in tables
+	# but won't render in the page canvas.
+	blocks = [
+		{"id": "fo-onboarding", "type": "onboarding", "data": {"onboarding_name": "ERPGENEX · Hotel Front Office", "col": 12}},
+		{"id": "fo-h", "type": "header", "data": {"text": "<span class=\"h4\"><b>Hotel Front Office</b></span>", "col": 12}},
+		{"id": "fo-ops-h", "type": "header", "data": {"text": "<b>📌 Operations</b>", "col": 12}},
+	]
+
+	for idx, name in enumerate(
+		[
+			"Booking",
+			"Online Booking Request",
+			"Guest Folio",
+			"Charge Entry",
+			"Service Order",
+			"Restaurant Reservation",
+			"Beach Booking",
+			"Activity Booking",
+			"Housekeeping Task",
+			"Restaurant Order",
+			"Sales Invoice",
+			"Journal Entry",
+		]
+	):
+		blocks.append({"id": f"fo-op-{idx}", "type": "shortcut", "data": {"shortcut_name": name, "col": 4}})
+
+	blocks.append({"id": "fo-r-h", "type": "header", "data": {"text": "<b>📊 Reports</b>", "col": 12}})
+	for idx, rpt in enumerate(
+		[
+			"Arrivals Departures",
+			"Service Order Backlog",
+			"POS Sales Summary",
+			"Occupancy",
+			"Booking Status Summary",
+			"Cancellation NoShow",
+			"Guest Folio Outstanding",
+			"Daily Revenue",
+			"KPI Summary",
+			"Housekeeping Performance",
+			"Channel Performance",
+			"Lead Time Analysis",
+			"Room Type Performance",
+			"Service Profitability",
+			"Package Profitability",
+			"Flight Ticket Sales",
+		]
+	):
+		if (rpt, "Report", f"Tourism {rpt}") in existing_shortcuts:
+			blocks.append({"id": f"fo-r-{idx}", "type": "shortcut", "data": {"shortcut_name": rpt, "col": 4}})
+
+	blocks.append({"id": "fo-kpi-h", "type": "header", "data": {"text": "<b>📊 KPIs</b>", "col": 12}})
+	for idx, label in enumerate(
+		[
+			"TOUR KPI — Arrivals Today",
+			"TOUR KPI — Departures Today",
+			"TOUR KPI — In House",
+			"TOUR KPI — Pending Web Requests",
+			"TOUR KPI — Open Service Orders",
+			"TOUR KPI — Outstanding Folios",
+		]
+	):
+		blocks.append({"id": f"fo-kpi-{idx}", "type": "number_card", "data": {"number_card_name": label, "col": 4}})
+
+	blocks.append({"id": "fo-ch-h", "type": "header", "data": {"text": "<b>📈 Charts</b>", "col": 12}})
+	for idx, name in enumerate(
+		[
+			"Booking status mix",
+			"Booking channels",
+			"Arrivals trend",
+			"Service orders status",
+		]
+	):
+		blocks.append({"id": f"fo-ch-{idx}", "type": "chart", "data": {"chart_name": name, "col": 6}})
+
+	ws.content = json.dumps(blocks)
+
+	# Links (card breaks + links)
+	existing_links = {(row.get("type"), row.get("label"), row.get("link_type"), row.get("link_to")) for row in (ws.links or [])}
+	def add_card(label: str):
+		key = ("Card Break", label, None, None)
+		if key in existing_links:
+			return
+		ws.append("links", {"type": "Card Break", "label": label, "hidden": 0, "onboard": 0, "link_count": 0})
+		existing_links.add(key)
+
+	def add_link(label: str, link_type: str, link_to: str, is_query_report: int = 0):
+		key = ("Link", label, link_type, link_to)
+		if key in existing_links:
+			return
+		ws.append(
+			"links",
+			{
+				"type": "Link",
+				"label": label,
+				"link_type": link_type,
+				"link_to": link_to,
+				"is_query_report": is_query_report,
+				"hidden": 0,
+				"onboard": 0,
+				"link_count": 0,
+			},
+		)
+		existing_links.add(key)
+
+	add_card("Front Office — Bookings")
+	add_link("Booking", "DocType", "Tourism Booking")
+	add_link("Online Booking Request", "DocType", "Tourism Online Booking Request")
+	add_link("Guest Folio", "DocType", "Tourism Guest Folio")
+	add_link("Charge Entry", "DocType", "Tourism Charge Entry")
+
+	add_card("Front Office — Facilities & services")
+	add_link("Service Order", "DocType", "Tourism Service Order")
+	add_link("Restaurant Reservation", "DocType", "Tourism Restaurant Reservation")
+	add_link("Beach Booking", "DocType", "Tourism Beach Booking")
+	add_link("Activity Booking", "DocType", "Tourism Activity Booking")
+	add_link("Housekeeping Task", "DocType", "Tourism Housekeeping Task")
+
+	add_card("Front Office — POS & Billing")
+	add_link("Restaurant Order", "DocType", "Restaurant Order")
+	add_link("Sales Invoice", "DocType", "Sales Invoice")
+	add_link("Journal Entry", "DocType", "Journal Entry")
+
+	add_card("Front Office — Reports")
+	for rpt in (
+		"Tourism Front Office Arrivals Departures",
+		"Tourism Service Order Backlog",
+		"Tourism POS Sales Summary",
+		"Tourism Occupancy",
+		"Tourism Booking Status Summary",
+		"Tourism Cancellation NoShow",
+		"Tourism Guest Folio Outstanding",
+		"Tourism Daily Revenue",
+		"Tourism KPI Summary",
+		"Tourism Housekeeping Performance",
+		"Tourism Channel Performance",
+		"Tourism Lead Time Analysis",
+		"Tourism Room Type Performance",
+		"Tourism Service Profitability",
+		"Tourism Package Profitability",
+		"Tourism Flight Ticket Sales",
+	):
+		if frappe.db.exists("Report", rpt):
+			add_link(rpt.replace("Tourism ", ""), "Report", rpt, is_query_report=1)
+
+	ws.save(ignore_permissions=True)
+
