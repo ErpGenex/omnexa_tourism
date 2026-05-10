@@ -5,6 +5,7 @@
 	"doctype": "DocType",
 	"engine": "InnoDB",
 	"field_order": [
+		"tab_break_overview",
 		"customer",
 		"company",
 		"branch",
@@ -14,6 +15,7 @@
 		"end_date",
 		"adults",
 		"children",
+		"tab_break_details",
 		"vendor",
 		"currency",
 		"column_break_omnexa_2",
@@ -25,6 +27,16 @@
 		"booking_reference"
 	],
 	"fields": [
+		{
+			"fieldname": "tab_break_overview",
+			"fieldtype": "Tab Break",
+			"label": "Overview"
+		},
+		{
+			"fieldname": "tab_break_details",
+			"fieldtype": "Tab Break",
+			"label": "Details"
+		},
 		{
 			"fieldname": "customer",
 			"fieldtype": "Link",
