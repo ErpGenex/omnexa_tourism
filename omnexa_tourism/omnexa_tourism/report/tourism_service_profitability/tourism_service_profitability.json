@@ -3,7 +3,21 @@
  "columns": [],
  "disabled": 0,
  "doctype": "Report",
- "filters": [],
+ "filters": [
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "width": "180px"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Data",
+   "label": "Date",
+   "width": "180px"
+  }
+ ],
  "is_standard": "Yes",
  "json": "{}",
  "module": "Omnexa Tourism",
