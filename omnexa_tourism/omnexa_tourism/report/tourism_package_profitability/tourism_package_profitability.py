@@ -1,39 +1,30 @@
+# Copyright (c) 2026, Omnexa and contributors
+# License: MIT. See license.txt
+
 import frappe
-from frappe.utils import flt
+from frappe import _
+
+from omnexa_core.omnexa_core.report_print.report_query_filters import (
+	get_all_filters,
+	policy_version_filters,
+	prepare_filters,
+	sql_conditions,
+)
+
 
 
 def execute(filters=None):
-	filters = filters or {}
-	flt_map = {"docstatus": ["<", 2]}
-	if filters.get("company"):
-		flt_map["company"] = filters["company"]
-	if filters.get("branch"):
-		flt_map["branch"] = filters["branch"]
-	if filters.get("travel_package"):
-		flt_map["travel_package"] = filters["travel_package"]
-
-	columns = [
-		{"label": "Travel Package", "fieldname": "travel_package", "fieldtype": "Link", "options": "Tourism Travel Package", "width": 220},
-		{"label": "Bookings", "fieldname": "bookings", "fieldtype": "Int", "width": 90},
-		{"label": "Billed Amount", "fieldname": "billed_amount", "fieldtype": "Currency", "width": 140},
-	]
-
-	rows = frappe.get_all(
+	filters = prepare_filters(filters)
+	filters_dict = get_all_filters(filters, "Tourism Package Booking", date_field="creation", company=True, branch=True, extra_links={})
+	data = frappe.get_all(
 		"Tourism Package Booking",
-		fields=["travel_package", "status", "package_price"],
-		filters=flt_map,
+		fields=['travel_package', 'status', 'package_price'],
+		filters=filters_dict,
 		limit_page_length=5000,
 	)
 
-	agg = {}
-	for r in rows:
-		pkg = r.get("travel_package")
-		if pkg not in agg:
-			agg[pkg] = {"travel_package": pkg, "bookings": 0, "billed_amount": 0.0}
-		agg[pkg]["bookings"] += 1
-		if r.get("status") == "Billed":
-			agg[pkg]["billed_amount"] += flt(r.get("package_price"))
-
-	data = [agg[k] for k in sorted(agg)]
-	return columns, data
-
+	return [
+		{"label": "Travel Package", "fieldname": "travel_package", "fieldtype": "Link", "options": "Tourism Travel Package", "width": 220},
+		{"label": "Bookings", "fieldname": "bookings", "fieldtype": "Int", "width": 90},
+		{"label": "Billed Amount", "fieldname": "billed_amount", "fieldtype": "Currency", "width": 140},
+	], data
