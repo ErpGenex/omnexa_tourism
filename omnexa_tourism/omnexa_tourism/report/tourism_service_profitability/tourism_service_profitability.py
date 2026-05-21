@@ -1,4 +1,5 @@
 import frappe
+from frappe import _
 from frappe.utils import flt, nowdate
 
 
@@ -59,13 +60,13 @@ def execute(filters=None):
 		tasks_map[(t.get("branch"), t.get("report_date"))] = int(t.get("completed_tasks") or 0)
 
 	columns = [
-		{"label": "Branch", "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
-		{"label": "Date", "fieldname": "report_date", "fieldtype": "Date", "width": 120},
-		{"label": "Room Revenue", "fieldname": "room_revenue", "fieldtype": "Currency", "width": 150},
-		{"label": "Service Tasks (Completed)", "fieldname": "completed_tasks", "fieldtype": "Int", "width": 220},
-		{"label": "Service Cost", "fieldname": "service_cost", "fieldtype": "Currency", "width": 140},
-		{"label": "Profit", "fieldname": "profit", "fieldtype": "Currency", "width": 120},
-		{"label": "Room Stays", "fieldname": "room_stays", "fieldtype": "Int", "width": 120},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
+		{"label": _("Date"), "fieldname": "report_date", "fieldtype": "Date", "width": 120},
+		{"label": _("Room Revenue"), "fieldname": "room_revenue", "fieldtype": "Currency", "width": 150},
+		{"label": _("Service Tasks (Completed)"), "fieldname": "completed_tasks", "fieldtype": "Int", "width": 220},
+		{"label": _("Service Cost"), "fieldname": "service_cost", "fieldtype": "Currency", "width": 140},
+		{"label": _("Profit"), "fieldname": "profit", "fieldtype": "Currency", "width": 120},
+		{"label": _("Room Stays"), "fieldname": "room_stays", "fieldtype": "Int", "width": 120},
 	]
 
 	data = []

@@ -24,7 +24,7 @@ def execute(filters=None):
 	)
 
 	return [
-		{"label": "Travel Package", "fieldname": "travel_package", "fieldtype": "Link", "options": "Tourism Travel Package", "width": 220},
-		{"label": "Bookings", "fieldname": "bookings", "fieldtype": "Int", "width": 90},
-		{"label": "Billed Amount", "fieldname": "billed_amount", "fieldtype": "Currency", "width": 140},
+		{"label": _("Travel Package"), "fieldname": "travel_package", "fieldtype": "Link", "options": "Tourism Travel Package", "width": 220},
+		{"label": _("Bookings"), "fieldname": "bookings", "fieldtype": "Int", "width": 90},
+		{"label": _("Billed Amount"), "fieldname": "billed_amount", "fieldtype": "Currency", "width": 140},
 	], data

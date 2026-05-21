@@ -1,4 +1,5 @@
 import frappe
+from frappe import _
 from frappe.utils import flt, nowdate
 
 
@@ -34,10 +35,10 @@ def execute(filters=None):
 	)
 
 	columns = [
-		{"label": "Branch", "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
-		{"label": "Date", "fieldname": "report_date", "fieldtype": "Date", "width": 120},
-		{"label": "Room Revenue", "fieldname": "revenue", "fieldtype": "Currency", "width": 150},
-		{"label": "Stays", "fieldname": "stays", "fieldtype": "Int", "width": 90},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
+		{"label": _("Date"), "fieldname": "report_date", "fieldtype": "Date", "width": 120},
+		{"label": _("Room Revenue"), "fieldname": "revenue", "fieldtype": "Currency", "width": 150},
+		{"label": _("Stays"), "fieldname": "stays", "fieldtype": "Int", "width": 90},
 	]
 
 	data = []

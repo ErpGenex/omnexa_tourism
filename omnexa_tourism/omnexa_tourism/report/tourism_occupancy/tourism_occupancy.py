@@ -1,4 +1,5 @@
 import frappe
+from frappe import _
 from frappe.utils import flt, nowdate
 
 
@@ -50,11 +51,11 @@ def execute(filters=None):
 	occupancy_rate = (flt(occ) / total * 100.0) if total else 0.0
 
 	columns = [
-		{"label": "Date", "fieldname": "date", "fieldtype": "Date", "width": 120},
-		{"label": "Branch", "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
-		{"label": "Total Rooms", "fieldname": "total_rooms", "fieldtype": "Int", "width": 140},
-		{"label": "Occupied Rooms", "fieldname": "occupied_rooms", "fieldtype": "Int", "width": 160},
-		{"label": "Occupancy %", "fieldname": "occupancy_rate", "fieldtype": "Percent", "width": 140},
+		{"label": _("Date"), "fieldname": "date", "fieldtype": "Date", "width": 120},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
+		{"label": _("Total Rooms"), "fieldname": "total_rooms", "fieldtype": "Int", "width": 140},
+		{"label": _("Occupied Rooms"), "fieldname": "occupied_rooms", "fieldtype": "Int", "width": 160},
+		{"label": _("Occupancy %"), "fieldname": "occupancy_rate", "fieldtype": "Percent", "width": 140},
 	]
 
 	data = [
