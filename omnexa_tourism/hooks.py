@@ -14,7 +14,7 @@ required_apps = ["omnexa_core", "omnexa_accounting"]
 add_to_apps_screen = [
 	{
 		"name": "omnexa_tourism",
-		"logo": "/assets/omnexa_tourism/tourism.svg",
+		"logo": "/assets/omnexa_tourism/logo.png",
 		"title": "Tourism",
 		"route": "/app/tourism",
 	}
