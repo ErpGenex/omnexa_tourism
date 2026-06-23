@@ -1,0 +1,16 @@
+{
+	"doctype": "Page",
+	"module": "Omnexa Tourism",
+	"name": "tourism-finance-desk",
+	"page_name": "tourism-finance-desk",
+	"standard": "Yes",
+	"title": "Finance Desk",
+	"roles": [
+		{
+			"role": "System Manager"
+		},
+		{
+			"role": "Company Admin"
+		}
+	]
+}
