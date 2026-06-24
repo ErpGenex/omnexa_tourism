@@ -1,5 +1,7 @@
 import frappe
 from frappe import _
+
+from omnexa_core.omnexa_core.utils.report_charts import auto_chart_for_columns
 from frappe.utils import flt, getdate, nowdate
 from omnexa_core.omnexa_core.branch_access import get_allowed_branches
 
@@ -49,7 +51,9 @@ def execute(filters=None):
 		no_show = int(row.get("no_show") or 0)
 		row.cancel_rate = (flt(cancelled) / total * 100.0) if total else 0.0
 		row.no_show_rate = (flt(no_show) / total * 100.0) if total else 0.0
-	return _columns(), data
+	columns = _columns()
+	chart = auto_chart_for_columns(data, columns)
+	return columns, data, None, chart
 
 
 def _columns():

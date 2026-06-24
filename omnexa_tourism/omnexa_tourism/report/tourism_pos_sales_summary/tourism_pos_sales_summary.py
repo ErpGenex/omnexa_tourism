@@ -1,5 +1,7 @@
 import frappe
 from frappe import _
+
+from omnexa_core.omnexa_core.utils.report_charts import auto_chart_for_columns
 from frappe.utils import getdate, nowdate
 
 
@@ -38,4 +40,5 @@ def execute(filters=None):
 		{"label": _("Entries"), "fieldname": "entries", "fieldtype": "Int", "width": 100},
 		{"label": _("Amount"), "fieldname": "total_amount", "fieldtype": "Currency", "width": 130},
 	]
-	return columns, rows
+	chart = auto_chart_for_columns(rows, columns)
+	return columns, rows, None, chart

@@ -1,5 +1,7 @@
 import frappe
 from frappe import _
+
+from omnexa_core.omnexa_core.utils.report_charts import auto_chart_for_columns
 from frappe.utils import flt, nowdate
 
 
@@ -88,6 +90,5 @@ def execute(filters=None):
 				"room_stays": int(r.get("room_stays") or 0),
 			}
 		)
-
-	return columns, data
-
+	chart = auto_chart_for_columns(data, columns)
+	return columns, data, None, chart
