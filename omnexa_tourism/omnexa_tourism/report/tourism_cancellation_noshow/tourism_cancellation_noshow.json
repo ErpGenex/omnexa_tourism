@@ -39,7 +39,7 @@
  "module": "Omnexa Tourism",
  "name": "Tourism Cancellation & No-show",
  "ref_doctype": "Tourism Booking",
- "report_name": "Tourism Cancellation & No-show",
+ "report_name": "Tourism Cancellation Noshow",
  "report_type": "Script Report",
  "roles": [
   {
