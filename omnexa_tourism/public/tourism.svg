@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect x="8" y="8" width="112" height="112" rx="18" fill="#1D4ED8"/>
+  <path d="M64 26c14 0 26 12 26 26S78 78 64 78 38 66 38 52 50 26 64 26Z" fill="#93C5FD"/>
+  <path d="M30 102c6-18 19-26 34-26s28 8 34 26" fill="none" stroke="#E0F2FE" stroke-width="8" stroke-linecap="round"/>
+  <text x="64" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF">Tourism</text>
+</svg>
+

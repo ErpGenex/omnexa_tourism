@@ -1,0 +1,21 @@
+{
+ "action": "Create Entry",
+ "action_label": "Create",
+ "creation": "2026-05-11 00:01:28.650124",
+ "description": "Create or review your first **Tourism Booking** record from this workspace.",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2026-07-11 14:37:28.916132",
+ "modified_by": "Administrator",
+ "name": "ERPGENEX-WS-hotel_front_office-01-tourism_booking",
+ "owner": "Administrator",
+ "reference_document": "Tourism Booking",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Get started with Tourism Booking",
+ "validate_action": 1
+}

@@ -1,0 +1,1 @@
+frappe.pages["tourism-guest-pwa"].on_page_load = function(w){ frappe.ui.make_app_page({parent:w, title:"tourism-guest-pwa", single_column:1}); };

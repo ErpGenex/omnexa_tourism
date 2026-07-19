@@ -1,0 +1,2 @@
+[post_model_sync]
+omnexa_tourism.patches.v1_0.sync_tour_workspace_full

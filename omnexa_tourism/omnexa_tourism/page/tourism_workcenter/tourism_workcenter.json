@@ -1,0 +1,16 @@
+{
+	"doctype": "Page",
+	"module": "Omnexa Tourism",
+	"name": "tourism-workcenter",
+	"page_name": "tourism-workcenter",
+	"standard": "Yes",
+	"title": "Tourism Workcenter",
+	"roles": [
+		{
+			"role": "System Manager"
+		},
+		{
+			"role": "Company Admin"
+		}
+	]
+}

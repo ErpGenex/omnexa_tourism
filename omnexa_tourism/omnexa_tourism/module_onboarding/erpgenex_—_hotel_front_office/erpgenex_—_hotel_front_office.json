@@ -1,0 +1,41 @@
+{
+ "allow_roles": [
+  {
+   "role": "Desk User"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "creation": "2026-06-18 14:00:45.918268",
+ "docstatus": 0,
+ "doctype": "Module Onboarding",
+ "documentation_url": "https://frappe.io/framework",
+ "idx": 0,
+ "is_complete": 0,
+ "modified": "2026-07-11 14:37:28.954656",
+ "modified_by": "Administrator",
+ "module": "Omnexa Tourism",
+ "name": "ERPGENEX \u2014 Hotel Front Office",
+ "owner": "Administrator",
+ "steps": [
+  {
+   "step": "ERPGENEX-WS-hotel_front_office-01-tourism_booking"
+  },
+  {
+   "step": "ERPGENEX-WS-hotel_front_office-02-tourism_online_booking_request"
+  },
+  {
+   "step": "ERPGENEX-WS-hotel_front_office-03-tourism_guest_folio"
+  },
+  {
+   "step": "ERPGENEX-WS-hotel_front_office-04-tourism_charge_entry"
+  },
+  {
+   "step": "ERPGENEX-WS-hotel_front_office-home"
+  }
+ ],
+ "subtitle": "Guided setup for this workspace.",
+ "success_message": "You are ready to work in Hotel Front Office.",
+ "title": "Hotel Front Office"
+}

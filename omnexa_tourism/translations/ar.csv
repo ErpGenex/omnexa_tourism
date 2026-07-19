@@ -1,0 +1,383 @@
+Accounting & operations,محاسبة & عمليات
+Activity Booking,نشاط Booking
+Activity Date,نشاط تاريخ
+Activity Name,نشاط اسم
+Activity request requires Activity Name and Activity Date.,نشاط طلب requires نشاط اسم و نشاط تاريخ.
+ADR,ADR
+Adults,Adults
+Airline / Vendor,Airline Vendor
+Amount,مبلغ
+Amount that will be billed to the customer (can include markups).,مبلغ that will be billed إلى the عميل (can include markups).
+Applies To,Applies إلى
+Arrivals,Arrivals
+Arrivals trend,Arrivals اتجاه
+Auto Price (apply markup),Auto سعر (apply markup)
+Availability,Availability
+Available Room Nights,متاح Room Nights
+Avg Lead Time (days),متوسط عميل محتمل Time (days)
+Avg LOS (nights),متوسط LOS (nights)
+Balance Due,رصيد استحقاق
+Base Fare,Base Fare
+Base Price,Base سعر
+Beach / Facility,Beach Facility
+Beach Booking,Beach Booking
+Beach Facility,Beach Facility
+"Beach slot capacity exceeded. Capacity {0}, requested/used {1}.","Beach slot capacity exceeded. Capacity { 0 }, requested used { 1 }."
+Billed Amount,Billed مبلغ
+Billed Price,Billed سعر
+Booking,Booking
+Booking channel,Booking channel
+Booking channels,Booking channels
+Booking does not exist.,Booking does not exist.
+Booking Owner,Booking Owner
+Booking Reference,Booking Reference
+Booking Status,Booking حالة
+Booking status mix,Booking حالة mix
+Booking status summary,Booking حالة ملخص
+Bookings,Bookings
+Bookings & travel,Bookings & travel
+Branch,الفرع
+Branch belongs to a different company.,فرع belongs إلى a different شركة.
+Branch does not exist.,فرع does not exist.
+Branch {0} does not exist.,فرع { 0 } does not exist.
+Cabin,Cabin
+Cabin Class,Cabin Class
+Cabin Class (optional),Cabin Class (optional)
+Cancel %,Cancel%
+Cancellation & no-show,Cancellation & no - show
+Cancelled,ملغى
+Capacity,Capacity
+Channel,Channel
+Channel performance,Channel أداء
+Charge,Charge
+Charge amount must be greater than zero.,Charge مبلغ must be greater than zero.
+Charge Date,Charge تاريخ
+Charge Entry,Charge قيد
+Charge entry booking must match the folio booking.,Charge قيد booking must match the folio booking.
+Charge entry customer must match the folio customer.,Charge قيد عميل must match the folio عميل.
+Charge entry hotel must match the folio hotel.,Charge قيد hotel must match the folio hotel.
+Charge entry must belong to the same company and branch as the folio.,Charge قيد must belong إلى the same شركة و فرع as the folio.
+Charge entry room unit must match the folio room unit.,Charge قيد room unit must match the folio room unit.
+Charge Type,Charge نوع
+Check In Date,فحص In تاريخ
+Check Out Date,فحص Out تاريخ
+Check-out date must be after check-in date.,فحص - out تاريخ must be after فحص - in تاريخ.
+Children,Children
+City,City
+Company,الشركة
+Company filter is required.,شركة filter is required.
+Confirmed On,Confirmed On
+Contact Email,اتصال بريد إلكتروني
+Contact Phone,اتصال Phone
+Contract Name,عقد اسم
+Contract Owner,عقد Owner
+Cost Center,مركز التكلفة
+Country,Country
+Created Activity Booking,Created نشاط Booking
+Created Beach Booking,Created Beach Booking
+Created Flight Booking,Created Flight Booking
+Created Hotel Booking,Created Hotel Booking
+Created Restaurant Order,Created مطعم Order
+Currency,Currency
+Customer,العميل
+Customer (optional),عميل (optional)
+Customer belongs to a different company.,عميل belongs إلى a different شركة.
+Customer is mandatory for confirmed/active bookings.,عميل is mandatory لـ confirmed نشط bookings.
+Customer Name,عميل اسم
+Customer Profile,ملف العميل
+Daily revenue,يومي إيرادات
+Date,التاريخ
+Date/Time,تاريخ Time
+Dates,Dates
+Default Rack Rate (per night),افتراضي Rack معدل (per night)
+Default Vendor,افتراضي Vendor
+Departure,Departure
+Departures,Departures
+Description,الوصف
+Details,التفاصيل
+Disabled unit cannot be assigned to a booking.,Disabled unit cannot be assigned إلى a booking.
+Drop-off Location,Drop - off Location
+Duplicate,Duplicate
+Duration (Days),Duration (Days)
+Email,البريد الإلكتروني
+Email is required to create a customer.,بريد إلكتروني is required إلى create a عميل.
+End,نهاية
+End Date,تاريخ الانتهاء
+End Date must be on or after Start Date.,نهاية تاريخ must be on or after بداية تاريخ.
+Entries,Entries
+Entry Reference,قيد Reference
+Facility Code,Facility كود
+Facility Name,Facility اسم
+Fare Basis,Fare Basis
+Fare Rules,Fare Rules
+Fees,Fees
+Filters,Filters
+Finance,مالية
+Flight Booking,Flight Booking
+"Flight request requires From, To and Departure.","Flight طلب requires From, إلى و Departure."
+Flight ticket sales,Flight ticket مبيعات
+Floor,Floor
+Floor / Zone,Floor Zone
+Floor Code,Floor كود
+Floor Name,Floor اسم
+Folio,Folio
+Folio customer must match the booking customer.,Folio عميل must match the booking عميل.
+Folio Date,Folio تاريخ
+Folio hotel must match the booking hotel.,Folio hotel must match the booking hotel.
+Folio must belong to the same company and branch as the booking.,Folio must belong إلى the same شركة و فرع as the booking.
+Folio Reference,Folio Reference
+Folio room unit must match the booking room unit.,Folio room unit must match the booking room unit.
+From,From
+From (Airport),From (Airport)
+From (Airport) (optional),From (Airport) (optional)
+From Date,From تاريخ
+Further,Further
+Guest,Guest
+Guest display name,Guest display اسم
+Guest Folio,Guest Folio
+Guest folio does not exist.,Guest folio does not exist.
+Guest folio is mandatory for charge entry.,Guest folio is mandatory لـ charge قيد.
+Guest folio outstanding,Guest folio outstanding
+Guest Name,Guest اسم
+Guest services & folio,Guest خدمات & folio
+Guests,Guests
+Guests & CRM,Guests & CRM
+Hotel,Hotel
+Hotel (optional),Hotel (optional)
+Hotel Code,Hotel كود
+Hotel does not exist.,Hotel does not exist.
+Hotel Floor,Hotel Floor
+Hotel floor does not exist.,Hotel floor does not exist.
+Hotel floor must belong to the same company and branch as the hotel.,Hotel floor must belong إلى the same شركة و فرع as the hotel.
+Hotel floor must belong to the same company and branch.,Hotel floor must belong إلى the same شركة و فرع.
+Hotel Front Office,مكتب استقبال الفندق
+Hotel must belong to the same company and branch.,Hotel must belong إلى the same شركة و فرع.
+Hotel Name,Hotel اسم
+"Hotel request requires Room Unit, Check In and Check Out.","Hotel طلب requires Room Unit, فحص In و فحص Out."
+Hotels & rooms,Hotels & rooms
+Housekeeping performance,Housekeeping أداء
+Housekeeping task,Housekeeping مهمة
+Housekeeping Task,Housekeeping مهمة
+Integrations,التكاملات
+Invalid booking status transition from {0} to {1}.,Invalid booking حالة transition from { 0 } إلى { 1 }.
+Invalid doctype for slot usage.,Invalid doctype لـ slot usage.
+Invalid unit status transition from {0} to {1}.,Invalid unit حالة transition from { 0 } إلى { 1 }.
+Is Active,Is نشط
+Item Type,صنف نوع
+Itinerary,Itinerary
+Itinerary Items,Itinerary Items
+Journal Entry,قيد يومية
+KPI summary (ADR/RevPAR),KPI ملخص (ADR Rev PAR)
+Lead time analysis,عميل محتمل time analysis
+Line Reference,Line Reference
+Linked Supplier,Linked مورد
+Load omnexa_core vertical portal desk,Load omnexa أساسي vertical بوابة desk
+Load omnexa_core vertical workcenter kit,Load omnexa أساسي vertical workcenter kit
+Location,Location
+Lower number wins.,Lower رقم wins.
+Markup,Markup
+Markup Amount,Markup مبلغ
+Markup Type,Markup نوع
+Markup Value,Markup Value
+Max Occupancy,أقصى Occupancy
+Missing field: {0},Missing field: { 0 }
+Missing payload.,Missing payload.
+Model Name,Model اسم
+Model Owner,Model Owner
+Net,Net
+Nights,Nights
+No matching fare rule found in active vendor contracts.,No matching fare rule found in نشط vendor contracts.
+No-show,No - show
+No-show %,No - show%
+Notes,Notes
+Occupancy,Occupancy
+Occupancy %,Occupancy%
+Occupied Room Nights,Occupied Room Nights
+Occupied Rooms,Occupied Rooms
+Omnexa Tourism,Omnexa سياحة
+Online Booking Request,Online Booking طلب
+Online Request,Online طلب
+Operating Currency,Operating Currency
+Operation Model,Operation Model
+Order Reference,Order Reference
+Orders,Orders
+Overdue,Overdue
+Overview,نظرة عامة
+Package Booking,Package Booking
+Package Code,Package كود
+Package Code must be unique per company.,Package كود must be unique per شركة.
+Package Name,Package اسم
+Package Owner,Package Owner
+Package Price,Package سعر
+Package profitability,Package profitability
+Paid Amount,مدفوع مبلغ
+Participants,Participants
+Party Size,Party Size
+Passengers,Passengers
+Phone,Phone
+Pickup Location,Pickup Location
+Pickup Time,Pickup Time
+"Please set Company, Branch and Customer first.","Please set شركة, فرع و عميل first."
+"Please set Vendor, From (Airport) and To (Airport) first.","Please set Vendor, From (Airport) و إلى (Airport) first."
+PNR,PNR
+PNR Reference,PNR Reference
+Portfolio & setup,Portfolio & إعداد
+Posting,Posting
+Price,سعر
+Pricing,Pricing
+Pricing Rule,Pricing Rule
+Priority,Priority
+Profit,Profit
+Project Contract,مشروع عقد
+Quantity,Quantity
+Rate,معدل
+Rate per night,معدل per night
+Rate per night must be greater than zero.,معدل per night must be greater than zero.
+Receivable Account,Receivable حساب
+Reference DocType,Reference Doc نوع
+Reference Document,Reference مستند
+Request is already processed.,طلب is already processed.
+Request Reference,طلب Reference
+Request Type,طلب نوع
+Reservation Reference,Reservation Reference
+Restaurant,مطعم
+Restaurant Order,مطعم Order
+Restaurant Reservation,مطعم Reservation
+"Restaurant slot capacity exceeded. Capacity {0}, requested/used {1}.","مطعم slot capacity exceeded. Capacity { 0 }, requested used { 1 }."
+Restaurant Venue,مطعم Venue
+Return,Return
+Return date/time is required for Round-trip.,Return تاريخ time is required لـ Round - trip.
+Return is required for Round-trip.,Return is required لـ Round - trip.
+Revenue,الإيرادات
+Revenue Account,إيرادات حساب
+RevPAR,Rev PAR
+Room Nights,Room Nights
+Room Revenue,Room إيرادات
+Room Stays,Room Stays
+Room Type,Room نوع
+Room Type does not exist.,Room نوع does not exist.
+Room Type must belong to the same company and branch.,Room نوع must belong إلى the same شركة و فرع.
+Room type performance,Room نوع أداء
+Room Unit,Room Unit
+Room Unit (optional),Room Unit (optional)
+Room unit already has a booking overlapping these dates ({0}).,Room unit already has a booking overlapping these dates ({ 0 }).
+Room unit does not exist.,Room unit does not exist.
+Room unit is mandatory for confirmed/active bookings.,Room unit is mandatory لـ confirmed نشط bookings.
+Room unit must belong to the same company and branch.,Room unit must belong إلى the same شركة و فرع.
+Rooms,Rooms
+Route,Route
+Rule Name,Rule اسم
+Rule Owner,Rule Owner
+Rule Reference,Rule Reference
+Sales Invoice,فاتورة بيع
+Scheduled Date,Scheduled تاريخ
+Selected floor does not belong to the selected hotel.,Selected floor does not belong إلى the selected hotel.
+Selected room is not available for the requested dates.,Selected room is not متاح لـ the requested dates.
+Selected room unit belongs to a different hotel.,Selected room unit belongs إلى a different hotel.
+Selected unit does not exist.,Selected unit does not exist.
+Selected unit must belong to the same company and branch.,Selected unit must belong إلى the same شركة و فرع.
+Service Category,خدمة فئة
+Service Cost,خدمة تكلفة
+Service Date,خدمة تاريخ
+Service Date/Time,خدمة تاريخ Time
+Service Date/Time is required for Beach and Restaurant requests.,خدمة تاريخ Time is required لـ Beach و مطعم طلبات.
+Service Definition,خدمة Definition
+Service Order,خدمة Order
+Service order folio must belong to the same booking.,خدمة order folio must belong إلى the same booking.
+"Service order must match the folio customer, company, and branch.","خدمة order must match the folio عميل, شركة, و فرع."
+Service orders status,خدمة orders حالة
+Service profitability,خدمة profitability
+Service Tasks (Completed),خدمة Tasks (مكتمل)
+Service Ticket,خدمة Ticket
+Slot Capacity,Slot Capacity
+Sort Order,Sort Order
+Source,Source
+Source App,Source App
+Start,بداية
+Start Date,بداية تاريخ
+Status,الحالة
+Status Bar,حالة Bar
+Stay,Stay
+Stays,Stays
+Suggest Pricing,Suggest Pricing
+System,النظام
+Task Owner,مهمة Owner
+Task Status,مهمة حالة
+Task Type,مهمة نوع
+Tasks,Tasks
+Taxes,Taxes
+Ticket Number,Ticket رقم
+Ticket Number is required when status is Ticketed or Billed.,Ticket رقم is required when حالة is Ticketed or Billed.
+Ticket Total,Ticket إجمالي
+Ticketed On,Ticketed On
+Tickets,Tickets
+Timezone,Timezone
+Title,العنوان
+To,إلى
+To (Airport),إلى (Airport)
+To (Airport) (optional),إلى (Airport) (optional)
+To Date,إلى تاريخ
+Total Bookings,إجمالي Bookings
+Total Charges,إجمالي Charges
+Total Nights,إجمالي Nights
+Total room charges,إجمالي room charges
+Total Rooms,إجمالي Rooms
+Total Ticket Price,إجمالي Ticket سعر
+tour-executive-dashboard,tour - تنفيذي - لوحة معلومات
+Tourism,سياحة
+Tourism Activity Booking,سياحة نشاط Booking
+Tourism Beach Booking,سياحة Beach Booking
+Tourism Beach Facility,سياحة Beach Facility
+Tourism Booking,سياحة Booking
+Tourism Charge Entry,سياحة Charge قيد
+Tourism Flight Booking,سياحة Flight Booking
+Tourism Guest Folio,سياحة Guest Folio
+Tourism Hotel,سياحة Hotel
+Tourism Hotel Floor,سياحة Hotel Floor
+Tourism Hotel Mix,سياحة Hotel Mix
+Tourism Housekeeping Task,سياحة Housekeeping مهمة
+Tourism Online Booking Request,سياحة Online Booking طلب
+Tourism Operation Model,سياحة Operation Model
+Tourism Operation Model Mix,سياحة Operation Model Mix
+Tourism Package Booking,سياحة Package Booking
+Tourism Package Itinerary Item,سياحة Package Itinerary صنف
+Tourism Pricing Rule,سياحة Pricing Rule
+Tourism Restaurant Reservation,سياحة مطعم Reservation
+Tourism Restaurant Venue,سياحة مطعم Venue
+Tourism Room Type,سياحة Room نوع
+Tourism Room Unit,سياحة Room Unit
+Tourism Service Order,سياحة خدمة Order
+Tourism Transport Booking,سياحة Transport Booking
+Tourism Travel Package,سياحة Travel Package
+Tourism Travel Vendor,سياحة Travel Vendor
+Tourism Vendor Contract,سياحة Vendor عقد
+Tourism Vendor Fare Rule,سياحة Vendor Fare Rule
+Tourism Workcenter,سياحة Workcenter
+tourism-analytics-dashboard,سياحة - تحليلات - لوحة معلومات
+tourism-customer-portal,سياحة - عميل - بوابة
+tourism-executive-dashboard,سياحة - تنفيذي - لوحة معلومات
+tourism-finance-desk,سياحة - مالية - desk
+tourism-operations-desk,سياحة - عمليات - desk
+Transport Booking,Transport Booking
+Travel Package,Travel Package
+Travel Vendor,Travel Vendor
+Trip Type,Trip نوع
+Trip Type (optional),Trip نوع (optional)
+Type Code,نوع كود
+Type Code must be unique within the same company and branch.,نوع كود must be unique within the same شركة و فرع.
+Type Name,نوع اسم
+Unit,Unit
+Unit Code,Unit كود
+Unit Code must be unique within the same company and branch.,Unit كود must be unique within the same شركة و فرع.
+Unit Name,Unit اسم
+Valid From,Valid From
+Valid Until,Valid Until
+Validation,التحقق
+Vendor,Vendor
+Vendor (optional),Vendor (optional)
+Vendor Code,Vendor كود
+Vendor Contract,Vendor عقد
+Vendor Name,Vendor اسم
+Vendor Type,Vendor نوع
+Venue Code,Venue كود
+Venue Name,Venue اسم
