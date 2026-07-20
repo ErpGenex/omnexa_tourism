@@ -26,8 +26,8 @@ def _create_todo(subject: str, reference_type: str, reference_name: str, allocat
 			"allocated_to": allocated_to,
 			"reference_type": reference_type,
 			"reference_name": reference_name,
-			"description": subject,
-		},
+			"description": subject
+	},
 	)
 	if exists:
 		return
@@ -38,8 +38,8 @@ def _create_todo(subject: str, reference_type: str, reference_name: str, allocat
 			"allocated_to": allocated_to,
 			"reference_type": reference_type,
 			"reference_name": reference_name,
-			"status": "Open",
-		}
+			"status": "Open"
+	}
 	).insert(ignore_permissions=True)
 
 
@@ -109,8 +109,7 @@ def _create_hourly_sla_todos():
 		filters={
 			"status": ["in", ["Ordered", "In Progress"]],
 			"service_date": ["<", today],
-			"docstatus": ["<", 2],
-		},
+			"docstatus": ["<", 2]},
 		fields=["name", "booking", "customer", "service_category", "service_date"],
 		limit_page_length=300,
 	)
@@ -126,8 +125,7 @@ def _create_hourly_sla_todos():
 		filters={
 			"status": ["in", ["New", "In Progress"]],
 			"creation": ["<=", add_to_date(None, hours=-2)],
-			"docstatus": ["<", 2],
-		},
+			"docstatus": ["<", 2]},
 		fields=["name", "request_type", "customer_name", "creation"],
 		limit_page_length=300,
 	)

@@ -40,18 +40,20 @@ class TourismActivityBooking(Document):
 				"service_date": self.activity_date or nowdate(),
 				"reference_doctype": "Tourism Activity Booking",
 				"reference_name": self.name,
-				"description": f"Activity: {self.activity_name}",
+				"description": f"Activity: {self.activity_name
+	}",
 				"quantity": 1,
 				"rate": self.price,
-				"status": "Billed",
-			}
+				"status": "Billed"
+	}
 		)
 		so.insert(ignore_permissions=True)
 		ensure_charge_entry_for_service_order(so)
 		frappe.db.set_value(
 			"Tourism Activity Booking",
 			self.name,
-			{"service_order": so.name, "charge_entry": so.charge_entry},
+			{"service_order": so.name, "charge_entry": so.charge_entry
+	},
 			update_modified=False,
 		)
 

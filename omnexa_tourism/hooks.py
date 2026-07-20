@@ -16,7 +16,7 @@ add_to_apps_screen = [
 		"name": "omnexa_tourism",
 		"logo": "/assets/omnexa_tourism/logo.png",
 		"title": "Tourism",
-		"route": "/app/tourism-workcenter",
+		"route": "/app/tourism-workcenter"
 	}
 ]
 
@@ -140,8 +140,8 @@ permission_query_conditions = {
 	"Tourism Beach Booking": "omnexa_tourism.permissions.tourism_beach_booking_query_conditions",
 	"Tourism Restaurant Reservation": "omnexa_tourism.permissions.tourism_restaurant_reservation_query_conditions",
 	"Tourism Restaurant Venue": "omnexa_tourism.permissions.tourism_restaurant_venue_query_conditions",
-	"Tourism Beach Facility": "omnexa_tourism.permissions.tourism_beach_facility_query_conditions",
-}
+	"Tourism Beach Facility": "omnexa_tourism.permissions.tourism_beach_facility_query_conditions"
+	}
 #
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
@@ -162,106 +162,105 @@ permission_query_conditions = {
 doc_events = {
 	"Tourism Booking": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Room Unit": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Room Type": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Operation Model": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Hotel": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Hotel Floor": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Guest Folio": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Charge Entry": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
 		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
-		"on_update": "omnexa_tourism.accounting_integration.post_charge_entry_journal",
+		"on_update": "omnexa_tourism.accounting_integration.post_charge_entry_journal"
 	},
 	"Tourism Service Order": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Travel Vendor": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Travel Package": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Package Booking": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Transport Booking": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Flight Booking": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Vendor Contract": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Pricing Rule": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Online Booking Request": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Beach Booking": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Restaurant Reservation": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Restaurant Venue": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Beach Facility": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Activity Booking": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"
 	},
 	"Tourism Housekeeping Task": {
 		"before_validate": "omnexa_tourism.permissions.populate_company_branch_from_user_context",
-		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc",
-	},
-}
+		"validate": "omnexa_tourism.permissions.enforce_branch_access_for_doc"}
+	}
 
 # Scheduled Tasks
 # ---------------
 
 scheduler_events = {
 	"hourly": ["omnexa_tourism.tasks.hourly"],
-	"daily": ["omnexa_tourism.tasks.daily"],
-}
+	"daily": ["omnexa_tourism.tasks.daily"]
+	}
 
 # Testing
 # -------
@@ -308,22 +307,22 @@ before_request = ["omnexa_tourism.license_gate.before_request"]
 
 # user_data_fields = [
 # 	{
-# 		"doctype": "{doctype_1}",
-# 		"filter_by": "{filter_by}",
-# 		"redact_fields": ["{field_1}", "{field_2}"],
+# 		"doctype": "{}",
+# 		"filter_by": "{}",
+# 		"redact_fields": ["{}", "{}"],
 # 		"partial": 1,
 # 	},
 # 	{
-# 		"doctype": "{doctype_2}",
-# 		"filter_by": "{filter_by}",
+# 		"doctype": "{}",
+# 		"filter_by": "{}",
 # 		"partial": 1,
 # 	},
 # 	{
-# 		"doctype": "{doctype_3}",
+# 		"doctype": "{}",
 # 		"strict": False,
 # 	},
 # 	{
-# 		"doctype": "{doctype_4}"
+# 		"doctype": "{}"
 # 	}
 # ]
 

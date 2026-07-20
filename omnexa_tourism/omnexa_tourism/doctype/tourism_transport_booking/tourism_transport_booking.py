@@ -40,18 +40,20 @@ class TourismTransportBooking(Document):
 				"service_date": (getdate(self.pickup_datetime) if self.pickup_datetime else getdate(nowdate())),
 				"reference_doctype": "Tourism Transport Booking",
 				"reference_name": self.name,
-				"description": f"Transport: {self.pickup_location} → {self.dropoff_location}",
+				"description": f"Transport: {self.pickup_location} → {self.dropoff_location
+	}",
 				"quantity": 1,
 				"rate": self.price,
-				"status": "Billed",
-			}
+				"status": "Billed"
+	}
 		)
 		so.insert(ignore_permissions=True)
 		ensure_charge_entry_for_service_order(so)
 		frappe.db.set_value(
 			"Tourism Transport Booking",
 			self.name,
-			{"service_order": so.name, "charge_entry": so.charge_entry},
+			{"service_order": so.name, "charge_entry": so.charge_entry
+	},
 			update_modified=False,
 		)
 

@@ -11,7 +11,8 @@ def execute(filters=None):
 	plan_date = filters.get("date") or nowdate()
 	branch = filters.get("branch")
 
-	params = {"plan_date": plan_date}
+	params = {"plan_date": plan_date
+	}
 	branch_clause_booking = ""
 	branch_clause_task = ""
 	if branch:
@@ -62,13 +63,20 @@ def execute(filters=None):
 		tasks_map[(t.get("branch"), t.get("report_date"))] = int(t.get("completed_tasks") or 0)
 
 	columns = [
-		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
-		{"label": _("Date"), "fieldname": "report_date", "fieldtype": "Date", "width": 120},
-		{"label": _("Room Revenue"), "fieldname": "room_revenue", "fieldtype": "Currency", "width": 150},
-		{"label": _("Service Tasks (Completed)"), "fieldname": "completed_tasks", "fieldtype": "Int", "width": 220},
-		{"label": _("Service Cost"), "fieldname": "service_cost", "fieldtype": "Currency", "width": 140},
-		{"label": _("Profit"), "fieldname": "profit", "fieldtype": "Currency", "width": 120},
-		{"label": _("Room Stays"), "fieldname": "room_stays", "fieldtype": "Int", "width": 120},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180
+	},
+		{"label": _("Date"), "fieldname": "report_date", "fieldtype": "Date", "width": 120
+	},
+		{"label": _("Room Revenue"), "fieldname": "room_revenue", "fieldtype": "Currency", "width": 150
+	},
+		{"label": _("Service Tasks (Completed)"), "fieldname": "completed_tasks", "fieldtype": "Int", "width": 220
+	},
+		{"label": _("Service Cost"), "fieldname": "service_cost", "fieldtype": "Currency", "width": 140
+	},
+		{"label": _("Profit"), "fieldname": "profit", "fieldtype": "Currency", "width": 120
+	},
+		{"label": _("Room Stays"), "fieldname": "room_stays", "fieldtype": "Int", "width": 120
+	},
 	]
 
 	data = []
@@ -87,8 +95,8 @@ def execute(filters=None):
 				"completed_tasks": completed_tasks,
 				"service_cost": service_cost,
 				"profit": profit,
-				"room_stays": int(r.get("room_stays") or 0),
-			}
+				"room_stays": int(r.get("room_stays") or 0)
+	}
 		)
 	chart = auto_chart_for_columns(data, columns)
 	return columns, data, None, chart

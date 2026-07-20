@@ -65,18 +65,20 @@ class TourismFlightBooking(Document):
 				"service_date": (getdate(self.departure_datetime) if self.departure_datetime else getdate(nowdate())),
 				"reference_doctype": "Tourism Flight Booking",
 				"reference_name": self.name,
-				"description": f"Flight: {self.from_airport} → {self.to_airport} ({self.trip_type}, {self.cabin_class}) (PNR: {self.pnr or '-'})",
+				"description": f"Flight: {self.from_airport} → {self.to_airport} ({self.trip_type
+	}, {self.cabin_class}) (PNR: {self.pnr or '-'})",
 				"quantity": 1,
 				"rate": self.price,
-				"status": "Billed",
-			}
+				"status": "Billed"
+	}
 		)
 		so.insert(ignore_permissions=True)
 		ensure_charge_entry_for_service_order(so)
 		frappe.db.set_value(
 			"Tourism Flight Booking",
 			self.name,
-			{"service_order": so.name, "charge_entry": so.charge_entry},
+			{"service_order": so.name, "charge_entry": so.charge_entry
+	},
 			update_modified=False,
 		)
 
@@ -114,8 +116,8 @@ def suggest_fare_rule(vendor, from_airport, to_airport, trip_type="One-way", cab
 			"to_airport": to_airport,
 			"trip_type": trip_type,
 			"cabin_class": cabin_class,
-			"posting_date": posting_date,
-		},
+			"posting_date": posting_date
+	},
 		as_dict=True,
 	)
 	return rows[0] if rows else {}
@@ -164,7 +166,7 @@ def suggest_pricing(company, branch, customer, vendor, from_airport, to_airport,
 	return {
 		"fare": fare,
 		"markup": markup,
-		"computed": {"total_price": total_price, "markup_amount": markup_amount, "billed_price": total_price + markup_amount},
+		"computed": {"total_price": total_price, "markup_amount": markup_amount, "billed_price": total_price + markup_amount}
 	}
 
 
@@ -181,7 +183,7 @@ def _suggest_markup_rule(company, branch, customer, vendor, from_airport, to_air
 		"is_active": 1,
 		"applies_to": "Flight Ticket",
 		"company": company,
-		"branch": branch,
+		"branch": branch
 	}
 	candidates = frappe.get_all(
 		"Tourism Pricing Rule",

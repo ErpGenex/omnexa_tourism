@@ -1,0 +1,14 @@
+{
+ "item_code": "Tourism Links",
+ "item_name": "Tourism Links",
+ "module": "Omnexa Tourism",
+ "page_name": "links",
+ "route": "links",
+ "is_standard": 1,
+ "published": 1,
+ "roles": [
+  "System Manager",
+  "Tourism Administrator",
+  "Tourism Staff"
+ ]
+}

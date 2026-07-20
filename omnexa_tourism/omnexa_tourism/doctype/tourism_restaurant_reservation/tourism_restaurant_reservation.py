@@ -21,14 +21,15 @@ class TourismRestaurantReservation(Document):
 				"company": self.company,
 				"branch": self.branch,
 				"status": "Draft",
-				"hold_order": 1,
-			}
+				"hold_order": 1
+	}
 		)
 		order.insert(ignore_permissions=True)
 		frappe.db.set_value(
 			"Tourism Restaurant Reservation",
 			self.name,
-			{"restaurant_order": order.name},
+			{"restaurant_order": order.name
+	},
 			update_modified=False,
 		)
 
@@ -52,8 +53,7 @@ class TourismRestaurantReservation(Document):
 				"restaurant_venue": self.restaurant_venue,
 				"service_datetime": self.service_datetime,
 				"status": ["!=", "Cancelled"],
-				"name": ["!=", self.name or ""],
-			},
+				"name": ["!=", self.name or ""]},
 		)
 		total = used + int(self.party_size or 0)
 		if total > int(capacity):

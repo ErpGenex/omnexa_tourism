@@ -12,7 +12,8 @@ def execute(filters=None):
 		frappe.throw(_("Company filter is required."), title=_("Filters"))
 
 	conditions = ["tb.company = %(company)s", "tb.docstatus < 2", "tb.status != 'Cancelled'"]
-	values = {"company": filters.company}
+	values = {"company": filters.company
+	}
 	if filters.get("branch"):
 		conditions.append("tb.branch = %(branch)s")
 		values["branch"] = filters.branch
@@ -57,9 +58,14 @@ def execute(filters=None):
 
 def _columns():
 	return [
-		{"label": _("Room Type"), "fieldname": "room_type", "fieldtype": "Link", "options": "Tourism Room Type", "width": 160},
-		{"label": _("Bookings"), "fieldname": "booking_count", "fieldtype": "Int", "width": 100},
-		{"label": _("Room Nights"), "fieldname": "room_nights", "fieldtype": "Float", "width": 120},
-		{"label": _("Revenue"), "fieldname": "revenue", "fieldtype": "Currency", "width": 130},
-		{"label": _("ADR"), "fieldname": "adr", "fieldtype": "Currency", "width": 110},
+		{"label": _("Room Type"), "fieldname": "room_type", "fieldtype": "Link", "options": "Tourism Room Type", "width": 160
+	},
+		{"label": _("Bookings"), "fieldname": "booking_count", "fieldtype": "Int", "width": 100
+	},
+		{"label": _("Room Nights"), "fieldname": "room_nights", "fieldtype": "Float", "width": 120
+	},
+		{"label": _("Revenue"), "fieldname": "revenue", "fieldtype": "Currency", "width": 130
+	},
+		{"label": _("ADR"), "fieldname": "adr", "fieldtype": "Currency", "width": 110
+	},
 	]

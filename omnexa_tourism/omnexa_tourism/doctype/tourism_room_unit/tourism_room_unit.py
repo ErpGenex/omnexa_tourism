@@ -10,8 +10,8 @@ ALLOWED_STATUS_TRANSITIONS = {
 	"Reserved": {"Occupied", "Available", "Maintenance", "Disabled"},
 	"Occupied": {"Available", "Maintenance", "Disabled"},
 	"Maintenance": {"Available", "Disabled"},
-	"Disabled": {"Available"},
-}
+	"Disabled": {"Available"}
+	}
 
 
 class TourismRoomUnit(Document):
@@ -93,7 +93,8 @@ class TourismRoomUnit(Document):
 	def _validate_unique_unit_code(self):
 		dupe = frappe.db.exists(
 			"Tourism Room Unit",
-			{"company": self.company, "branch": self.branch, "unit_code": self.unit_code},
+			{"company": self.company, "branch": self.branch, "unit_code": self.unit_code
+	},
 		)
 		if dupe and (self.is_new() or dupe != self.name):
 			frappe.throw(

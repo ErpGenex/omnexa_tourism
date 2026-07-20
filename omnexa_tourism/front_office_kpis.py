@@ -23,7 +23,7 @@ def kpi_arrivals_today():
 		"value": value,
 		"fieldtype": "Int",
 		"route": ["List", "Tourism Booking", "List"],
-		"route_options": {"check_in_date": today, "status": "Confirmed"},
+		"route_options": {"check_in_date": today, "status": "Confirmed"}
 	}
 
 
@@ -39,7 +39,7 @@ def kpi_departures_today():
 		"value": value,
 		"fieldtype": "Int",
 		"route": ["List", "Tourism Booking", "List"],
-		"route_options": {"check_out_date": today, "status": "Checked In"},
+		"route_options": {"check_out_date": today, "status": "Checked In"}
 	}
 
 
@@ -51,7 +51,7 @@ def kpi_in_house():
 		"value": value,
 		"fieldtype": "Int",
 		"route": ["List", "Tourism Booking", "List"],
-		"route_options": {"status": "Checked In"},
+		"route_options": {"status": "Checked In"}
 	}
 
 

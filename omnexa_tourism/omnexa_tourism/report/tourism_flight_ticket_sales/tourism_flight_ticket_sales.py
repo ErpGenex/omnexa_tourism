@@ -8,21 +8,36 @@ from frappe.utils import getdate
 def execute(filters=None):
 	filters = filters or {}
 	columns = [
-		{"label": _("Date"), "fieldname": "posting_date", "fieldtype": "Date", "width": 100},
-		{"label": _("Company"), "fieldname": "company", "fieldtype": "Link", "options": "Company", "width": 160},
-		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 140},
-		{"label": _("Vendor"), "fieldname": "vendor", "fieldtype": "Link", "options": "Tourism Travel Vendor", "width": 180},
-		{"label": _("Route"), "fieldname": "route", "fieldtype": "Data", "width": 140},
-		{"label": _("Trip Type"), "fieldname": "trip_type", "fieldtype": "Data", "width": 90},
-		{"label": _("Cabin"), "fieldname": "cabin_class", "fieldtype": "Data", "width": 110},
-		{"label": _("Tickets"), "fieldname": "tickets", "fieldtype": "Int", "width": 80},
-		{"label": _("Passengers"), "fieldname": "passengers", "fieldtype": "Int", "width": 100},
-		{"label": _("Base Fare"), "fieldname": "base_fare", "fieldtype": "Currency", "width": 120},
-		{"label": _("Taxes"), "fieldname": "taxes", "fieldtype": "Currency", "width": 100},
-		{"label": _("Fees"), "fieldname": "fees", "fieldtype": "Currency", "width": 100},
-		{"label": _("Ticket Total"), "fieldname": "total_price", "fieldtype": "Currency", "width": 130},
-		{"label": _("Markup"), "fieldname": "markup_amount", "fieldtype": "Currency", "width": 110},
-		{"label": _("Billed Amount"), "fieldname": "billed_amount", "fieldtype": "Currency", "width": 130},
+		{"label": _("Date"), "fieldname": "posting_date", "fieldtype": "Date", "width": 100
+	},
+		{"label": _("Company"), "fieldname": "company", "fieldtype": "Link", "options": "Company", "width": 160
+	},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 140
+	},
+		{"label": _("Vendor"), "fieldname": "vendor", "fieldtype": "Link", "options": "Tourism Travel Vendor", "width": 180
+	},
+		{"label": _("Route"), "fieldname": "route", "fieldtype": "Data", "width": 140
+	},
+		{"label": _("Trip Type"), "fieldname": "trip_type", "fieldtype": "Data", "width": 90
+	},
+		{"label": _("Cabin"), "fieldname": "cabin_class", "fieldtype": "Data", "width": 110
+	},
+		{"label": _("Tickets"), "fieldname": "tickets", "fieldtype": "Int", "width": 80
+	},
+		{"label": _("Passengers"), "fieldname": "passengers", "fieldtype": "Int", "width": 100
+	},
+		{"label": _("Base Fare"), "fieldname": "base_fare", "fieldtype": "Currency", "width": 120
+	},
+		{"label": _("Taxes"), "fieldname": "taxes", "fieldtype": "Currency", "width": 100
+	},
+		{"label": _("Fees"), "fieldname": "fees", "fieldtype": "Currency", "width": 100
+	},
+		{"label": _("Ticket Total"), "fieldname": "total_price", "fieldtype": "Currency", "width": 130
+	},
+		{"label": _("Markup"), "fieldname": "markup_amount", "fieldtype": "Currency", "width": 110
+	},
+		{"label": _("Billed Amount"), "fieldname": "billed_amount", "fieldtype": "Currency", "width": 130
+	},
 	]
 
 	data = _get_data(filters)

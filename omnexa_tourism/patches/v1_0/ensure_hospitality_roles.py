@@ -9,5 +9,6 @@ def execute():
 		if frappe.db.exists("Role", name):
 			continue
 		frappe.get_doc(
-			{"doctype": "Role", "desk_access": 1, "role_name": name}
+			{"doctype": "Role", "desk_access": 1, "role_name": name
+	}
 		).insert(ignore_permissions=True)

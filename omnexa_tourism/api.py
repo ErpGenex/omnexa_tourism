@@ -28,18 +28,28 @@ def get_site_config() -> dict:
 		"accent_color": "#00bcd4",
 		"gold_color": "#ffc107",
 		"destinations": [
-			{"key": "hotels", "name_ar": "فنادق", "name_en": "Hotels", "icon": "🏨", "desc": "Luxury stays"},
-			{"key": "flights", "name_ar": "رحلات جوية", "name_en": "Flights", "icon": "✈️", "desc": "Global destinations"},
-			{"key": "beaches", "name_ar": "شواطئ", "name_en": "Beaches", "icon": "🏖️", "desc": "Coastal paradise"},
-			{"key": "activities", "name_ar": "أنشطة", "name_en": "Activities", "icon": "🎯", "desc": "Adventures"},
+			{"key": "hotels", "name_ar": "فنادق", "name_en": "Hotels", "icon": "🏨", "desc": "Luxury stays"
+	},
+			{"key": "flights", "name_ar": "رحلات جوية", "name_en": "Flights", "icon": "✈️", "desc": "Global destinations"
+	},
+			{"key": "beaches", "name_ar": "شواطئ", "name_en": "Beaches", "icon": "🏖️", "desc": "Coastal paradise"
+	},
+			{"key": "activities", "name_ar": "أنشطة", "name_en": "Activities", "icon": "🎯", "desc": "Adventures"
+	},
 		],
 		"services": [
-			{"icon": "🏨", "ar": "حجز فنادق", "en": "Hotel Booking"},
-			{"icon": "✈️", "ar": "تذاكر طيران", "en": "Flight Tickets"},
-			{"icon": "🚗", "ar": "تأجير سيارات", "en": "Car Rental"},
-			{"icon": "🎫", "ar": "أنشطة ترفيهية", "en": "Entertainment"},
-			{"icon": "🍽️", "ar": "حجوزات مطاعم", "en": "Restaurant Reservations"},
-			{"icon": "📱", "ar": "تطبيق المسافر", "en": "Traveler App"},
+			{"icon": "🏨", "ar": "حجز فنادق", "en": "Hotel Booking"
+	},
+			{"icon": "✈️", "ar": "تذاكر طيران", "en": "Flight Tickets"
+	},
+			{"icon": "🚗", "ar": "تأجير سيارات", "en": "Car Rental"
+	},
+			{"icon": "🎫", "ar": "أنشطة ترفيهية", "en": "Entertainment"
+	},
+			{"icon": "🍽️", "ar": "حجوزات مطاعم", "en": "Restaurant Reservations"
+	},
+			{"icon": "📱", "ar": "تطبيق المسافر", "en": "Traveler App"
+	},
 		],
-		"stats": {"destinations": 100, "travelers": 50000, "partners": 200, "years": 12},
+		"stats": {"destinations": 100, "travelers": 50000, "partners": 200, "years": 12}
 	}

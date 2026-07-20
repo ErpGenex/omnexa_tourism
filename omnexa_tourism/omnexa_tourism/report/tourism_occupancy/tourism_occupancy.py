@@ -13,7 +13,8 @@ def execute(filters=None):
 
 	branch_unit_clause = ""
 	branch_booking_clause = ""
-	params = {"occ_date": occ_date}
+	params = {"occ_date": occ_date
+	}
 
 	if branch:
 		branch_unit_clause = "AND tur.branch = %(branch)s"
@@ -53,11 +54,16 @@ def execute(filters=None):
 	occupancy_rate = (flt(occ) / total * 100.0) if total else 0.0
 
 	columns = [
-		{"label": _("Date"), "fieldname": "date", "fieldtype": "Date", "width": 120},
-		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
-		{"label": _("Total Rooms"), "fieldname": "total_rooms", "fieldtype": "Int", "width": 140},
-		{"label": _("Occupied Rooms"), "fieldname": "occupied_rooms", "fieldtype": "Int", "width": 160},
-		{"label": _("Occupancy %"), "fieldname": "occupancy_rate", "fieldtype": "Percent", "width": 140},
+		{"label": _("Date"), "fieldname": "date", "fieldtype": "Date", "width": 120
+	},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180
+	},
+		{"label": _("Total Rooms"), "fieldname": "total_rooms", "fieldtype": "Int", "width": 140
+	},
+		{"label": _("Occupied Rooms"), "fieldname": "occupied_rooms", "fieldtype": "Int", "width": 160
+	},
+		{"label": _("Occupancy %"), "fieldname": "occupancy_rate", "fieldtype": "Percent", "width": 140
+	},
 	]
 
 	data = [
@@ -66,8 +72,8 @@ def execute(filters=None):
 			"branch": branch,
 			"total_rooms": total,
 			"occupied_rooms": occ,
-			"occupancy_rate": occupancy_rate,
-		}
+			"occupancy_rate": occupancy_rate
+	}
 	]
 	chart = auto_chart_for_columns(data, columns)
 	return columns, data, None, chart

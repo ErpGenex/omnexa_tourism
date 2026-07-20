@@ -1,0 +1,66 @@
+{% extends "templates/base.html" %}
+
+{% block title %}روابط السياحة | Tourism Links{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center mb-4">روابط السياحة | Tourism Links</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">🌐 موقع السياحة العام | Public Website</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">الموقع العام للسياحة - متاح للجميع</p>
+                    <a href="/tourism/" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fa fa-external-link"></i> زيارة الموقع | Visit Website
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">✈️ بوابة المسافر | Customer Portal</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">بوابة خاصة للمسافرين لحجز الرحلات</p>
+                    <a href="/app/tourism-customer-portal/" target="_blank" class="btn btn-success btn-lg">
+                        <i class="fa fa-user"></i> دخول البوابة | Access Portal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">📋 معلومات إضافية | Additional Information</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>رابط الموقع:</strong> <code>{{ frappe.request.host_url }}tourism/</code>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>بوابة المسافر:</strong> <code>{{ frappe.request.host_url }}app/tourism-customer-portal/</code>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>الدور المطلوب:</strong> <code>Tourism Customer Portal</code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

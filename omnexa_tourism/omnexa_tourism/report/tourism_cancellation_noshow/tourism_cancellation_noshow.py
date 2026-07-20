@@ -12,7 +12,8 @@ def execute(filters=None):
 		frappe.throw(_("Company filter is required."), title=_("Filters"))
 
 	conditions = ["tb.company = %(company)s", "tb.docstatus < 2"]
-	values = {"company": filters.company, "today": getdate(nowdate())}
+	values = {"company": filters.company, "today": getdate(nowdate())
+	}
 	if filters.get("branch"):
 		conditions.append("tb.branch = %(branch)s")
 		values["branch"] = filters.branch
@@ -58,10 +59,16 @@ def execute(filters=None):
 
 def _columns():
 	return [
-		{"label": _("Channel"), "fieldname": "booking_channel", "fieldtype": "Data", "width": 140},
-		{"label": _("Total Bookings"), "fieldname": "total_bookings", "fieldtype": "Int", "width": 120},
-		{"label": _("Cancelled"), "fieldname": "cancelled", "fieldtype": "Int", "width": 100},
-		{"label": _("Cancel %"), "fieldname": "cancel_rate", "fieldtype": "Percent", "width": 100},
-		{"label": _("No-show"), "fieldname": "no_show", "fieldtype": "Int", "width": 100},
-		{"label": _("No-show %"), "fieldname": "no_show_rate", "fieldtype": "Percent", "width": 110},
+		{"label": _("Channel"), "fieldname": "booking_channel", "fieldtype": "Data", "width": 140
+	},
+		{"label": _("Total Bookings"), "fieldname": "total_bookings", "fieldtype": "Int", "width": 120
+	},
+		{"label": _("Cancelled"), "fieldname": "cancelled", "fieldtype": "Int", "width": 100
+	},
+		{"label": _("Cancel %"), "fieldname": "cancel_rate", "fieldtype": "Percent", "width": 100
+	},
+		{"label": _("No-show"), "fieldname": "no_show", "fieldtype": "Int", "width": 100
+	},
+		{"label": _("No-show %"), "fieldname": "no_show_rate", "fieldtype": "Percent", "width": 110
+	},
 	]

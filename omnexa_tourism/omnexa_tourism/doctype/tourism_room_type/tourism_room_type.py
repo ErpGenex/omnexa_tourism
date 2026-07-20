@@ -23,7 +23,8 @@ class TourismRoomType(Document):
 	def _validate_unique_code(self):
 		dupe = frappe.db.exists(
 			"Tourism Room Type",
-			{"company": self.company, "branch": self.branch, "type_code": self.type_code},
+			{"company": self.company, "branch": self.branch, "type_code": self.type_code
+	},
 		)
 		if dupe and (self.is_new() or dupe != self.name):
 			frappe.throw(

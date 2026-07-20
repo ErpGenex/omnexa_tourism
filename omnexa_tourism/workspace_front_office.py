@@ -74,7 +74,8 @@ def _upsert_dashboard_chart(doc_dict: dict) -> None:
 def _upsert_number_card(doc_dict: dict) -> str:
 	# Keep stable identity using label as primary key
 	label = doc_dict["label"]
-	name = frappe.db.get_value("Number Card", {"label": label}, "name")
+	name = frappe.db.get_value("Number Card", {"label": label
+	}, "name")
 	if name:
 		return name
 	doc = frappe.new_doc("Number Card")
@@ -96,8 +97,8 @@ def _ensure_front_office_widgets():
 			"number_of_groups": 10,
 			"type": "Donut",
 			"is_public": 1,
-			"custom_options": PALETTE,
-		}
+			"custom_options": PALETTE
+	}
 	)
 	_upsert_dashboard_chart(
 		{
@@ -110,8 +111,8 @@ def _ensure_front_office_widgets():
 			"number_of_groups": 10,
 			"type": "Bar",
 			"is_public": 1,
-			"custom_options": PALETTE,
-		}
+			"custom_options": PALETTE
+	}
 	)
 	_upsert_dashboard_chart(
 		{
@@ -125,8 +126,8 @@ def _ensure_front_office_widgets():
 			"time_interval": "Daily",
 			"type": "Line",
 			"is_public": 1,
-			"custom_options": PALETTE,
-		}
+			"custom_options": PALETTE
+	}
 	)
 	_upsert_dashboard_chart(
 		{
@@ -139,8 +140,8 @@ def _ensure_front_office_widgets():
 			"number_of_groups": 10,
 			"type": "Bar",
 			"is_public": 1,
-			"custom_options": PALETTE,
-		}
+			"custom_options": PALETTE
+	}
 	)
 
 	# Number cards (dynamic via custom whitelisted methods)
@@ -160,8 +161,8 @@ def _ensure_front_office_widgets():
 					"type": "Custom",
 					"method": method,
 					"is_public": 1,
-					"show_percentage_stats": 0,
-				}
+					"show_percentage_stats": 0
+	}
 			)
 		)
 	return nc_names
@@ -218,12 +219,14 @@ def ensure_hotel_front_office_workspace():
 		strict=True,
 	):
 		if frappe.db.exists("Dashboard Chart", chart_name) and chart_name not in existing_charts:
-			ws.append("charts", {"chart_name": chart_name, "label": lbl})
+			ws.append("charts", {"chart_name": chart_name, "label": lbl
+	})
 
 	existing_cards = {row.number_card_name for row in (ws.number_cards or [])}
 	for nc_name in nc_names:
 		if nc_name and nc_name not in existing_cards:
-			ws.append("number_cards", {"number_card_name": nc_name})
+			ws.append("number_cards", {"number_card_name": nc_name
+	})
 
 	# Shortcuts (used by workspace content blocks)
 	existing_shortcuts = {(row.get("label"), row.get("type"), row.get("link_to")) for row in (ws.shortcuts or [])}
@@ -236,8 +239,8 @@ def ensure_hotel_front_office_workspace():
 			"label": label,
 			"type": shortcut_type,
 			"link_to": link_to,
-			"color": "Blue",
-		}
+			"color": "Blue"
+	}
 		if shortcut_type == "DocType":
 			row["doc_view"] = doc_view
 		ws.append("shortcuts", row)
@@ -281,9 +284,12 @@ def ensure_hotel_front_office_workspace():
 	# If content remains empty, charts/shortcuts/number_cards will exist in tables
 	# but won't render in the page canvas.
 	blocks = [
-		{"id": "fo-onboarding", "type": "onboarding", "data": {"onboarding_name": "ERPGENEX · Hotel Front Office", "col": 12}},
-		{"id": "fo-h", "type": "header", "data": {"text": "<span class=\"h4\"><b>Hotel Front Office</b></span>", "col": 12}},
-		{"id": "fo-ops-h", "type": "header", "data": {"text": "<b>📌 Operations</b>", "col": 12}},
+		{"id": "fo-onboarding", "type": "onboarding", "data": {"onboarding_name": "ERPGENEX · Hotel Front Office", "col": 12}
+	},
+		{"id": "fo-h", "type": "header", "data": {"text": "<span class=\"h4\"><b>Hotel Front Office</b></span>", "col": 12}
+	},
+		{"id": "fo-ops-h", "type": "header", "data": {"text": "<b>📌 Operations</b>", "col": 12}
+	},
 	]
 
 	for idx, name in enumerate(
@@ -302,9 +308,12 @@ def ensure_hotel_front_office_workspace():
 			"Journal Entry",
 		]
 	):
-		blocks.append({"id": f"fo-op-{idx}", "type": "shortcut", "data": {"shortcut_name": name, "col": 4}})
+		blocks.append({"id": f"fo-op-{idx
+	}", "type": "shortcut", "data": {"shortcut_name": name, "col": 4}
+	})
 
-	blocks.append({"id": "fo-r-h", "type": "header", "data": {"text": "<b>📊 Reports</b>", "col": 12}})
+	blocks.append({"id": "fo-r-h", "type": "header", "data": {"text": "<b>📊 Reports</b>", "col": 12}
+	})
 	for idx, rpt in enumerate(
 		[
 			"Arrivals Departures",
@@ -326,9 +335,12 @@ def ensure_hotel_front_office_workspace():
 		]
 	):
 		if (rpt, "Report", f"Tourism {rpt}") in existing_shortcuts:
-			blocks.append({"id": f"fo-r-{idx}", "type": "shortcut", "data": {"shortcut_name": rpt, "col": 4}})
+			blocks.append({"id": f"fo-r-{idx
+	}", "type": "shortcut", "data": {"shortcut_name": rpt, "col": 4}
+	})
 
-	blocks.append({"id": "fo-kpi-h", "type": "header", "data": {"text": "<b>📊 KPIs</b>", "col": 12}})
+	blocks.append({"id": "fo-kpi-h", "type": "header", "data": {"text": "<b>📊 KPIs</b>", "col": 12}
+	})
 	for idx, label in enumerate(
 		[
 			"TOUR KPI — Arrivals Today",
@@ -339,9 +351,12 @@ def ensure_hotel_front_office_workspace():
 			"TOUR KPI — Outstanding Folios",
 		]
 	):
-		blocks.append({"id": f"fo-kpi-{idx}", "type": "number_card", "data": {"number_card_name": label, "col": 4}})
+		blocks.append({"id": f"fo-kpi-{idx
+	}", "type": "number_card", "data": {"number_card_name": label, "col": 4}
+	})
 
-	blocks.append({"id": "fo-ch-h", "type": "header", "data": {"text": "<b>📈 Charts</b>", "col": 12}})
+	blocks.append({"id": "fo-ch-h", "type": "header", "data": {"text": "<b>📈 Charts</b>", "col": 12}
+	})
 	for idx, name in enumerate(
 		[
 			"Booking status mix",
@@ -350,7 +365,9 @@ def ensure_hotel_front_office_workspace():
 			"Service orders status",
 		]
 	):
-		blocks.append({"id": f"fo-ch-{idx}", "type": "chart", "data": {"chart_name": name, "col": 6}})
+		blocks.append({"id": f"fo-ch-{idx
+	}", "type": "chart", "data": {"chart_name": name, "col": 6}
+	})
 
 	ws.content = json.dumps(blocks)
 
@@ -360,7 +377,8 @@ def ensure_hotel_front_office_workspace():
 		key = ("Card Break", label, None, None)
 		if key in existing_links:
 			return
-		ws.append("links", {"type": "Card Break", "label": label, "hidden": 0, "onboard": 0, "link_count": 0})
+		ws.append("links", {"type": "Card Break", "label": label, "hidden": 0, "onboard": 0, "link_count": 0
+	})
 		existing_links.add(key)
 
 	def add_link(label: str, link_type: str, link_to: str, is_query_report: int = 0):
@@ -377,8 +395,8 @@ def ensure_hotel_front_office_workspace():
 				"is_query_report": is_query_report,
 				"hidden": 0,
 				"onboard": 0,
-				"link_count": 0,
-			},
+				"link_count": 0
+	},
 		)
 		existing_links.add(key)
 

@@ -51,8 +51,12 @@ def execute(filters=None):
 
 def _columns():
 	return [
-		{"label": _("Channel"), "fieldname": "booking_channel", "fieldtype": "Data", "width": 140},
-		{"label": _("Bookings"), "fieldname": "booking_count", "fieldtype": "Int", "width": 110},
-		{"label": _("Room Nights"), "fieldname": "room_nights", "fieldtype": "Float", "width": 120},
-		{"label": _("Revenue"), "fieldname": "revenue", "fieldtype": "Currency", "width": 140},
+		{"label": _("Channel"), "fieldname": "booking_channel", "fieldtype": "Data", "width": 140
+	},
+		{"label": _("Bookings"), "fieldname": "booking_count", "fieldtype": "Int", "width": 110
+	},
+		{"label": _("Room Nights"), "fieldname": "room_nights", "fieldtype": "Float", "width": 120
+	},
+		{"label": _("Revenue"), "fieldname": "revenue", "fieldtype": "Currency", "width": 140
+	},
 	]

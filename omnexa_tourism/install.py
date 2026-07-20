@@ -30,7 +30,8 @@ def _ensure_hospitality_roles():
 	for name in ("Hotel Front Desk", "Hotel Housekeeping", "Hotel Branch Manager", "Hotel General Manager"):
 		if frappe.db.exists("Role", name):
 			continue
-		frappe.get_doc({"doctype": "Role", "desk_access": 1, "role_name": name}).insert(
+		frappe.get_doc({"doctype": "Role", "desk_access": 1, "role_name": name
+	}).insert(
 			ignore_permissions=True
 		)
 

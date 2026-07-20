@@ -46,7 +46,10 @@ def execute(filters=None):
 
 def _columns():
 	return [
-		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 150},
-		{"label": _("Task Status"), "fieldname": "status", "fieldtype": "Data", "width": 140},
-		{"label": _("Tasks"), "fieldname": "task_count", "fieldtype": "Int", "width": 100},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 150
+	},
+		{"label": _("Task Status"), "fieldname": "status", "fieldtype": "Data", "width": 140
+	},
+		{"label": _("Tasks"), "fieldname": "task_count", "fieldtype": "Int", "width": 100
+	},
 	]

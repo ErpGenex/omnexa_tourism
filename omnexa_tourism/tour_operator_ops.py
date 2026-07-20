@@ -15,8 +15,8 @@ def _ensure_folio_for_customer(company, branch, customer):
 			"company": company,
 			"branch": branch,
 			"folio_date": nowdate(),
-			"status": "Open",
-		}
+			"status": "Open"
+	}
 	)
 	folio.insert(ignore_permissions=True)
 	return folio.name
@@ -43,11 +43,12 @@ def ensure_service_order_for_package_booking(pkg_booking_doc):
 			"service_date": pkg_booking_doc.start_date or nowdate(),
 			"reference_doctype": "Tourism Package Booking",
 			"reference_name": pkg_booking_doc.name,
-			"description": f"Travel package booking {pkg_booking_doc.travel_package}",
+			"description": f"Travel package booking {pkg_booking_doc.travel_package
+	}",
 			"quantity": 1,
 			"rate": flt(pkg_booking_doc.package_price),
-			"status": "Billed",
-		}
+			"status": "Billed"
+	}
 	)
 	so.insert(ignore_permissions=True)
 
@@ -57,8 +58,8 @@ def ensure_service_order_for_package_booking(pkg_booking_doc):
 		{
 			"folio": folio,
 			"service_order": so.name,
-			"charge_entry": so.charge_entry,
-		},
+			"charge_entry": so.charge_entry
+	},
 		update_modified=False,
 	)
 	return so.name

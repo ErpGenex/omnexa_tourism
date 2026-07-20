@@ -21,8 +21,8 @@ def ensure_guest_folio_for_booking(booking_doc):
 			"cost_center": getattr(booking_doc, "cost_center", None),
 			"project": getattr(booking_doc, "project", None),
 			"folio_date": nowdate(),
-			"status": "Open",
-		}
+			"status": "Open"
+	}
 	)
 	folio.insert(ignore_permissions=True)
 	frappe.db.set_value(
@@ -61,8 +61,8 @@ def recalculate_guest_folio(folio_name: str):
 		{
 			"total_charges": total_charges,
 			"paid_amount": paid_amount,
-			"balance_due": balance_due,
-		},
+			"balance_due": balance_due
+	},
 		update_modified=False,
 	)
 
@@ -99,8 +99,8 @@ def ensure_charge_entry_for_service_order(service_order_doc):
 			"amount": service_order_doc.amount,
 			"cost_center": getattr(service_order_doc, "cost_center", None),
 			"project": getattr(service_order_doc, "project", None),
-			"status": "Billed",
-		}
+			"status": "Billed"
+	}
 	)
 	charge.insert(ignore_permissions=True)
 	frappe.db.set_value(

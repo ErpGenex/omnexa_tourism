@@ -58,13 +58,22 @@ def execute(filters=None):
 
 def _columns():
 	return [
-		{"label": _("Guest Folio"), "fieldname": "guest_folio", "fieldtype": "Link", "options": "Tourism Guest Folio", "width": 150},
-		{"label": _("Folio Date"), "fieldname": "folio_date", "fieldtype": "Date", "width": 110},
-		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 120},
-		{"label": _("Customer"), "fieldname": "customer", "fieldtype": "Link", "options": "Customer", "width": 150},
-		{"label": _("Booking"), "fieldname": "booking", "fieldtype": "Link", "options": "Tourism Booking", "width": 150},
-		{"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 100},
-		{"label": _("Total Charges"), "fieldname": "total_charges", "fieldtype": "Currency", "width": 130},
-		{"label": _("Paid Amount"), "fieldname": "paid_amount", "fieldtype": "Currency", "width": 120},
-		{"label": _("Balance Due"), "fieldname": "balance_due", "fieldtype": "Currency", "width": 120},
+		{"label": _("Guest Folio"), "fieldname": "guest_folio", "fieldtype": "Link", "options": "Tourism Guest Folio", "width": 150
+	},
+		{"label": _("Folio Date"), "fieldname": "folio_date", "fieldtype": "Date", "width": 110
+	},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 120
+	},
+		{"label": _("Customer"), "fieldname": "customer", "fieldtype": "Link", "options": "Customer", "width": 150
+	},
+		{"label": _("Booking"), "fieldname": "booking", "fieldtype": "Link", "options": "Tourism Booking", "width": 150
+	},
+		{"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 100
+	},
+		{"label": _("Total Charges"), "fieldname": "total_charges", "fieldtype": "Currency", "width": 130
+	},
+		{"label": _("Paid Amount"), "fieldname": "paid_amount", "fieldtype": "Currency", "width": 120
+	},
+		{"label": _("Balance Due"), "fieldname": "balance_due", "fieldtype": "Currency", "width": 120
+	},
 	]

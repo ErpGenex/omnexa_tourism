@@ -49,8 +49,8 @@ class TourismOnlineBookingRequest(Document):
 					"children": 0,
 					"rate_per_night": 0,
 					"booking_channel": "Other",
-					"status": "Draft",
-				}
+					"status": "Draft"
+	}
 			)
 			booking.insert(ignore_permissions=True)
 			self.created_booking = booking.name
@@ -78,8 +78,8 @@ class TourismOnlineBookingRequest(Document):
 					"markup_type": "Percent",
 					"markup_value": 0,
 					"price": 0,
-					"status": "Draft",
-				}
+					"status": "Draft"
+	}
 			)
 			fb.insert(ignore_permissions=True)
 			self.created_flight_booking = fb.name
@@ -97,8 +97,8 @@ class TourismOnlineBookingRequest(Document):
 					"service_datetime": self.service_datetime,
 					"party_size": self.party_size or 2,
 					"status": "Draft",
-					"online_request": self.name,
-				}
+					"online_request": self.name
+	}
 			)
 			beach.insert(ignore_permissions=True)
 			self.created_beach_booking = beach.name
@@ -116,8 +116,8 @@ class TourismOnlineBookingRequest(Document):
 					"service_datetime": self.service_datetime,
 					"party_size": self.party_size or 2,
 					"status": "Draft",
-					"online_request": self.name,
-				}
+					"online_request": self.name
+	}
 			)
 			res.insert(ignore_permissions=True)
 			# reservation on_update may create a draft Restaurant Order
@@ -137,8 +137,8 @@ class TourismOnlineBookingRequest(Document):
 					"participants": self.participants or 1,
 					"currency": None,
 					"price": 0,
-					"status": "Draft",
-				}
+					"status": "Draft"
+	}
 			)
 			ab.insert(ignore_permissions=True)
 			self.created_activity_booking = ab.name
@@ -150,8 +150,8 @@ class TourismOnlineBookingRequest(Document):
 			"created_flight_booking": self.created_flight_booking,
 			"created_beach_booking": getattr(self, "created_beach_booking", None),
 			"created_restaurant_order": self.created_restaurant_order,
-			"created_activity_booking": self.created_activity_booking,
-		}
+			"created_activity_booking": self.created_activity_booking
+	}
 
 
 @frappe.whitelist(allow_guest=True)
@@ -197,38 +197,43 @@ def submit_online_request(payload: dict):
 			"participants": payload.get("participants") or 1,
 			"notes": payload.get("notes"),
 			"source": payload.get("source") or "Website",
-			"status": "New",
-		}
+			"status": "New"
+	}
 	)
 	doc.insert(ignore_permissions=True)
-	return {"name": doc.name, "status": doc.status, "submitted_on": nowdate()}
+	return {"name": doc.name, "status": doc.status, "submitted_on": nowdate()
+	}
 
 
 @frappe.whitelist(allow_guest=True)
 def get_online_booking_options(company=None, branch=None, check_in_date=None, check_out_date=None):
 	hotels = frappe.get_all(
 		"Tourism Hotel",
-		filters=_optional_filters({"company": company, "branch": branch}),
+		filters=_optional_filters({"company": company, "branch": branch
+	}),
 		fields=["name", "hotel_name"],
 		order_by="hotel_name asc",
 		limit_page_length=200,
 	)
 	restaurants = frappe.get_all(
 		"Tourism Restaurant Venue",
-		filters=_optional_filters({"company": company, "branch": branch, "is_active": 1}),
+		filters=_optional_filters({"company": company, "branch": branch, "is_active": 1
+	}),
 		fields=["name", "venue_name", "slot_capacity"],
 		order_by="venue_name asc",
 		limit_page_length=200,
 	)
 	beaches = frappe.get_all(
 		"Tourism Beach Facility",
-		filters=_optional_filters({"company": company, "branch": branch, "is_active": 1}),
+		filters=_optional_filters({"company": company, "branch": branch, "is_active": 1
+	}),
 		fields=["name", "facility_name", "slot_capacity"],
 		order_by="facility_name asc",
 		limit_page_length=200,
 	)
 	rooms = get_available_room_units(company, branch, check_in_date, check_out_date)
-	return {"hotels": hotels, "rooms": rooms, "restaurants": restaurants, "beaches": beaches}
+	return {"hotels": hotels, "rooms": rooms, "restaurants": restaurants, "beaches": beaches
+	}
 
 
 @frappe.whitelist(allow_guest=True)
@@ -271,7 +276,8 @@ def get_slot_usage(company, branch, doctype_name, resource_name, service_datetim
 		""",
 		(company, branch, resource_name, service_datetime),
 	)[0][0] or 0
-	return {"capacity": int(capacity), "used": int(used), "available": int(capacity) - int(used)}
+	return {"capacity": int(capacity), "used": int(used), "available": int(capacity) - int(used)
+	}
 
 
 def _ensure_customer_for_request(req_doc: TourismOnlineBookingRequest) -> str:
@@ -282,7 +288,8 @@ def _ensure_customer_for_request(req_doc: TourismOnlineBookingRequest) -> str:
 	if not email:
 		frappe.throw(_("Email is required to create a customer."))
 
-	existing = frappe.db.get_value("Customer", {"email_id": email}, "name")
+	existing = frappe.db.get_value("Customer", {"email_id": email
+	}, "name")
 	if existing:
 		return existing
 
@@ -294,8 +301,8 @@ def _ensure_customer_for_request(req_doc: TourismOnlineBookingRequest) -> str:
 			"customer_group": _get_default_customer_group(),
 			"territory": _get_default_territory(),
 			"email_id": email,
-			"mobile_no": req_doc.phone,
-		}
+			"mobile_no": req_doc.phone
+	}
 	)
 	customer.insert(ignore_permissions=True)
 	return customer.name
@@ -309,7 +316,8 @@ def _get_default_customer_group():
 		return val
 	# fallback to first non-group root
 	return (
-		frappe.db.get_value("Customer Group", {"is_group": 0}, "name", order_by="lft asc")
+		frappe.db.get_value("Customer Group", {"is_group": 0
+	}, "name", order_by="lft asc")
 		or frappe.db.get_value("Customer Group", {}, "name", order_by="lft asc")
 		or "All Customer Groups"
 	)
@@ -322,7 +330,8 @@ def _get_default_territory():
 	if val and frappe.db.exists("Territory", val):
 		return val
 	return (
-		frappe.db.get_value("Territory", {"is_group": 0}, "name", order_by="lft asc")
+		frappe.db.get_value("Territory", {"is_group": 0
+	}, "name", order_by="lft asc")
 		or frappe.db.get_value("Territory", {}, "name", order_by="lft asc")
 		or "All Territories"
 	)

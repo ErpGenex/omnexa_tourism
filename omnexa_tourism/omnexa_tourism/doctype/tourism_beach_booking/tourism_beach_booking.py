@@ -28,8 +28,7 @@ class TourismBeachBooking(Document):
 				"beach_facility": self.beach_facility,
 				"service_datetime": self.service_datetime,
 				"status": ["!=", "Cancelled"],
-				"name": ["!=", self.name or ""],
-			},
+				"name": ["!=", self.name or ""]},
 		)
 		total = used + int(self.party_size or 0)
 		if total > int(capacity):

@@ -11,7 +11,8 @@ def execute(filters=None):
 		frappe.throw(_("Company filter is required."), title=_("Filters"))
 
 	target_date = getdate(filters.get("date") or nowdate())
-	params = {"company": filters.company, "target_date": target_date}
+	params = {"company": filters.company, "target_date": target_date
+	}
 	conditions = ["company = %(company)s", "docstatus < 2"]
 	if filters.get("branch"):
 		params["branch"] = filters.branch
@@ -41,11 +42,13 @@ def execute(filters=None):
 	index = {}
 	for row in arrivals:
 		k = (row.branch or "", row.status or "")
-		index.setdefault(k, {"branch": row.branch, "status": row.status, "arrivals": 0, "departures": 0})
+		index.setdefault(k, {"branch": row.branch, "status": row.status, "arrivals": 0, "departures": 0
+	})
 		index[k]["arrivals"] = int(row.arrivals or 0)
 	for row in departures:
 		k = (row.branch or "", row.status or "")
-		index.setdefault(k, {"branch": row.branch, "status": row.status, "arrivals": 0, "departures": 0})
+		index.setdefault(k, {"branch": row.branch, "status": row.status, "arrivals": 0, "departures": 0
+	})
 		index[k]["departures"] = int(row.departures or 0)
 
 	data = list(index.values())
@@ -55,12 +58,18 @@ def execute(filters=None):
 	data.sort(key=lambda x: (x.get("branch") or "", x.get("status") or ""))
 
 	columns = [
-		{"label": _("Date"), "fieldname": "target_date", "fieldtype": "Date", "width": 110},
-		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
-		{"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 140},
-		{"label": _("Arrivals"), "fieldname": "arrivals", "fieldtype": "Int", "width": 100},
-		{"label": _("Departures"), "fieldname": "departures", "fieldtype": "Int", "width": 100},
-		{"label": _("Net"), "fieldname": "net_movement", "fieldtype": "Int", "width": 90},
+		{"label": _("Date"), "fieldname": "target_date", "fieldtype": "Date", "width": 110
+	},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180
+	},
+		{"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 140
+	},
+		{"label": _("Arrivals"), "fieldname": "arrivals", "fieldtype": "Int", "width": 100
+	},
+		{"label": _("Departures"), "fieldname": "departures", "fieldtype": "Int", "width": 100
+	},
+		{"label": _("Net"), "fieldname": "net_movement", "fieldtype": "Int", "width": 90
+	},
 	]
 	chart = auto_chart_for_columns(data, columns)
 	return columns, data, None, chart

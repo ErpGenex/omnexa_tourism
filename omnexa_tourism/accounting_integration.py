@@ -35,7 +35,8 @@ def _create_charge_journal_if_needed(doc):
 			"voucher_type": "Journal Entry",
 			"company": doc.company,
 			"posting_date": doc.charge_date,
-			"user_remark": f"Tourism charge posting for {doc.name}",
+			"user_remark": f"Tourism charge posting for {doc.name
+	}",
 			"accounts": [
 				{
 					"account": receivable_account,
@@ -43,16 +44,15 @@ def _create_charge_journal_if_needed(doc):
 					"party": doc.customer,
 					"debit_in_account_currency": flt(doc.amount),
 					"cost_center": doc.cost_center,
-					"project": doc.project,
-				},
+					"project": doc.project
+	},
 				{
 					"account": revenue_account,
 					"credit_in_account_currency": flt(doc.amount),
 					"cost_center": doc.cost_center,
-					"project": doc.project,
-				},
-			],
-		}
+					"project": doc.project
+	},
+			]}
 	)
 	je.insert(ignore_permissions=True)
 	je.submit()

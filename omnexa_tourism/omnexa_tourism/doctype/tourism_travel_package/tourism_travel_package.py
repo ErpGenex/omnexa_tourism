@@ -22,7 +22,8 @@ class TourismTravelPackage(Document):
 	def _validate_unique_code(self):
 		existing = frappe.db.get_value(
 			"Tourism Travel Package",
-			{"company": self.company, "package_code": self.package_code},
+			{"company": self.company, "package_code": self.package_code
+	},
 			"name",
 		)
 		if existing and existing != self.name:

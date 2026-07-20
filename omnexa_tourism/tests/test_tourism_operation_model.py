@@ -7,11 +7,13 @@ class TestTourismOperationModel(FrappeTestCase):
 		super().setUp()
 		if not frappe.db.exists("Currency", "EGP"):
 			frappe.get_doc(
-				{"doctype": "Currency", "currency_name": "EGP", "symbol": "E£", "enabled": 1}
+				{"doctype": "Currency", "currency_name": "EGP", "symbol": "E£", "enabled": 1
+	}
 			).insert(ignore_permissions=True)
 		if not frappe.db.exists("Country", "Egypt"):
 			frappe.get_doc(
-				{"doctype": "Country", "country_name": "Egypt", "code": "EG"}
+				{"doctype": "Country", "country_name": "Egypt", "code": "EG"
+	}
 			).insert(ignore_permissions=True)
 
 	def _make_company(self, label):
@@ -19,12 +21,13 @@ class TestTourismOperationModel(FrappeTestCase):
 		doc = frappe.get_doc(
 			{
 				"doctype": "Company",
-				"company_name": f"Tourism Co {label}",
+				"company_name": f"Tourism Co {label
+	}",
 				"abbr": abbr,
 				"default_currency": "EGP",
 				"country": "Egypt",
-				"status": "Active",
-			}
+				"status": "Active"
+	}
 		)
 		doc.insert(ignore_permissions=True)
 		return doc.name
@@ -34,10 +37,11 @@ class TestTourismOperationModel(FrappeTestCase):
 			{
 				"doctype": "Branch",
 				"company": company,
-				"branch_name": f"Branch {code}",
+				"branch_name": f"Branch {code
+	}",
 				"branch_code": code,
-				"status": "Active",
-			}
+				"status": "Active"
+	}
 		)
 		doc.insert(ignore_permissions=True)
 		return doc.name
@@ -46,9 +50,10 @@ class TestTourismOperationModel(FrappeTestCase):
 		doc = frappe.get_doc(
 			{
 				"doctype": "Customer",
-				"customer_name": f"Tourism Test {label}",
-				"company": company,
-			}
+				"customer_name": f"Tourism Test {label
+	}",
+				"company": company
+	}
 		)
 		doc.insert(ignore_permissions=True)
 		return doc.name
@@ -57,13 +62,14 @@ class TestTourismOperationModel(FrappeTestCase):
 		unit = frappe.get_doc(
 			{
 				"doctype": "Tourism Room Unit",
-				"unit_name": f"Room {unit_code}",
+				"unit_name": f"Room {unit_code
+	}",
 				"company": company,
 				"branch": branch,
 				"unit_code": unit_code,
 				"capacity": 2,
-				"status": "Available",
-			}
+				"status": "Available"
+	}
 		).insert(ignore_permissions=True)
 		return frappe.get_doc(
 			{
@@ -75,8 +81,8 @@ class TestTourismOperationModel(FrappeTestCase):
 				"check_in_date": "2026-04-20",
 				"check_out_date": "2026-04-25",
 				"rate_per_night": 100,
-				"status": "Draft",
-			}
+				"status": "Draft"
+	}
 		).insert(ignore_permissions=True)
 
 	def test_operation_model_rejects_cross_company_branch(self):
@@ -90,8 +96,8 @@ class TestTourismOperationModel(FrappeTestCase):
 				"company": company_a,
 				"branch": branch_b,
 				"operation_model": "Hotel",
-				"status": "Active",
-			}
+				"status": "Active"
+	}
 		)
 		with self.assertRaises(frappe.ValidationError):
 			doc.insert(ignore_permissions=True)
@@ -106,8 +112,8 @@ class TestTourismOperationModel(FrappeTestCase):
 				"company": company,
 				"branch": branch,
 				"operation_model": "Resort",
-				"status": "Active",
-			}
+				"status": "Active"
+	}
 		)
 		doc.insert(ignore_permissions=True)
 		self.assertTrue(frappe.db.exists("Tourism Operation Model", doc.name))
@@ -123,8 +129,8 @@ class TestTourismOperationModel(FrappeTestCase):
 				"branch": branch,
 				"unit_code": "101",
 				"capacity": 2,
-				"status": "Available",
-			}
+				"status": "Available"
+	}
 		).insert(ignore_permissions=True)
 		with self.assertRaises(frappe.ValidationError):
 			frappe.get_doc(
@@ -135,8 +141,8 @@ class TestTourismOperationModel(FrappeTestCase):
 					"branch": branch,
 					"unit_code": "101",
 					"capacity": 2,
-					"status": "Available",
-				}
+					"status": "Available"
+	}
 			).insert(ignore_permissions=True)
 
 	def test_invalid_room_unit_status_transition_is_blocked(self):
@@ -150,8 +156,8 @@ class TestTourismOperationModel(FrappeTestCase):
 				"branch": branch,
 				"unit_code": "201",
 				"capacity": 2,
-				"status": "Available",
-			}
+				"status": "Available"
+	}
 		).insert(ignore_permissions=True)
 		unit.status = "Occupied"
 		with self.assertRaises(frappe.ValidationError):
@@ -169,8 +175,8 @@ class TestTourismOperationModel(FrappeTestCase):
 				"branch": branch,
 				"unit_code": "301",
 				"capacity": 2,
-				"status": "Disabled",
-			}
+				"status": "Disabled"
+	}
 		).insert(ignore_permissions=True)
 		with self.assertRaises(frappe.ValidationError):
 			frappe.get_doc(
@@ -183,8 +189,8 @@ class TestTourismOperationModel(FrappeTestCase):
 					"check_in_date": "2026-04-20",
 					"check_out_date": "2026-04-25",
 					"rate_per_night": 100,
-					"status": "Draft",
-				}
+					"status": "Draft"
+	}
 			).insert(ignore_permissions=True)
 
 	def test_checked_in_booking_creates_folio_and_billed_service_creates_charge(self):
@@ -215,8 +221,8 @@ class TestTourismOperationModel(FrappeTestCase):
 				"description": "Laundry bag service",
 				"quantity": 2,
 				"rate": 25,
-				"status": "Ordered",
-			}
+				"status": "Ordered"
+	}
 		).insert(ignore_permissions=True)
 
 		service_order.status = "Billed"

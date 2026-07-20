@@ -12,7 +12,8 @@ def execute(filters=None):
 	branch = filters.get("branch")
 
 	branch_clause = ""
-	params = {"report_date": report_date}
+	params = {"report_date": report_date
+	}
 	if branch:
 		branch_clause = "AND tb.branch = %(branch)s"
 		params["branch"] = branch
@@ -37,10 +38,14 @@ def execute(filters=None):
 	)
 
 	columns = [
-		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180},
-		{"label": _("Date"), "fieldname": "report_date", "fieldtype": "Date", "width": 120},
-		{"label": _("Room Revenue"), "fieldname": "revenue", "fieldtype": "Currency", "width": 150},
-		{"label": _("Stays"), "fieldname": "stays", "fieldtype": "Int", "width": 90},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 180
+	},
+		{"label": _("Date"), "fieldname": "report_date", "fieldtype": "Date", "width": 120
+	},
+		{"label": _("Room Revenue"), "fieldname": "revenue", "fieldtype": "Currency", "width": 150
+	},
+		{"label": _("Stays"), "fieldname": "stays", "fieldtype": "Int", "width": 90
+	},
 	]
 
 	data = []
@@ -50,8 +55,8 @@ def execute(filters=None):
 				"branch": row.get("branch"),
 				"report_date": row.get("report_date"),
 				"revenue": flt(row.get("revenue")),
-				"stays": int(row.get("stays") or 0),
-			}
+				"stays": int(row.get("stays") or 0)
+	}
 		)
 	chart = auto_chart_for_columns(data, columns)
 	return columns, data, None, chart

@@ -14,8 +14,8 @@ ALLOWED_BOOKING_STATUS = {
 	"Confirmed": {"Checked In", "Cancelled"},
 	"Checked In": {"Checked Out", "Cancelled"},
 	"Checked Out": set(),
-	"Cancelled": set(),
-}
+	"Cancelled": set()
+	}
 
 
 class TourismBooking(Document):
@@ -165,8 +165,8 @@ class TourismBooking(Document):
 				"task_type": "Post-stay clean",
 				"status": "Pending",
 				"priority": "Normal",
-				"scheduled_date": self.check_out_date,
-			}
+				"scheduled_date": self.check_out_date
+	}
 		)
 		hk.insert(ignore_permissions=True)
 		frappe.db.set_value(
@@ -196,8 +196,8 @@ class TourismBooking(Document):
 				{
 					"item_code": "ROOM-STAY",
 					"qty": float(nights),
-					"rate": flt(self.rate_per_night),
-				},
+					"rate": flt(self.rate_per_night)
+	},
 			)
 			si.insert(ignore_permissions=True)
 			si.submit()

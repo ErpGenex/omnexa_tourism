@@ -11,7 +11,8 @@ def execute(filters=None):
 		frappe.throw(_("Company filter is required."), title=_("Filters"))
 
 	target_date = getdate(filters.get("date") or nowdate())
-	params = {"company": filters.company, "target_date": target_date}
+	params = {"company": filters.company, "target_date": target_date
+	}
 	conditions = ["company = %(company)s", "docstatus < 2"]
 	if filters.get("branch"):
 		params["branch"] = filters.branch
@@ -35,11 +36,16 @@ def execute(filters=None):
 	)
 
 	columns = [
-		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 170},
-		{"label": _("Service Category"), "fieldname": "service_category", "fieldtype": "Data", "width": 150},
-		{"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 130},
-		{"label": _("Orders"), "fieldname": "order_count", "fieldtype": "Int", "width": 100},
-		{"label": _("Overdue"), "fieldname": "overdue_count", "fieldtype": "Int", "width": 100},
+		{"label": _("Branch"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 170
+	},
+		{"label": _("Service Category"), "fieldname": "service_category", "fieldtype": "Data", "width": 150
+	},
+		{"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 130
+	},
+		{"label": _("Orders"), "fieldname": "order_count", "fieldtype": "Int", "width": 100
+	},
+		{"label": _("Overdue"), "fieldname": "overdue_count", "fieldtype": "Int", "width": 100
+	},
 	]
 	chart = auto_chart_for_columns(rows, columns)
 	return columns, rows, None, chart

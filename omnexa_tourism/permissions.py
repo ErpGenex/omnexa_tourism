@@ -36,7 +36,8 @@ def _tourism_allowed_branches(user=None, company=None):
 	user = user or frappe.session.user
 	if _tourism_user_can_access_all_branches(user):
 		return None
-	filters = {"user": user}
+	filters = {"user": user
+	}
 	if company:
 		filters["company"] = company
 	return frappe.get_all("User Branch Access", filters=filters, pluck="branch")

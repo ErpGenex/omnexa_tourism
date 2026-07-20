@@ -28,16 +28,14 @@ def get_booking_operational_alerts():
 		{
 			"check_in_date": today,
 			"status": ["in", ["Confirmed"]],
-			"docstatus": ["<", 2],
-		},
+			"docstatus": ["<", 2]},
 	)
 	departures = _count(
 		"Tourism Booking",
 		{
 			"check_out_date": today,
 			"status": ["in", ["Checked In"]],
-			"docstatus": ["<", 2],
-		},
+			"docstatus": ["<", 2]},
 	)
 	no_show = _count(
 		"Tourism Booking",
@@ -82,7 +80,7 @@ def get_notification_config():
 			"Tourism Booking": "omnexa_tourism.notifications.get_booking_operational_alerts",
 			"Tourism Guest Folio": "omnexa_tourism.notifications.get_open_guest_folios_due",
 			"Tourism Service Order": "omnexa_tourism.notifications.get_open_service_orders",
-			"Tourism Housekeeping Task": "omnexa_tourism.notifications.get_housekeeping_today_pending",
-		}
+			"Tourism Housekeeping Task": "omnexa_tourism.notifications.get_housekeeping_today_pending"
+	}
 	}
 
