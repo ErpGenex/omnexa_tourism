@@ -4,13 +4,19 @@
 	"name": "tourism-customer-portal",
 	"page_name": "tourism-customer-portal",
 	"standard": "Yes",
-	"title": "Customer Portal",
+	"title": "Tourism Customer Portal",
 	"roles": [
 		{
 			"role": "System Manager"
 		},
 		{
-			"role": "Company Admin"
+			"role": "Tourism Manager"
+		},
+		{
+			"role": "Tourism User"
+		},
+		{
+			"role": "Tourism Customer Portal"
 		}
 	]
 }
