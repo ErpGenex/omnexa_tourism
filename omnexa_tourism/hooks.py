@@ -31,6 +31,11 @@ app_include_css = "/assets/omnexa_tourism/css/workspace_modern_charts.css"
 web_include_css = "/assets/omnexa_tourism/css/tourism_website.css"
 web_include_js = "/assets/omnexa_tourism/js/tourism_website.js"
 
+# Public website routes
+website_route_rules = [
+	{"from_route": "/tourism", "to_route": "tourism/index"}
+]
+
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "omnexa_tourism/public/scss/website"
 
